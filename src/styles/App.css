@@ -1,0 +1,36 @@
+/* background: #282c34; */
+
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ad9b86;
+}
+
+.App-header {
+  background-image: linear-gradient(125deg, #ffc31c 25%, #545454 25%, #545454 50%, #ffc31c 50%, #ffc31c 75%, #545454 75%, #545454 100%);
+  background-size: 48.83px 69.74px;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* font-size: calc(10px + 2vmin); */
+  color: white;
+}
+
+.Nav-btn-container {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Nav-btn-container button {
+  height: 50px;
+  width: 100px;
+}
+
+.App-link {
+  color: #61dafb;
+}
