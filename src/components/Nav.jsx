@@ -1,10 +1,6 @@
 import React, {Component} from 'react'
-import { render } from '@testing-library/react'
 
 class Nav extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     handleClick = (event) => {
         const input = event.target.value

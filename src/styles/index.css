@@ -17,6 +17,16 @@ code {
     monospace;
 }
 
+button:hover {
+  border: 1px solid greenyellow;
+  border-radius: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: greenyellow;
+}
+
 /* background: #282c34; */
 /* font-size: calc(10px + 2vmin); */
 
@@ -24,7 +34,6 @@ code {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background-color: #ad9b86;
 }
 
 .App-header {
@@ -114,3 +123,29 @@ code {
   border: 2px solid greenyellow;
 }
 
+.page-component-container {
+  background-color: #ad9b86;
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-component-container-projects {
+  background-color: #ad9b86;
+  /* min-height: 85vh; */
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  background-color: #545454;
+  color: white;
+  box-shadow: 2px 2px 2px #5454547a;
+  border-radius: 2px;
+}
