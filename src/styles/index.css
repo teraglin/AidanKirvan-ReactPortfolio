@@ -1,3 +1,8 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +16,101 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* background: #282c34; */
+/* font-size: calc(10px + 2vmin); */
+
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ad9b86;
+}
+
+.App-header {
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 2px 2px 2px #5454547a;
+  padding: none;
+}
+
+.Nav-btn-container-top {
+  background-image: linear-gradient(125deg, #ffc31c 25%, #545454 25%, #545454 50%, #ffc31c 50%, #ffc31c 75%, #545454 75%, #545454 100%);
+  background-size: 48.83px 69.74px;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.Nav-btn-container-left {
+  width: 25vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Nav-btn-container-left button {
+  height: 40px;
+  width: 80px;
+  background: white;
+  color: #545454;
+  border-radius: 2px;
+  /* box-shadow: 2px 2px 2px #5454547a; */
+}
+
+/* MIDDLE NAV */
+.Nav-btn-container-middle {
+ width: 50vw;
+ display: flex;
+ justify-content: center;
+}
+
+.Nav-btn-container-middle h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 150px;
+  background: #5454547a;
+  color: white;
+  border-radius: 2px;
+  border: 1px solid white;
+  box-shadow: 2px 2px 2px #5454547a;
+  text-shadow: 2px 2px 2px #ffc21c7c;
+}
+
+.Nav-btn-container-right {
+  display: flex;
+  justify-content: space-evenly;
+  width: 25vw;
+}
+
+.Nav-btn-container-right button {
+  height: 40px;
+  width: 40px;
+  background: white;
+  color: #545454;
+  border-radius: 2px;
+  /* box-shadow: 2px 2px 2px #5454547a; */
+}
+
+
+/* NAV BOTTOM */
+.Nav-btn-container-bottom {
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  justify-content: space-evenly;
+  background: #545454;
+}
+
+.Nav-btn-container button:hover {
+  border: 2px solid greenyellow;
+}
+
