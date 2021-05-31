@@ -12,7 +12,7 @@ class Projects extends Component {
     render(){
         return (
             <div className="page-component-container-projects">
-                <h1 className="font-bold">LOOK  AT WHAT I'VE DONE</h1>
+                <h1 className="page-heading text-3xl text-left">PROJECTS</h1>
                 <ul>
                     {projects.map(project => (
                         <div className="project-card m-2">

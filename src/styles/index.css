@@ -2,12 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+
+/*
+YELLOW - ea9215
+WHITE - eeeeee
+BLACK - 303841
+
+GRAY - 545454
+LIGHT GRAY - 848484
+
+*/
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'oswald', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,11 +26,6 @@ code {
     monospace;
 }
 
-button:hover {
-  border: 1px solid greenyellow;
-  border-radius: 2px;
-}
-
 a {
   text-decoration: none;
   color: greenyellow;
@@ -29,6 +33,12 @@ a {
 
 /* background: #282c34; */
 /* font-size: calc(10px + 2vmin); */
+
+/*
+  STRIPES
+  background-image: linear-gradient(125deg, #ffc31c 25%, #545454 25%, #545454 50%, #ffc31c 50%, #ffc31c 75%, #545454 75%, #545454 100%);
+  background-size: 48.83px 69.74px;
+*/
 
 .App {
   text-align: center;
@@ -44,13 +54,12 @@ a {
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 2px 2px 2px #5454547a;
+  box-shadow: 2px 2px 2px #3038417a;
   padding: none;
 }
 
 .Nav-btn-container-top {
-  background-image: linear-gradient(125deg, #ffc31c 25%, #545454 25%, #545454 50%, #ffc31c 50%, #ffc31c 75%, #545454 75%, #545454 100%);
-  background-size: 48.83px 69.74px;
+  background-image: linear-gradient(#ea9f00, #ea9215);
   width: 100vw;
   height: 10vh;
   display: flex;
@@ -64,15 +73,6 @@ a {
   justify-content: space-evenly;
 }
 
-.Nav-btn-container-left button {
-  height: 40px;
-  width: 80px;
-  background: white;
-  color: #545454;
-  border-radius: 2px;
-  /* box-shadow: 2px 2px 2px #5454547a; */
-}
-
 /* MIDDLE NAV */
 .Nav-btn-container-middle {
  width: 50vw;
@@ -84,14 +84,15 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 45px;
-  width: 150px;
-  background: #5454547a;
-  color: white;
+  /* height: 45px;
+  width: 150px; */
+  /* background: #545454; */
+  color: #eee;
   border-radius: 2px;
-  border: 1px solid white;
-  box-shadow: 2px 2px 2px #5454547a;
-  text-shadow: 2px 2px 2px #ffc21c7c;
+  font-family: 'Oswald', sans-serif;
+  /* border: 1px solid white; */
+  /* box-shadow: 2px 2px 2px #5454547a; */
+  text-shadow: 2px 2px 2px #3038417a;
 }
 
 .Nav-btn-container-right {
@@ -100,31 +101,21 @@ a {
   width: 25vw;
 }
 
-.Nav-btn-container-right button {
-  height: 40px;
-  width: 40px;
-  background: white;
-  color: #545454;
-  border-radius: 2px;
-  /* box-shadow: 2px 2px 2px #5454547a; */
-}
-
-
 /* NAV BOTTOM */
 .Nav-btn-container-bottom {
   width: 100vw;
   height: 5vh;
   display: flex;
   justify-content: space-evenly;
-  background: #545454;
-}
-
-.Nav-btn-container button:hover {
-  border: 2px solid greenyellow;
+  /* background: #ffc31c; */
+  background-image: linear-gradient(125deg, #ea9f00 25%, #ea9215 25%, #ea9215 50%, #ea9f00 50%, #ea9f00 75%, #ea9215 75%, #ea9215 100%);
+  background-size: 48.83px 69.74px;
+  color: #303841;
+  font-weight: bold;
 }
 
 .page-component-container {
-  background-color: #ad9b86;
+  background: #eee;
   height: 85vh;
   width: 100vw;
   display: flex;
@@ -133,9 +124,16 @@ a {
   align-items: center;
 }
 
+.page-heading {
+  color: #ffc31c;
+  width: 90vw;
+  border-bottom: 1px solid #ffc31c;
+  font-family: 'Oswald', sans-serif;
+  text-align: left;
+}
+
 .page-component-container-projects {
-  background-color: #ad9b86;
-  /* min-height: 85vh; */
+  background-image: linear-gradient(#eee, #fff);
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -148,4 +146,24 @@ a {
   color: white;
   box-shadow: 2px 2px 2px #5454547a;
   border-radius: 2px;
+  border: 2px solid #ffc31c;
+}
+
+/* ANIMATIONS */
+.svg-icon:hover {
+  border: 0px solid #303841;
+  background: #303841;
+  border-radius: 100px;
+  transition: 0.5s;
+}
+
+.Nav-btn-container-bottom button:hover {
+  color: greenyellow;
+  text-shadow: 1px 2px 2px #303841d0;
+  background: #303841;
+  transition: 0.02s;
+}
+
+button:focus {
+  outline: none;
 }
