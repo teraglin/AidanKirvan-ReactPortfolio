@@ -28,7 +28,7 @@ code {
 
 a {
   text-decoration: none;
-  color: greenyellow;
+  color: cyan;
 }
 
 /* background: #282c34; */
@@ -54,7 +54,6 @@ a {
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 2px 2px 2px #3038417a;
   padding: none;
 }
 
@@ -68,37 +67,36 @@ a {
 }
 
 .Nav-btn-container-left {
-  width: 25vw;
+  width: 70vw;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: Left;
 }
 
-/* MIDDLE NAV */
-.Nav-btn-container-middle {
- width: 50vw;
- display: flex;
- justify-content: center;
-}
-
-.Nav-btn-container-middle h1 {
+.heading-a {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 45px;
-  width: 150px; */
-  /* background: #545454; */
+  color: #ea9215;
+  background: #eee;
+  border-radius: 2px;
+  font-family: 'Oswald', sans-serif;
+  /* box-shadow: 2px 2px 2px #3038417a; */
+}
+
+.heading-b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #eee;
   border-radius: 2px;
   font-family: 'Oswald', sans-serif;
-  /* border: 1px solid white; */
-  /* box-shadow: 2px 2px 2px #5454547a; */
-  text-shadow: 2px 2px 2px #3038417a;
+  /* text-shadow: 2px 2px 2px #3038417a; */
 }
 
 .Nav-btn-container-right {
   display: flex;
   justify-content: space-evenly;
-  width: 25vw;
+  width: 30vw;
 }
 
 /* NAV BOTTOM */
@@ -112,6 +110,7 @@ a {
   background-size: 48.83px 69.74px;
   color: #303841;
   font-weight: bold;
+  box-shadow: 2px 2px 2px #3038417a;
 }
 
 .page-component-container {
@@ -125,9 +124,9 @@ a {
 }
 
 .page-heading {
-  color: #ffc31c;
+  color: #303841;
   width: 90vw;
-  border-bottom: 1px solid #ffc31c;
+  border-bottom: 1px solid #303841;
   font-family: 'Oswald', sans-serif;
   text-align: left;
 }
@@ -149,16 +148,21 @@ a {
   border: 2px solid #ffc31c;
 }
 
+.svg-icon {
+  border: 3px solid #eee;
+  border-radius: 100px;
+}
+
 /* ANIMATIONS */
 .svg-icon:hover {
-  border: 0px solid #303841;
   background: #303841;
   border-radius: 100px;
+  text-shadow: 1px 2px 2px #303841d0;
   transition: 0.5s;
 }
 
 .Nav-btn-container-bottom button:hover {
-  color: greenyellow;
+  color: #ea9f00;
   text-shadow: 1px 2px 2px #303841d0;
   background: #303841;
   transition: 0.02s;

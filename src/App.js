@@ -45,7 +45,7 @@ class App extends Component {
     const {activePage} = this.state
     return(
       <div className="App overscroll-none">
-        <Nav parentCallback={this.callbackFunction}  />
+        <Nav className="Nav-Bar" parentCallback={this.callbackFunction}  />
         {renderPage(activePage)}
       </div>
     )

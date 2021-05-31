@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 class Nav extends Component {
 
     handleClick = (event) => {
+        console.log("event:",event.target.value)
         const input = event.target.value
         console.log("You clicked", input)
         this.sendData(input)
@@ -19,14 +20,10 @@ class Nav extends Component {
                 <nav className="Nav-btn-container-top">
                     {/* NAV LEFT */}
                     <nav className="Nav-btn-container-left">
-                        <button value="home" onClick={this.handleClick} >
-                            <img className="svg-icon w-10" src={require('../images/home-icon.svg').default} alt='home-link' />
+                        <button value="home" onClick={this.handleClick} className="mx-5 px-2 flex flex-row">
+                            <span className="heading-a font-bold text-4xl px-2 mx-2">Aidan</span>
+                            <span className="heading-b font-bold text-4xl">KIRVAN</span>
                         </button>
-                    </nav>
-                    
-                    {/* NAV MIDDLE  */}
-                    <nav className="Nav-btn-container-middle">
-                        <h1 className="font-bold text-4xl">Aidan Kirvan</h1>
                     </nav>
                     {/* NAV BOTTOM */}
                     <nav className="Nav-btn-container-right">
