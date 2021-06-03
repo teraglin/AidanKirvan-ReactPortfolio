@@ -21,7 +21,6 @@ class Projects extends Component {
                             <a href={project.link}>LINK</a>
                             <img src={project.image} alt={project.projectName} />
                         </div>
-                        
                     ))}
                 </ul>
             </div>

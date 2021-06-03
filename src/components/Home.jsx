@@ -1,9 +1,27 @@
 import React from 'react'
+import htmlIcon from '../images/icon-html.png'
+import cssIcon from '../images/icon-css.png'
+import jsIcon from '../images/icon-javascript.png'
+import reactIcon from '../images/icon-react.png'
+import rubyIcon from '../images/icon-ruby.png'
+import railsIcon from '../images/icon-rails.png'
+import tailwindIcon from '../images/icon-tailwind.png'
+import postgresqlIcon from '../images/icon-postgresql.png'
 
 const Home = () => {
     return (
-        <div className="page-component-container bg-edward-lizard-hands bg-opacity-100">
+        <div className="page-component-container-home">
             <h1 className="p-10 font-bold bg-white bg-opacity-50">DIS MY TECH STACCC BBBBB</h1>
+            <div className="tech-container">
+                <img src={htmlIcon} className="tech-logo" alt="html" />
+                <img src={cssIcon} className="tech-logo" alt="css" />
+                <img src={jsIcon} className="tech-logo" alt="js" />
+                <img src={reactIcon} className="tech-logo" alt="react" />
+                <img src={rubyIcon} className="tech-logo" alt="ruby" />
+                <img src={railsIcon} className="tech-logo" alt="rails" />
+                <img src={tailwindIcon} className="tech-logo" alt="rails" />
+                <img src={postgresqlIcon} className="tech-logo" alt="rails" />
+            </div>
         </div>
     )
 }

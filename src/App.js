@@ -9,25 +9,21 @@ import Contact from './components/Contact'
 //CHANNEL CHANGER
 const renderPage = (input) => {
   console.log('input: ',input)
-  if (input === 'home') {
-      return (
-          <Home />
-      )
-  } else if (input === 'projects') {
+  if (input === 'projects') {
       return (
           <Projects />
       )
   } else if (input === 'about') {
       return (
-          <About />
+        <About />
       )
   } else if (input === 'contact') {
       return (
-          <Contact />
+        <Contact />
       )
   } else {
       return (
-          <h1>WE HAVE AN ERROR</h1>
+        <Home />
       )
   }
 }
@@ -45,7 +41,7 @@ class App extends Component {
     const {activePage} = this.state
     return(
       <div className="App overscroll-none">
-        <Nav className="Nav-Bar" parentCallback={this.callbackFunction}  />
+        <Nav parentCallback={this.callbackFunction}  />
         {renderPage(activePage)}
       </div>
     )
