@@ -146,7 +146,6 @@ a {
 
 .page-component-container-projects {
   background-image: linear-gradient(#eee, #fff);
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -165,12 +164,38 @@ a {
   width: 100px;
 }
 
+/* PROJECTS */
+/* PROJECTS CARD */
 .project-card {
-  background-color: #545454;
-  color: eee;
-  box-shadow: 2px 2px 2px #5454547a;
+  display: flex;
+  flex-direction: column;
+  background-color: #303841d0;
+  color: #eee;
+  box-shadow: 2px 2px 2px #303841d0;
   border-radius: 2px;
-  border: 2px solid #ffc31c;
+  /* border: 2px solid #ea9215; */
+}
+
+.card-header {
+  background: #ea9215;
+  color: #303841;
+}
+
+.card-image {
+  /* border: 1px solid pink; */
+}
+
+.card-info {
+  /* border: 1px solid green; */
+}
+
+/*CONTACT*/
+.contact-card {
+  background: #303841;
+  border-radius: 15px;
+}
+.contact-link {
+  
 }
 
 .svg-icon {

@@ -11,7 +11,6 @@ import postgresqlIcon from '../images/icon-postgresql.png'
 const Home = () => {
     return (
         <div className="page-component-container-home">
-            <h1 className="p-10 font-bold bg-white bg-opacity-50">DIS MY TECH STACCC BBBBB</h1>
             <div className="tech-container">
                 <img src={htmlIcon} className="tech-logo" alt="html" />
                 <img src={cssIcon} className="tech-logo" alt="css" />
