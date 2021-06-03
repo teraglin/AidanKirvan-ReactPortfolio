@@ -72,6 +72,10 @@ a {
   justify-content: Left;
 }
 
+.heading {
+  color: #eee;
+}
+
 .heading-a {
   display: flex;
   align-items: center;
@@ -87,8 +91,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #eee;
-  border-radius: 2px;
+  /* color: #eee; */
   font-family: 'Oswald', sans-serif;
   /* text-shadow: 2px 2px 2px #3038417a; */
 }
@@ -131,21 +134,68 @@ a {
   text-align: left;
 }
 
-.page-component-container-projects {
+.page-component-container-home {
   background-image: linear-gradient(#eee, #fff);
   width: 100vw;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.page-component-container-projects {
+  background-image: linear-gradient(#eee, #fff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-container {
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.tech-logo {
+  width: 100px;
+}
+
+/* PROJECTS */
+/* PROJECTS CARD */
 .project-card {
-  background-color: #545454;
-  color: white;
-  box-shadow: 2px 2px 2px #5454547a;
+  display: flex;
+  flex-direction: column;
+  background-color: #303841d0;
+  color: #eee;
+  box-shadow: 2px 2px 2px #303841d0;
   border-radius: 2px;
-  border: 2px solid #ffc31c;
+  /* border: 2px solid #ea9215; */
+}
+
+.card-header {
+  background: #ea9215;
+  color: #303841;
+}
+
+.card-image {
+  /* border: 1px solid pink; */
+}
+
+.card-info {
+  /* border: 1px solid green; */
+}
+
+/*CONTACT*/
+.contact-card {
+  background: #303841;
+  border-radius: 15px;
+}
+.contact-link {
+  
 }
 
 .svg-icon {
@@ -170,4 +220,14 @@ a {
 
 button:focus {
   outline: none;
+}
+
+.heading:hover .heading-a {
+  background: #303841;
+  transition: 0.02s;
+}
+
+.heading:hover .heading-b {
+  color: #303841;
+  transition: 0.02s;
 }

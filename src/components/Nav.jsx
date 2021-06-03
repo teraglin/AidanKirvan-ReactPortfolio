@@ -20,7 +20,7 @@ class Nav extends Component {
                 <nav className="Nav-btn-container-top">
                     {/* NAV LEFT */}
                     <nav className="Nav-btn-container-left">
-                        <button value="home" onClick={this.handleClick} className="mx-5 px-2 flex flex-row">
+                        <button value="home" onClick={this.handleClick} className="heading mx-5 px-2 flex flex-row">
                             <span className="heading-a font-bold text-4xl px-2 mx-2">Aidan</span>
                             <span className="heading-b font-bold text-4xl">KIRVAN</span>
                         </button>
