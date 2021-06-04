@@ -1,7 +1,3 @@
-import lostPetBountyBoardImage from '../images/lpbb-screen.png'
-import gifsNStickers from '../images/gns-screen.png'
-import fightMonstersOrWhatever from '../images/fmow-og-screen.png'
-
 export const projects = [
     {
         projectName: 'WIP: Fight Monsters or Whatever (React Edition)',
@@ -13,18 +9,18 @@ export const projects = [
         projectName: 'Lost Pet Bounty Board',
         description: 'An easy-to-use listing application for people to post information about pets they have lost or found. Getting Tailwind working on this application was the biggest challenge.',
         link: 'https://lost-pet-bounty-board.herokuapp.com/',
-        image: `${lostPetBountyBoardImage}`
+        image: `https://res.cloudinary.com/djdozfiqv/image/upload/v1622770763/lpbb-screen_havoie.png`
     },
     {
         projectName: 'Gifs N Stickers',
         description: 'A project I collaborated on for a Hackathon. This JavaScript-based application uses the Giphy API to retrieve search results, shuffle them and spit out the first ten. No search is the same.',
         link: 'https://gifs-n-stickers.netlify.app/',
-        image: `${gifsNStickers}`
+        image: `https://res.cloudinary.com/djdozfiqv/image/upload/v1622770697/gns-screen_tgkcat.png`
     },
     {
         projectName: 'Fight Monsters or Whatever (Original)',
         description: 'A turn-based fighting game inspired by combat logic from 5th Edition Dungeons & Dragons (a tabletop game). Enemies are randomly generated for every game. Adding special attacks for monsters posed the greatest challenge.',
         link: 'https://github.com/teraglin/Fight-Monsters-or-Whatever',
-        image: `${fightMonstersOrWhatever}`
+        image: `https://res.cloudinary.com/djdozfiqv/image/upload/v1622770660/fmow-og-screen_u6cei8.png`
     }
 ]

@@ -21,18 +21,18 @@ class Nav extends Component {
                     {/* NAV LEFT */}
                     <nav className="Nav-btn-container-left">
                         <button value="home" onClick={this.handleClick} className="heading mx-5 px-2 flex flex-row">
-                            <span className="heading-a font-bold text-4xl px-2 mx-2">Aidan</span>
-                            <span className="heading-b font-bold text-4xl">KIRVAN</span>
+                            <span className="heading-a font-bold text-xl px-2 sm:text-4xl mx-2">Aidan</span>
+                            <span className="heading-b font-bold text-xl sm:text-4xl">KIRVAN</span>
                         </button>
                     </nav>
                     {/* NAV BOTTOM */}
                     <nav className="Nav-btn-container-right">
                         <a href="https://github.com/teraglin" target="blank">
-                            <img className="svg-icon w-10" src={require('../images/github-icon.svg').default} alt='github-link' />
+                            <img className="svg-icon w-10 hover:animate-bounce" src={require('../images/github-icon.svg').default} alt='github-link' />
                         </a>
 
                         <a href="https://twitter.com/kakaposaur" target="blank">
-                            <img className="svg-icon w-10" src={require('../images/twitter-icon.svg').default} alt='twitter-link' />
+                            <img className="svg-icon w-10 hover:animate-bounce" src={require('../images/twitter-icon.svg').default} alt='twitter-link' />
                         </a>
                     </nav>
                 </nav>
