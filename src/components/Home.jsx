@@ -8,8 +8,6 @@ import railsIcon from '../images/icon-rails.png'
 import tailwindIcon from '../images/icon-tailwind.png'
 import postgresqlIcon from '../images/icon-postgresql.png'
 
-import {techIcons} from '../data/tech-icons'
-
 const Home = () => {
     return (
         <div className="page-component-container-home">
