@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+/* font-family: 'oswald', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* font-family: 'Lora', serif; */
 
 /*
 YELLOW - ea9215
@@ -16,7 +19,7 @@ LIGHT GRAY - 848484
 
 body {
   margin: 0;
-  font-family: 'oswald', sans-serif;
+  font-family: 'Lora', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -83,7 +86,7 @@ a {
   color: #ea9215;
   background: #eee;
   border-radius: 2px;
-  font-family: 'Oswald', sans-serif;
+  /* font-family: 'Lora', serif; */
   /* box-shadow: 2px 2px 2px #3038417a; */
 }
 
@@ -92,7 +95,7 @@ a {
   align-items: center;
   justify-content: center;
   /* color: #eee; */
-  font-family: 'Oswald', sans-serif;
+  /* font-family: 'Oswald', sans-serif; */
   /* text-shadow: 2px 2px 2px #3038417a; */
 }
 
@@ -112,8 +115,12 @@ a {
   background-image: linear-gradient(125deg, #ea9f00 25%, #ea9215 25%, #ea9215 50%, #ea9f00 50%, #ea9f00 75%, #ea9215 75%, #ea9215 100%);
   background-size: 48.83px 69.74px;
   color: #303841;
-  font-weight: bold;
   box-shadow: 2px 2px 2px #3038417a;
+}
+
+.Nav-btn-container-bottom button {
+  font-weight: bold;
+  font-style: italic;
 }
 
 .page-component-container {
@@ -130,14 +137,15 @@ a {
   color: #303841;
   width: 90vw;
   border-bottom: 1px solid #303841;
-  font-family: 'Oswald', sans-serif;
+  /* font-family: 'Oswald', sans-serif; */
   text-align: left;
 }
 
 .page-component-container-home {
-  background-image: linear-gradient(#eee, #fff);
   width: 100vw;
-  height: 80vh;
+  height: 85vh;
+  background: url("https://res.cloudinary.com/djdozfiqv/image/upload/v1622770727/Winslow-Fernsby_or11gb.jpg") no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,12 +160,38 @@ a {
   align-items: center;
 }
 
-.tech-container {
-  width: 90vw;
+.bg-container {
+  width: 100vw;
+  height: 85vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
+  padding: 30px;
+}
+
+.tech-container {
+  width: 100vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 50px;
+}
+
+.tech-logo-background {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #303841;
+  border-radius: 100px;
+  box-shadow: 2px 2px 2px #3038417a;
+  padding: 20px;
 }
 
 .tech-logo {
@@ -180,6 +214,13 @@ a {
 .card-header {
   background: #ea9215;
   color: #303841;
+  /* -webkit-text-fill-color: #ea9215;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #303841; */
+  font-family: 'oswald', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 1px solid #303841;
 }
 
 .card-image {
@@ -187,7 +228,8 @@ a {
 }
 
 .card-info {
-  /* border: 1px solid green; */
+  font-family: 'oswald', sans-serif;
+  letter-spacing: 1px;
 }
 
 /*CONTACT*/
@@ -205,30 +247,42 @@ a {
 }
 
 /* ANIMATIONS */
-.svg-icon:hover {
+/* .svg-icon:hover {
   background: #303841;
   border-radius: 100px;
   text-shadow: 1px 2px 2px #303841d0;
   transition: 0.5s;
-}
+} */
 
 .Nav-btn-container-bottom button:hover {
   color: #ea9f00;
   text-shadow: 1px 2px 2px #303841d0;
   background: #303841;
-  transition: 0.02s;
+  transition: 0.5s;
+  font-weight: none;
+  font-style: none;
 }
 
 button:focus {
   outline: none;
 }
 
+.heading:hover {
+}
+
 .heading:hover .heading-a {
+  transition: 0.5s;
   background: #303841;
-  transition: 0.02s;
 }
 
 .heading:hover .heading-b {
+  transition: 0.5s;
   color: #303841;
-  transition: 0.02s;
+}
+
+/* 11 */
+
+.contact-link:hover {
+    text-decoration: none;
+    color: #eee;
 }
