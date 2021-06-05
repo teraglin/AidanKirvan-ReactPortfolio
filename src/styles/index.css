@@ -32,6 +32,15 @@ code {
 a {
   text-decoration: none;
   color: cyan;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+a:hover {
+  color: #eee;
+  -webkit-text-fill-color: #eee;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: cyan;
 }
 
 /* background: #282c34; */
@@ -111,7 +120,6 @@ a {
   height: 5vh;
   display: flex;
   justify-content: space-evenly;
-  /* background: #ffc31c; */
   background-image: linear-gradient(125deg, #ea9f00 25%, #ea9215 25%, #ea9215 50%, #ea9f00 50%, #ea9f00 75%, #ea9215 75%, #ea9215 100%);
   background-size: 48.83px 69.74px;
   color: #303841;
@@ -120,7 +128,7 @@ a {
 
 .Nav-btn-container-bottom button {
   font-weight: bold;
-  font-style: italic;
+  font-style: none;
 }
 
 .page-component-container {
@@ -214,9 +222,6 @@ a {
 .card-header {
   background: #ea9215;
   color: #303841;
-  /* -webkit-text-fill-color: #ea9215;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #303841; */
   font-family: 'oswald', sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
@@ -230,6 +235,11 @@ a {
 .card-info {
   font-family: 'oswald', sans-serif;
   letter-spacing: 1px;
+}
+
+.card-info a {
+  background: #ea9215;
+  padding: 2px;
 }
 
 /*CONTACT*/
@@ -260,14 +270,20 @@ a {
   background: #303841;
   transition: 0.5s;
   font-weight: none;
-  font-style: none;
+  font-style: italic;
 }
 
 button:focus {
   outline: none;
 }
 
-.heading:hover {
+.card-info a:hover {
+  color: #303841;
+  -webkit-text-fill-color: #303841;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: cyan;
+  background: #eee;
+  transition: 0.5s ease-in-out;
 }
 
 .heading:hover .heading-a {
