@@ -29,20 +29,6 @@ code {
     monospace;
 }
 
-a {
-  text-decoration: none;
-  color: cyan;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-a:hover {
-  color: #eee;
-  -webkit-text-fill-color: #eee;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: cyan;
-}
-
 /*
   STRIPES
   background-image: linear-gradient(125deg, #ffc31c 25%, #545454 25%, #545454 50%, #ffc31c 50%, #ffc31c 75%, #545454 75%, #545454 100%);
@@ -216,7 +202,7 @@ a:hover {
   font-family: 'oswald', sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  border: 1px solid #303841;
+  border: 1px solid #ea9f00;
 }
 
 .card-info {
@@ -224,18 +210,47 @@ a:hover {
   letter-spacing: 1px;
 }
 
-.card-info a {
-  background: #ea9215;
+.project-link {
   padding: 2px;
+  color: #eee;
+  -webkit-text-fill-color: #eee;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #303841;
+  background: #ea9f00;
+  font-weight: bold;
+  border: 1px solid #ea9f00
 }
+
+/* 303841 */
+
+.project-link:hover {
+  color: #ea9f00;
+  -webkit-text-fill-color: #ea9f00;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #303841;
+  background: #eee;
+  transition: 0.5s ease-in-out;
+}
+
 
 /*CONTACT*/
 .contact-card {
   background: #303841;
   border-radius: 15px;
 }
+
 .contact-link {
+  text-decoration: none;
+  color: cyan;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
   
+.contact-link:hover {
+  color: #eee;
+  -webkit-text-fill-color: #eee;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: cyan;
 }
 
 .svg-icon {
@@ -254,15 +269,6 @@ a:hover {
 
 button:focus {
   outline: none;
-}
-
-.card-info a:hover {
-  color: #303841;
-  -webkit-text-fill-color: #303841;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: cyan;
-  background: #eee;
-  transition: 0.5s ease-in-out;
 }
 
 .heading:hover .heading-a {
