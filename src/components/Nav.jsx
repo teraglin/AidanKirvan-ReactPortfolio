@@ -28,11 +28,11 @@ class Nav extends Component {
                     {/* NAV BOTTOM */}
                     <nav className="Nav-btn-container-right">
                         <a href="https://github.com/teraglin" target="blank">
-                            <img className="svg-icon w-10 hover:animate-bounce" src={require('../images/github-icon.svg').default} alt='github-link' />
+                            <img className="svg-icon w-10 transform hover:scale-110" src={require('../images/github-icon.svg').default} alt='github-link' />
                         </a>
 
                         <a href="https://twitter.com/kakaposaur" target="blank">
-                            <img className="svg-icon w-10 hover:animate-bounce" src={require('../images/twitter-icon.svg').default} alt='twitter-link' />
+                            <img className="svg-icon w-10 transform hover:scale-110" src={require('../images/twitter-icon.svg').default} alt='twitter-link' />
                         </a>
                     </nav>
                 </nav>
