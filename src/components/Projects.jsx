@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 import {projects} from '../data/projects'
 
 class Projects extends Component {
-    //set selected project to this.setState
-    //otherwise it shows all
-
-    // showProjects = (input) => {
-
-    // }
 
     render(){
         return (

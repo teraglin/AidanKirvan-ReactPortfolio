@@ -17,7 +17,7 @@ const About = () => {
                     <img alt={'profile'} src={"https://avatars.githubusercontent.com/u/67266954?v=4"} className="profile-portrait" />
                 </div>
                 
-                <div className="profile-info mt-5 sm:mt-0 w-full sm:w-8/12 xl:w-9/12 h-3/6 flex flex-col items-center justify-center">
+                <div className="profile-info my-5 sm:mt-0 w-full sm:w-8/12 xl:w-9/12 h-3/6 flex flex-col items-center justify-center">
                     <h1 className="summary-table-head w-10/12 xl:w-8/12">Full Stack Developer</h1>
                     <table className="summary-table w-11/12 xl:w-4/6">
                         <tbody>
