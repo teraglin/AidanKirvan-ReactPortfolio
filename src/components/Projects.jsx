@@ -14,7 +14,7 @@ class Projects extends Component {
                                 <img src={project.image} alt={project.projectName} className="card-image w-screen h-full sm:w-6/12" />
                                 <div className="card-info flex flex-col justify-between text-lg h:full sm:w-6/12" >
                                     <p className="m-5">{project.description}</p>
-                                    <a href={project.link} target="blank" className="project-link">CLICK HERE TO CHECK IT OUT</a>
+                                    <a href={project.link} target="_blank" rel="noreferrer noopener"  className="project-link">CLICK HERE TO CHECK IT OUT</a>
                                 </div>
                             </div>
                         </div>

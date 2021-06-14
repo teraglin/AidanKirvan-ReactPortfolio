@@ -41,7 +41,7 @@ const About = () => {
 
             {/* OTHER SKILLS  */}
             <h1 className="page-heading text-3xl text-left">OTHER SKILLS</h1>
-            <table className="about-table w-11/12 xl:w-4/6">
+            <table className="about-table w-11/12 xl:w-4/6 xl:text-lg">
                 <tbody>
                     <tr>
                         <td>Illustration</td>
@@ -73,7 +73,7 @@ const About = () => {
 
             {/* INTERESTS  */}
             <h1 className="page-heading text-3xl text-left">INTERESTS</h1>
-            <table className="about-table w-11/12 xl:w-4/6">
+            <table className="about-table w-11/12 xl:w-4/6 xl:text-lg">
                 <tbody>
                     <tr>
                         <td>Tabletop Gaming</td>
