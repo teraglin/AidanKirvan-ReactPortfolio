@@ -27,12 +27,12 @@ class Nav extends Component {
                     </nav>
                     {/* NAV BOTTOM */}
                     <nav className="Nav-btn-container-right">
-                        <a href="https://github.com/teraglin" target="blank">
-                            <img className="svg-icon w-10 transform hover:scale-110" src={require('../images/github-icon.svg').default} alt='github-link' />
+                        <a href="https://github.com/teraglin" target="_blank" rel="noopener noreferrer">
+                            <img className="svg-icon w-10 transform hover:scale-110 transition delay-50 ease-in-out" src={require('../images/github-icon.svg').default} alt='github-link' />
                         </a>
 
-                        <a href="https://twitter.com/kakaposaur" target="blank">
-                            <img className="svg-icon w-10 transform hover:scale-110" src={require('../images/twitter-icon.svg').default} alt='twitter-link' />
+                        <a href="https://twitter.com/kakaposaur" target="_blank" rel="noopener noreferrer">
+                            <img className="svg-icon w-10 transform hover:scale-110 transition delay-50 ease-in-out" src={require('../images/twitter-icon.svg').default} alt='twitter-link' />
                         </a>
                     </nav>
                 </nav>

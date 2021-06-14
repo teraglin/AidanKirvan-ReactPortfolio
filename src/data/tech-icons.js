@@ -29,7 +29,7 @@ export const techIcons = [
     },
     {
         tech: 'postgresql',
-        src: 'images/icon-postgresql.png'
+        src: 'images/icon-sass.png'
     }
 
 ]

@@ -248,7 +248,7 @@ code {
   border: none;
   text-align: center;
   margin: 10px 0px;
-  border-spacing: 20px;
+  border-spacing: 10px;
   border-collapse: separate;
 }
 
@@ -262,7 +262,6 @@ code {
 }
 
 .profile-portrait {
-  /* border: 2px solid purple; */
   border-radius: 500px;
 }
 

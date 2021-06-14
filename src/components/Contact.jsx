@@ -15,9 +15,9 @@ const Contact = () => {
                 justify-center
                 my-5">
                 <img src={linkedinContactIcon} className="tech-logo" alt="linkedin-contact" />
-                <a
-                    href="https://www.linkedin.com/in/aidan-kirvan-376b0a1ba/"
-                    target="blank"
+                <a href="https://www.linkedin.com/in/aidan-kirvan-376b0a1ba/"
+                    target="_blank"
+                    rel="noreferrer noopener" 
                     className="contact-link
                         flex
                         w-full
@@ -26,8 +26,7 @@ const Contact = () => {
                         items-center
                         text-3xl
                         hover:animate-pulse">
-                            Aidan Kirvan
-                </a>
+                            Aidan Kirvan</a>
             </div>
 
             {/* twitter  */}
@@ -38,7 +37,11 @@ const Contact = () => {
                 justify-center
                 my-5">
                 <img src={twitterContactIcon} className="tech-logo" alt="twitter-contact" />
-                <a href="https://twitter.com/kakaposaur" target="blank" className="contact-link flex w-full h-full justify-center items-center text-3xl hover:animate-pulse">@kakaposaur</a>
+                <a href="https://twitter.com/kakaposaur" 
+                target="_blank" 
+                rel="noreferrer noopener" 
+                className="contact-link flex w-full h-full justify-center items-center text-3xl hover:animate-pulse">
+                    @kakaposaur</a>
             </div>
         </div>
     )
