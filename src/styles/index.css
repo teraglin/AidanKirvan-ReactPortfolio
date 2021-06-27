@@ -109,16 +109,6 @@ code {
   font-style: none;
 }
 
-.page-component-container {
-  background: #eee;
-  height: 85vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .page-heading {
   color: #303841;
   width: 90vw;
@@ -295,6 +285,17 @@ code {
 }
 
 /*CONTACT*/
+.page-component-container-contact {
+  background: #eee;
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px orange solid;
+}
+
 .contact-card {
   background: #303841;
   border-radius: 15px;
