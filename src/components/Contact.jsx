@@ -4,8 +4,8 @@ import twitterContactIcon from '../images/icon-contact-twitter.png'
 
 const Contact = () => {
     return (
-        <div className="page-component-container w-full">
-            <h1 className="font-bold">Contact me ...</h1>
+        <div className="page-component-container-contact w-full">
+            <h1 className=" text-3xl">SAY HI!</h1>
 
             {/* linkedin  */}
             <div className="contact-card
