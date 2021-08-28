@@ -1,5 +1,11 @@
 export const projects = [
     {
+        projectName: 'Sydney Paranormal',
+        description: 'A tongue in cheek visual listing page for paranormal activity in Sydney. Uses JWT for account authentication and Mapbox for the map module. Front-end is made with React.js and Rails was used to create the backend. Styling done with Material UI.',
+        link: 'https://sydney-paranormal.netlify.app/',
+        image: `https://res.cloudinary.com/djdozfiqv/image/upload/v1630127581/sydneyparanormal.png`
+    },
+    {
         projectName: 'Phishing for Phun',
         description: 'A collaborative hackathon project. A fishing game with phishing (and other tech related puns). Includes a currency and shop system. Heavily utilises use reducers and local state. Most of my work on this project was with implementing the shop system, as well as making player purchases affect the game state.',
         link: 'https://phishing-for-phun.netlify.app/',
