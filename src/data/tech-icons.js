@@ -16,6 +16,10 @@ export const techIcons = [
         src: 'images/icon-react.png'
     },
     {
+        tech: 'nextjs',
+        src: 'images/icon-nextjs.png'
+    },
+    {
         tech: 'ruby',
         src: 'images/icon-ruby.png'
     },
@@ -28,8 +32,15 @@ export const techIcons = [
         src: 'images/icon-tailwind.png'
     },
     {
-        tech: 'postgresql',
+        tech: 'mui',
+        src: 'images/icon-mui.png'
+    },
+    {
+        tech: 'sass',
         src: 'images/icon-sass.png'
+    },
+    {
+        tech: 'graphql',
+        src: './images/icon-graphql.png'
     }
-
 ]
