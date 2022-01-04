@@ -1,10 +1,13 @@
 import './styles/App.css';
 import React from 'react'
+
+import { Box } from '@mui/material';
+
 import Nav from './components/Nav'
 import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
-import Home from './components/Home';
+// import Home from './components/Home';
 
 // import pages from pages folder
 import { MainPage } from './pages'
@@ -17,14 +20,14 @@ import {
 
 const App = () => {
   return (
-    <div className="App overscroll-none">
+    <Box className="w-screen overscroll-none">
       <Router>
         {/* NAVIGATION COMPONENT */}
         <Nav />
         {/* SWITCHBOARD */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            {/* <Home /> */}
             <MainPage />
           </Route>
           <Route path="/projects">
@@ -38,7 +41,7 @@ const App = () => {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </Box>
   )
 }
 

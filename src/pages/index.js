@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Box } from '@mui/material'
+
 //import page components
 import TechIcons from '../components/TechIcons'
 import Projects from '../components/Projects'
@@ -8,10 +10,10 @@ import About from '../components/About'
 export const MainPage = () => {
   // stack page components here
   return (
-    <div>
+    <Box className="w-screen">
       <TechIcons />
       <Projects />
       <About />
-    </div>
+    </Box>
   )
 }

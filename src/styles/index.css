@@ -35,12 +35,6 @@ code {
   background-size: 48.83px 69.74px;
 */
 
-.App {
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
-}
-
 .App-header {
   height: 15vh;
   width: 100vw;
@@ -118,17 +112,6 @@ code {
 
 /*HOME*/
 
-.page-component-container-home {
-  width: 100vw;
-  height: 85vh;
-  background: url("https://res.cloudinary.com/djdozfiqv/image/upload/v1622770727/Winslow-Fernsby_or11gb.jpg") no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .bg-container {
   width: 100vw;
   height: 85vh;
@@ -138,17 +121,6 @@ code {
   align-items: center;
   flex-wrap: wrap;
   padding: 30px;
-}
-
-.tech-container {
-  width: 100vw;
-  height: 85vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0px 50px;
 }
 
 .tech-logo-background {
@@ -226,7 +198,7 @@ code {
 
 /*ABOUT*/
 .page-component-container-about {
-  background-image: linear-gradient(#eee, #fff);
+  background-image: linear-gradient(#fff, #eee);
   display: flex;
   flex-direction: column;
   justify-content: center;
