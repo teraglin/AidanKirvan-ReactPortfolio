@@ -17,7 +17,7 @@ const techContainerStyles = {
 const TechIcons = () => {
   return (
     <Box
-      id="techicons"
+      id="top"
       sx={techContainerStyles.containerBackground}
       className="
       flex

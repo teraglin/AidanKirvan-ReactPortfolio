@@ -6,7 +6,7 @@ import {
 class Nav extends Component {
     render() {
         return (
-            <header className="App-header">
+            <header id="top" className="App-header">
                 {/* NAV TOP */}
                 <nav className="Nav-btn-container-top">
                     {/* NAV TOP LEFT */}

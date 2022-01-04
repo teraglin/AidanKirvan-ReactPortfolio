@@ -1,8 +1,7 @@
-import React, {useRef} from 'react'
+import React from 'react'
 
 import {
-  Box,  
-  Button
+  Box
 } from '@mui/material'
 
 import { StaticMenu } from '../components/StaticMenu'
@@ -13,19 +12,14 @@ import Projects from '../components/Projects'
 import About from '../components/About'
 
 export const MainPage = () => {
-  
-  const weeee = useRef()
-  const handleClick = () => {
-    weeee.current.scrollIntoView({ behavior: 'smooth' })
-  }
-
   // stack page components here
   return (
     <Box className="w-screen">
-      <StaticMenu />
-      <TechIcons id="techicons" />
-      <Projects id="projects" />
-      <About id="about" />
+      <Box className="w-100 pl=20">
+        <TechIcons id="techicons" />
+        <Projects id="projects" />
+        <About id="about" />
+      </Box>
     </Box>
   )
 }
