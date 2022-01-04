@@ -1,10 +1,13 @@
 import './styles/App.css';
 import React from 'react'
 import Nav from './components/Nav'
-import Home from './components/Home'
 import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
+import Home from './components/Home';
+
+// import pages from pages folder
+import { MainPage } from './pages'
 
 import {
   BrowserRouter as Router,
@@ -22,6 +25,7 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <Home />
+            <MainPage />
           </Route>
           <Route path="/projects">
             <Projects />
