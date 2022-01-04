@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import { Box } from '@mui/material'
 
@@ -17,6 +17,7 @@ const techContainerStyles = {
 const TechIcons = () => {
   return (
     <Box
+      id="techicons"
       sx={techContainerStyles.containerBackground}
       className="
       flex
@@ -72,4 +73,4 @@ const TechIcons = () => {
   )
 }
 
-export default TechIcons
+export default TechIcons;
