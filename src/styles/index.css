@@ -103,12 +103,12 @@ code {
   font-style: none;
 }
 
-.page-heading {
+/* .page-heading {
   color: #303841;
   width: 90vw;
   border-bottom: 1px solid #303841;
   text-align: left;
-}
+} */
 
 /*HOME*/
 
@@ -141,13 +141,13 @@ code {
 
 /* PROJECTS */
 
-.page-component-container-projects {
+/* .page-component-container-projects {
   background-image: linear-gradient(#eee, #fff);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /* PROJECTS CARD */
 .project-card {

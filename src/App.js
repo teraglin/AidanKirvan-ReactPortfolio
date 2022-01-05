@@ -1,7 +1,13 @@
 import './styles/App.css';
 import React, { useEffect, useState } from 'react'
 
-import { Box } from '@mui/material';
+import {
+  Box,
+  ThemeProvider,
+  Typography,
+} from '@mui/material';
+
+import { appTheme } from './styles/appTheme';
 
 import Nav from './components/Nav'
 import { StaticMenu } from './components/StaticMenu';
@@ -21,6 +27,7 @@ import {
 
 const App = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [mobileView, setMobileView] = useState(null)
 
   const screenBreakPoint = 620;
 
@@ -28,30 +35,43 @@ const App = () => {
     window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
   }, []);
 
+  useEffect(() => {
+    if (screenWidth < screenBreakPoint) {
+      setMobileView(true)
+    } else {
+      setMobileView(false)
+    }
+  }, [screenWidth])
 
   return (
-    <Box className="w-screen overscroll-none">
-      <Router>
-        {/* NAVIGATION COMPONENT */}
-        {screenWidth < screenBreakPoint ? <StaticMenu /> : <Nav />}
-        {/* SWITCHBOARD */}
-        <Switch>
-          <Route exact path="/">
-            {/* <Home /> */}
-            <MainPage />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-        </Switch>
-      </Router>
-    </Box>
+    <ThemeProvider theme={appTheme}>
+      {mobileView !== null ?
+        <Box className="w-screen overscroll-none">
+          <Router>
+            {/* NAVIGATION COMPONENT */}
+            {mobileView ? <StaticMenu /> : <Nav />}
+            {/* SWITCHBOARD */}
+            <Switch>
+              <Route exact path="/">
+                {/* <Home /> */}
+                <MainPage mobileView={mobileView} />
+              </Route>
+              <Route path="/projects">
+                <Projects />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/contact">
+                <Contact />
+              </Route>
+            </Switch>
+          </Router>
+        </Box>
+        :
+        <Typography variant="h1">Please Wait</Typography>
+      }
+    </ThemeProvider>
   )
 }
 

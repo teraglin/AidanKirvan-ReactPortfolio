@@ -1,24 +1,124 @@
 import React from 'react'
+
+import {
+  Box,
+  Typography,
+  Link,
+  Button,
+} from '@mui/material'
+
 import { projects } from '../data/projects'
 
-const Projects = () => {
-    return (
-        <div id="projects" className="page-component-container-projects w-full">
-            <h1 className="page-heading text-3xl text-left mt-5">PROJECTS</h1>
-            {projects.map((project, index) => (
-                <div key={index} className="project-card my-5 w-11/12">
-                    <h1 className="card-header text-2xl py-2">{project.projectName}</h1>
-                    <div className="card-body sm:flex">
-                        <img src={project.image} alt={project.projectName} className="card-image w-screen h-full sm:w-6/12" />
-                        <div className="card-info flex flex-col justify-between text-lg h:full sm:w-6/12" >
-                            <p className="m-5">{project.description}</p>
-                            <a href={project.link} target="_blank" rel="noreferrer noopener" className="project-link">CLICK HERE TO CHECK IT OUT</a>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
-    )
+import { colourScheme } from '../styles/colourScheme'
+
+const Projects = (props) => {
+  const { mobileView } = props;
+
+  const projectStyles = {
+    projectsContainer: {
+      background: `linear-gradient(to bottom, ${colourScheme.black}, ${colourScheme.gray}`,
+      minWidth: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      border: 'none'
+    },
+    projectsCard: {
+      display: 'flex',
+      flexDirection: 'column',
+      border: '1px solid #eee',
+      width: 'auto',
+      margin: 1,
+      bgcolor: "text.secondary",
+      borderRadius: "5px",
+    },
+    projectsCardHeading: {
+      borderRadius: "5px",
+    },
+    projectsCardContents: {
+      display: 'flex',
+      flexDirection: mobileView ? 'column' : 'row',
+      width: '100%',
+    },
+    projectsCardDescription: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: mobileView ? '100%' : '50%',
+      justifyContent: 'space-between',
+      padding: 2,
+    },
+    projectCardImage: {
+      border: '1px solid #eee',
+      borderRadius: '5px',
+      margin: 2,
+    }
+  };
+
+  return (
+    <Box
+      id="projects"
+      background="primary"
+      style={projectStyles.projectsContainer}
+    >
+      <Typography
+        color="text.primary"
+        variant={mobileView ? 'h4' : 'h3'}
+        width="100%"
+        textAlign="left"
+        padding={2}
+      >
+        PROJECTS
+      </Typography>
+      {projects.map((project, index) => (
+        <Box
+          key={index}
+          sx={projectStyles.projectsCard}
+        >
+          <Typography
+            variant="h5"
+            color="text.primary"
+            bgcolor="primary.main"
+            padding="5px 10px 5px 10px"
+            borderRadius="5px 5px 0 0"
+          >
+            {project.projectName}
+          </Typography>
+          <Box
+            style={projectStyles.projectsCardContents}
+          >
+            <img
+              width={mobileView ? 'auto' : '50%'}
+              style={projectStyles.projectCardImage}
+              src={project.image}
+              alt={project.projectName}
+            />
+            <Box
+              style={projectStyles.projectsCardDescription}
+            >
+              <Typography
+                variant="body1"
+                color="text.primary"
+                padding={2}
+              >{project.description}</Typography>
+              <Button variant="contained" color="secondary">
+                <Link
+                  href={project.link}
+                  variant="body2"
+                  color="text"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  underline='none'
+                >
+                  CLICK HERE TO CHECK IT OUT
+                </Link>
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  )
 }
 
 export default Projects

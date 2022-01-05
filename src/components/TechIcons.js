@@ -1,24 +1,24 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import { Box } from '@mui/material'
 
 import { techIcons } from '../data/tech-icons'
 
-const backgroundImageURL = "https://res.cloudinary.com/djdozfiqv/image/upload/v1622770727/Winslow-Fernsby_or11gb.jpg"
+import { colourScheme } from '../styles/colourScheme'
 
-const techContainerStyles = {
-  containerBackground: {
-    backgroundImage: `url(${backgroundImageURL})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-  },
-}
+const backgroundImage = "../../images/star-vector.jpg"
+
+const containerBackground = {
+  backgroundImage: `url(${backgroundImage})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  maskImage: `linear-gradient(to top , #ffffff00, ${colourScheme.black})`
+};
 
 const TechIcons = () => {
   return (
     <Box
       id="top"
-      sx={techContainerStyles.containerBackground}
       className="
       flex
       flex-column
@@ -27,6 +27,7 @@ const TechIcons = () => {
       h-screen
       w-screen
       "
+      style={{ background: colourScheme.black }}
     >
       <Box
         className="
@@ -34,27 +35,29 @@ const TechIcons = () => {
         flex-row
         justify-center
         align-center
-        bg-white
-        bg-opacity-80 
         h-screen 
         w-screen
         "
+        sx={containerBackground}
       >
-        <Box
-          className="
+      <Box
+        className="
           flex
           justify-center
           align-center
           w-fit
           h-fit
-          bg-gradient-to-t
-          from-white
-          to-transparent
+          m-0
+          p-0
           "
-        >
-          <Box
-            className="
-            flex 
+      >
+      </Box>
+    </Box>
+        <Box
+          className="
+            flex
+            absolute
+            top-0
             flex-wrap 
             align-center 
             justify-center 
@@ -62,14 +65,12 @@ const TechIcons = () => {
             md:w-3/6
             pt-10
             "
-          >
-            {techIcons.map((icon, index) => (
-              <img key={index} src={icon.src} alt={icon.tech} className="tech-logo m-2 md:m-5" />
-            ))}
-          </Box>
+        >
+          {techIcons.map((icon, index) => (
+            <img key={index} src={icon.src} alt={icon.tech} className="tech-logo m-2 md:m-5" />
+          ))}
         </Box>
       </Box>
-    </Box>
   )
 }
 
