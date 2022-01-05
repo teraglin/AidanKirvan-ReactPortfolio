@@ -141,13 +141,13 @@ code {
 
 /* PROJECTS */
 
-/* .page-component-container-projects {
+.page-component-container-projects {
   background-image: linear-gradient(#eee, #fff);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
+}
 
 /* PROJECTS CARD */
 .project-card {

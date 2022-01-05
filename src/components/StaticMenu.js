@@ -60,6 +60,7 @@ export const StaticMenu = () => {
       right-0
       flex-1
       m-2
+      z-10
       "
     >
       <Box

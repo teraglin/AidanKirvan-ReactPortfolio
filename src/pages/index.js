@@ -8,6 +8,7 @@ import {
 import TechIcons from '../components/TechIcons'
 import Projects from '../components/Projects'
 import About from '../components/About'
+import Contact from '../components/Contact'
 
 export const MainPage = (props) => {
   const {mobileView} = props;
@@ -15,9 +16,10 @@ export const MainPage = (props) => {
   return (
     <Box className="w-screen">
       <Box className="w-100 pl=20">
-        <TechIcons id="techicons" />
+        <TechIcons id="techicons" mobileView={mobileView} />
         <Projects id="projects" mobileView={mobileView} />
-        <About id="about" />
+        <About id="about" mobileView={mobileView} />
+        <Contact id="contact" mobileView={mobileView} />
       </Box>
     </Box>
   )

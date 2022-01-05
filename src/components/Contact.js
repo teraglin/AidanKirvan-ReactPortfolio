@@ -2,9 +2,11 @@ import React from 'react'
 import linkedinContactIcon from '../images/icon-contact-linkedin.png'
 import twitterContactIcon from '../images/icon-contact-twitter.png'
 
-const Contact = () => {
+const Contact = (props) => {
+    const {mobileView} = props;
+
     return (
-        <div className="page-component-container-contact w-full">
+        <div id="contact" className="page-component-container-contact w-full">
             <h1 className=" text-3xl">SAY HI!</h1>
 
             {/* linkedin  */}

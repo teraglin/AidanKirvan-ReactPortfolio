@@ -1,6 +1,8 @@
 import React from 'react'
 
-const About = () => {
+const About = (props) => {
+    const {mobileView} = props;
+
     return (
         <div id="about" className="page-component-container-about w-full p-5">
             <h1 className="page-heading text-3xl text-left">ABOUT ME</h1>

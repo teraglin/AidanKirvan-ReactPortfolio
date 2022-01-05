@@ -69,7 +69,21 @@ const App = () => {
           </Router>
         </Box>
         :
-        <Typography variant="h1">Please Wait</Typography>
+        <Box
+          style={{
+            display: 'flex',
+            width: '100%',
+            height: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            bgcolor: 'text.secondary',
+            color: 'text.primary',
+          }}
+        >
+          <Typography variant="h1">
+            Please Wait
+          </Typography>
+        </Box>
       }
     </ThemeProvider>
   )

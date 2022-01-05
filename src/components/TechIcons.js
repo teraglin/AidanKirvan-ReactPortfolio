@@ -15,7 +15,8 @@ const containerBackground = {
   maskImage: `linear-gradient(to top , #ffffff00, ${colourScheme.black})`
 };
 
-const TechIcons = () => {
+const TechIcons = (props) => {
+  const {mobileView} = props;
   return (
     <Box
       id="top"
@@ -61,10 +62,9 @@ const TechIcons = () => {
             flex-wrap 
             align-center 
             justify-center 
-            w-fit
-            md:w-3/6
             pt-10
             "
+            width={mobileView ? '100%' : '75%'}
         >
           {techIcons.map((icon, index) => (
             <img key={index} src={icon.src} alt={icon.tech} className="tech-logo m-2 md:m-5" />
