@@ -42,5 +42,9 @@ export const techIcons = [
     {
         tech: 'graphql',
         src: './images/icon-graphql.png'
+    },
+    {
+        tech: 'postgreSQL',
+        src: './images/icon-postgresql.png'
     }
 ]

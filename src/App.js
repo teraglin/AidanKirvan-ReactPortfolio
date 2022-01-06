@@ -1,40 +1,95 @@
 import './styles/App.css';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+import {
+  Box,
+  ThemeProvider,
+  Typography,
+} from '@mui/material';
+
+import { appTheme } from './styles/appTheme';
+
 import Nav from './components/Nav'
-import Home from './components/Home'
+import { StaticMenu } from './components/StaticMenu';
 import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
+// import Home from './components/Home';
+
+// import pages from pages folder
+import { MainPage } from './pages'
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom"
+import { colourScheme } from './styles/colourScheme';
 
 const App = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [mobileView, setMobileView] = useState(null)
+
+  const screenBreakPoint = 830;
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+  }, []);
+
+  useEffect(() => {
+    if (screenWidth < screenBreakPoint) {
+      setMobileView(true)
+    } else {
+      setMobileView(false)
+    }
+  }, [screenWidth])
+
   return (
-    <div className="App overscroll-none">
-      <Router>
-        {/* NAVIGATION COMPONENT */}
-        <Nav />
-        {/* SWITCHBOARD */}
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <ThemeProvider theme={appTheme}>
+      {mobileView !== null ?
+        <Box className="w-screen overscroll-none">
+          <Router>
+            {/* NAVIGATION COMPONENT */}
+            {mobileView ? <StaticMenu /> : <Nav />}
+            {/* SWITCHBOARD */}
+            <Switch>
+              <Route exact path="/">
+                {/* <Home /> */}
+                <MainPage mobileView={mobileView} />
+              </Route>
+              <Route path="/projects">
+                <Projects />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/contact">
+                <Contact />
+              </Route>
+            </Switch>
+          </Router>
+        </Box>
+        :
+        <Box
+          style={{
+            display: 'flex',
+            width: '100vw',
+            height: '100vh',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: colourScheme.black,
+          }}
+        >
+          <Typography
+            variant="h1"
+            color="primary"
+            textAlign="center"
+          >
+            Please Wait...
+          </Typography>
+        </Box>
+      }
+    </ThemeProvider>
   )
 }
 
