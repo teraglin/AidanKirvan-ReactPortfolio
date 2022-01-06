@@ -54,7 +54,7 @@ const Contact = (props) => {
         textAlign={mobileView ? "center" : "left"}
         padding={mobileView ? 1 : '64px 0 15px 64px'}
       >
-        CONTACT ME
+        FOLLOW OR CONTACT ME
       </Typography>
 
       {/* twitter  */}
@@ -96,7 +96,7 @@ const Contact = (props) => {
           })}
         >
           <Typography
-            variant="h4"
+            variant={mobileView ? 'h5' : 'h4'}
             style={{ fontWeight: 'bold' }}
           >
             teraglin
@@ -143,7 +143,7 @@ const Contact = (props) => {
           })}
         >
           <Typography
-            variant="h4"
+            variant={mobileView ? 'h5' : 'h4'}
             style={{ fontWeight: 'bold' }}
           >
             /aidan-kirvan/
@@ -190,7 +190,7 @@ const Contact = (props) => {
           })}
         >
           <Typography
-            variant="h4"
+            variant={mobileView ? 'h5' : 'h4'}
             style={{ fontWeight: 'bold' }}
           >
             @kakaposaur

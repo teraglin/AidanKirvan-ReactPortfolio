@@ -1,20 +1,33 @@
 import React, { useState } from "react";
 
-import { Box, Button } from "@mui/material";
+import {
+  Box,
+  Button,
+} from "@mui/material";
+
+import { colourScheme } from "../styles/colourScheme";
 
 import ScrollIntoView from "react-scroll-into-view";
 
 import Close from "@mui/icons-material/CloseOutlined"
 import Menu from "@mui/icons-material/MenuOutlined"
 
-const MenuComponent = () => {
+const MenuComponent = (props) => {
+  const { handleHidden } = props;
+
   return (
     <Box>
       <ScrollIntoView selector="#top" className="mb-2" >
         <Button
           variant="contained"
           color="primary"
-          style={{ minWidth: '100%' }}
+          style={{
+            minWidth: '100%',
+            fontWeight: 'bold',
+            border: `1px solid ${colourScheme.white}`,
+            boxShadow: `3px 3px 3px ${colourScheme.black}`
+          }}
+          onClick={handleHidden}
         >
           Top
         </Button>
@@ -23,7 +36,13 @@ const MenuComponent = () => {
         <Button
           variant="contained"
           color="primary"
-          style={{ minWidth: '100%' }}
+          style={{
+            minWidth: '100%',
+            fontWeight: 'bold',
+            border: `1px solid ${colourScheme.white}`,
+            boxShadow: `3px 3px 3px ${colourScheme.black}`
+          }}
+          onClick={handleHidden}
         >
           Projects
         </Button>
@@ -32,7 +51,13 @@ const MenuComponent = () => {
         <Button
           variant="contained"
           color="primary"
-          style={{ minWidth: '100%' }}
+          style={{
+            minWidth: '100%',
+            fontWeight: 'bold',
+            border: `1px solid ${colourScheme.white}`,
+            boxShadow: `3px 3px 3px ${colourScheme.black}`
+          }}
+          onClick={handleHidden}
         >
           About
         </Button>
@@ -41,7 +66,13 @@ const MenuComponent = () => {
         <Button
           variant="contained"
           color="primary"
-          style={{ minWidth: '100%' }}
+          style={{
+            minWidth: '100%',
+            fontWeight: 'bold',
+            border: `1px solid ${colourScheme.white}`,
+            boxShadow: `3px 3px 3px ${colourScheme.black}`
+          }}
+          onClick={handleHidden}
         >
           Contact
         </Button>
@@ -82,12 +113,14 @@ export const StaticMenu = () => {
         <Button
           onClick={handleHidden}
           variant="contained"
-          sx={{ borderRadius: '100px' }}
+          color="primary"
+          sx={{ borderRadius: '200px' }}
+          style={{boxShadow: `3px 3px 3px ${colourScheme.black}`}}
         >
           {hidden ? <Menu /> : <Close />}
         </Button>
       </Box>
-      {!hidden && <MenuComponent />}
+      {!hidden && <MenuComponent handleHidden={handleHidden} />}
     </Box>
   )
 

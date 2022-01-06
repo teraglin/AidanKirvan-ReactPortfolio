@@ -78,10 +78,11 @@ const Projects = (props) => {
         >
           <Typography
             variant="h5"
-            color="text.primary"
+            color="text.secondary"
             bgcolor="primary.main"
             padding="5px 10px 5px 10px"
             borderRadius="5px 5px 0 0"
+            fontWeight="bold"
           >
             {project.projectName}
           </Typography>
@@ -105,7 +106,7 @@ const Projects = (props) => {
               <Button variant="contained" color="secondary">
                 <Link
                   href={project.link}
-                  variant="body2"
+                  variant="body1"
                   color="text"
                   target="_blank"
                   rel="noreferrer noopener"
