@@ -29,7 +29,7 @@ const App = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [mobileView, setMobileView] = useState(null)
 
-  const screenBreakPoint = 620;
+  const screenBreakPoint = 830;
 
   useEffect(() => {
     window.addEventListener("resize", () => setScreenWidth(window.innerWidth));

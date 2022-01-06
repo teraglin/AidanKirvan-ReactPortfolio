@@ -22,15 +22,17 @@ const Projects = (props) => {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
+      paddingTop: 100,
     },
     projectsCard: {
       display: 'flex',
       flexDirection: 'column',
       border: '1px solid #eee',
       width: 'auto',
-      margin: 1,
+      margin: mobileView ? 1 : '10px 64px',
       bgcolor: "text.secondary",
       borderRadius: "5px",
+      boxShadow: `1px 3px 1px ${colourScheme.black}`
     },
     projectsCardHeading: {
       borderRadius: "5px",
@@ -65,7 +67,7 @@ const Projects = (props) => {
         variant={mobileView ? 'h4' : 'h3'}
         width="100%"
         textAlign="left"
-        padding={2}
+        padding='64px 0 15px 64px'
       >
         PROJECTS
       </Typography>

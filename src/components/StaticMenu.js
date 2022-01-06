@@ -37,6 +37,15 @@ const MenuComponent = () => {
           About
         </Button>
       </ScrollIntoView>
+      <ScrollIntoView selector="#contact" className="mb-2" >
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ minWidth: '100%' }}
+        >
+          Contact
+        </Button>
+      </ScrollIntoView>
     </Box>
   )
 }
