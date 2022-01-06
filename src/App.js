@@ -24,6 +24,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
+import { colourScheme } from './styles/colourScheme';
 
 const App = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -72,16 +73,19 @@ const App = () => {
         <Box
           style={{
             display: 'flex',
-            width: '100%',
-            height: '100%',
+            width: '100vw',
+            height: '100vh',
             justifyContent: 'center',
             alignItems: 'center',
-            bgcolor: 'text.secondary',
-            color: 'text.primary',
+            background: colourScheme.black,
           }}
         >
-          <Typography variant="h1">
-            Please Wait
+          <Typography
+            variant="h1"
+            color="primary"
+            textAlign="center"
+          >
+            Please Wait...
           </Typography>
         </Box>
       }

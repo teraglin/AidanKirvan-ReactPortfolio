@@ -94,7 +94,7 @@ export const StaticMenu = () => {
 
   return (
     <Box
-      class="
+      className="
       fixed
       top=0
       right-0
