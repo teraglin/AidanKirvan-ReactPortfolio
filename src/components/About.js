@@ -2,7 +2,6 @@ import React from 'react'
 
 import {
   Box,
-  Button,
   Typography
 } from "@mui/material";
 
@@ -34,6 +33,7 @@ const About = (props) => {
       width: '50%',
       padding: '15px',
       background: colourScheme.black,
+      border: `1px solid ${colourScheme.white}`,
       borderRadius: '5px',
       margin: 5,
     },
@@ -42,6 +42,7 @@ const About = (props) => {
       width: '100%',
       padding: '15px',
       background: colourScheme.black,
+      border: `1px solid ${colourScheme.white}`,
       borderRadius: '5px',
       margin: 5,
     }
@@ -78,11 +79,9 @@ const About = (props) => {
           flexDirection: mobileView ? 'column' : 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          // margin: 5,
         }}
       >
         <Box
-          // className="profile-portrait-container flex justify-center items-center w-11/12 sm:w-4/12 xl:w-3/12"
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -94,7 +93,6 @@ const About = (props) => {
           <img
             alt={'profile'}
             src={"https://avatars.githubusercontent.com/u/67266954?v=4"}
-            // className="profile-portrait"
             style={{
               borderRadius: '500px'
             }}

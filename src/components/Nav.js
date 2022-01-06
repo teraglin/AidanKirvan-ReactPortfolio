@@ -12,6 +12,7 @@ import { colourScheme } from '../styles/colourScheme'
 import ScrollIntoView from 'react-scroll-into-view'
 
 const Nav = () => {
+  const {gray, black} = colourScheme;
 
   const navStyles = {
     navContainer: {
@@ -19,20 +20,19 @@ const Nav = () => {
       height: 25,
       display: 'flex',
       justifyContent: 'space-evenly',
-      backgroundImage: `linear-gradient(125deg, #ea9f00 25%, #ea9215 25%, #ea9215 50%, #ea9f00 50%, #ea9f00 75%, #ea9215 75%, #ea9215 100%)`,
+      backgroundImage: `linear-gradient(125deg, ${black} 25%, ${gray} 25%, ${gray} 50%, ${black} 50%, ${black} 75%, ${gray} 75%, ${gray} 100%)`,
       backgroundSize: `48.83px 69.74px`,
-      color: colourScheme.black,
       zIndex: 10,
       position: 'fixed',
       top: 0,
     },
     navButton: {
       height: '100%',
-      color: colourScheme.black,
+      color: colourScheme.white,
       fontWeight: 'bold',
       padding: '0 20px 0 20px',
     }
-  }
+  };
 
   return (
     <nav

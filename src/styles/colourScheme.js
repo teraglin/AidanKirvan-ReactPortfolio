@@ -1,11 +1,11 @@
 import {
-  indigo,
-  blue
+  purple,
+  cyan,
 } from "@mui/material/colors"
 
 export const colourScheme = {
-  primary: indigo[500],
-  secondary: blue[500],
+  primary: cyan[400],
+  secondary: purple[900],
   black: '#303841',
   gray: '#545454',
   white: '#eee',

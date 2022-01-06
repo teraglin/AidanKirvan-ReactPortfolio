@@ -134,10 +134,10 @@ code {
   padding: 20px;
 }
 
-.tech-logo {
+/* .tech-logo {
   width: 100px;
   height: 100px;
-}
+} */
 
 /* PROJECTS */
 
@@ -205,7 +205,7 @@ code {
   align-items: center;
 } */
 
-.about-table {
+/* .about-table {
   height: 100px;
   border: none;
   text-align: center;
@@ -221,13 +221,13 @@ code {
   border: none;
   background: #303841;
   border-radius: 5px;
-}
+} */
 
 /* .profile-portrait {
   border-radius: 500px;
 } */
 
-.summary-table-head {
+/* .summary-table-head {
   color: #303841;
   padding: 10px;  
   border: none;
@@ -254,7 +254,7 @@ code {
   background: #eee;
   border-radius: 5px;
   font-weight: bold;
-}
+} */
 
 /*CONTACT*/
 .page-component-container-contact {
