@@ -66,8 +66,8 @@ const Projects = (props) => {
         color="text.primary"
         variant={mobileView ? 'h4' : 'h3'}
         width="100%"
-        textAlign="left"
-        padding='64px 0 15px 64px'
+        textAlign={mobileView ? "center" : "left"}
+        padding={mobileView ? 1 : '64px 0 15px 64px'}
       >
         PROJECTS
       </Typography>

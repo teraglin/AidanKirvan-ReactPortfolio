@@ -187,23 +187,23 @@ code {
 
 /* 303841 */
 
-.project-link:hover {
+/* .project-link:hover {
   color: #ea9f00;
   -webkit-text-fill-color: #ea9f00;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #303841;
   background: #eee;
   transition: 0.5s ease-in-out;
-}
+} */
 
 /*ABOUT*/
-.page-component-container-about {
+/* .page-component-container-about {
   background-image: linear-gradient(#fff, #eee);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .about-table {
   height: 100px;
@@ -223,9 +223,9 @@ code {
   border-radius: 5px;
 }
 
-.profile-portrait {
+/* .profile-portrait {
   border-radius: 500px;
-}
+} */
 
 .summary-table-head {
   color: #303841;
