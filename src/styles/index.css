@@ -35,12 +35,6 @@ code {
   background-size: 48.83px 69.74px;
 */
 
-.App {
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
-}
-
 .App-header {
   height: 15vh;
   width: 100vw;
@@ -109,25 +103,14 @@ code {
   font-style: none;
 }
 
-.page-heading {
+/* .page-heading {
   color: #303841;
   width: 90vw;
   border-bottom: 1px solid #303841;
   text-align: left;
-}
+} */
 
 /*HOME*/
-
-.page-component-container-home {
-  width: 100vw;
-  height: 85vh;
-  background: url("https://res.cloudinary.com/djdozfiqv/image/upload/v1622770727/Winslow-Fernsby_or11gb.jpg") no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .bg-container {
   width: 100vw;
@@ -138,17 +121,6 @@ code {
   align-items: center;
   flex-wrap: wrap;
   padding: 30px;
-}
-
-.tech-container {
-  width: 100vw;
-  height: 85vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0px 50px;
 }
 
 .tech-logo-background {
@@ -162,10 +134,10 @@ code {
   padding: 20px;
 }
 
-.tech-logo {
+/* .tech-logo {
   width: 100px;
   height: 100px;
-}
+} */
 
 /* PROJECTS */
 
@@ -215,25 +187,25 @@ code {
 
 /* 303841 */
 
-.project-link:hover {
+/* .project-link:hover {
   color: #ea9f00;
   -webkit-text-fill-color: #ea9f00;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #303841;
   background: #eee;
   transition: 0.5s ease-in-out;
-}
+} */
 
 /*ABOUT*/
-.page-component-container-about {
-  background-image: linear-gradient(#eee, #fff);
+/* .page-component-container-about {
+  background-image: linear-gradient(#fff, #eee);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.about-table {
+/* .about-table {
   height: 100px;
   border: none;
   text-align: center;
@@ -249,13 +221,13 @@ code {
   border: none;
   background: #303841;
   border-radius: 5px;
-}
+} */
 
-.profile-portrait {
+/* .profile-portrait {
   border-radius: 500px;
-}
+} */
 
-.summary-table-head {
+/* .summary-table-head {
   color: #303841;
   padding: 10px;  
   border: none;
@@ -282,7 +254,7 @@ code {
   background: #eee;
   border-radius: 5px;
   font-weight: bold;
-}
+} */
 
 /*CONTACT*/
 .page-component-container-contact {
