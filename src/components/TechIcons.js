@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 
 import {
   Box,
   Typography,
   ImageList,
   ImageListItem
-} from '@mui/material'
+} from '@mui/material';
 
-import { techIcons } from '../data/tech-icons'
+import { techIcons } from '../data/tech-icons';
 
-import { colourScheme } from '../styles/colourScheme'
+import { colourScheme } from '../styles/colourScheme';
 
-const backgroundImage = "../../images/star-vector.jpg"
+const backgroundImage = "../../images/star-vector.jpg";
 
 const containerBackground = {
   backgroundImage: `url(${backgroundImage})`,
@@ -26,18 +26,9 @@ const TechIcons = (props) => {
     // BLACK BACKGROUND
     <Box
       id="top"
-      // className="
-      // flex
-      // flex-column
-      // justify-center
-      // align-center
-      // h-screen
-      // w-screen
-      // "
       style={{
         background: colourScheme.black,
         display: 'flex',
-        // flexDirection: 'column',
         height: '100%',
         width: '100%',
       }}
@@ -50,7 +41,6 @@ const TechIcons = (props) => {
         "
         style={{
           display: 'flex',
-          // flexDirection: 'row',
         }}
         sx={containerBackground}
       >
@@ -58,15 +48,6 @@ const TechIcons = (props) => {
 
       {/* ABSOLUTE OVERLAY CONTAINER */}
       <Box
-        // className="
-        //     flex
-        //     absolute
-        //     top-0
-        //     w-full
-        //     h-full
-        //     align-center
-        //     justify-space-between
-        //     "
         style={{
           display: 'flex',
           position: 'absolute',
@@ -95,13 +76,6 @@ const TechIcons = (props) => {
           </Typography>
         </Box>
         <Box
-          //   className="
-          //   flex
-          //   flex-wrap 
-          //   align-flex-end 
-          //   justify-center 
-          //   pt-10
-          // "
           style={{
             width: 'auto',
             height: '100%',
