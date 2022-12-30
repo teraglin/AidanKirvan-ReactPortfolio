@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@iconify/react": "^4.0.1",
     "autoprefixer": "^9",
     "file-loader": "^6.2.0",
     "postcss": "^7",

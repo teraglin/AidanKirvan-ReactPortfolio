@@ -1,50 +1,62 @@
 export const techIcons = [
-    {   
+    {
         tech: 'html',
-        src: 'images/icon-html.png'
+        icon: 'logos:html-5'
     },
     {
         tech: 'css',
-        src: 'images/icon-css.png'
+        icon: 'logos:css-3'
     },
     {
-        tech: 'javascript',
-        src: 'images/icon-javascript.png'
+        tech: 'typescript',
+        icon: 'logos:typescript-icon'
     },
     {
         tech: 'react',
-        src: 'images/icon-react.png'
+        icon: 'logos:react'
     },
     {
         tech: 'nextjs',
-        src: 'images/icon-nextjs.png'
+        icon: 'logos:nextjs-icon'
     },
     {
         tech: 'ruby',
-        src: 'images/icon-ruby.png'
+        icon: 'logos:ruby'
     },
     {
         tech: 'rails',
-        src: 'images/icon-rails.png'
+        icon: 'logos:rails'
     },
     {
         tech: 'tailwind',
-        src: 'images/icon-tailwind.png'
+        icon: 'logos:tailwindcss-icon'
     },
     {
         tech: 'mui',
-        src: 'images/icon-mui.png'
+        icon: 'simple-icons:mui'
     },
     {
         tech: 'sass',
-        src: 'images/icon-sass.png'
+        icon: 'logos:sass'
     },
     {
         tech: 'graphql',
-        src: './images/icon-graphql.png'
+        icon: 'logos:graphql'
     },
     {
         tech: 'postgreSQL',
-        src: './images/icon-postgresql.png'
-    }
+        icon: 'logos:postgresql'
+    },
+    {
+        tech: 'storybook',
+        icon: 'logos:storybook-icon'
+    },
+    {
+        tech: 'stencil',
+        icon: 'vscode-icons:file-type-stencil'
+    },
+    {
+        tech: 'figma',
+        icon: 'logos:figma'
+    },
 ]

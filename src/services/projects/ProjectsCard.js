@@ -7,7 +7,7 @@ import {
   Button,
 } from '@mui/material';
 
-import { colourScheme } from '../../styles/colourScheme';
+// import { colourScheme } from '../../styles/colourScheme';
 
 export const ProjectsCard = (props) => {
   const {
@@ -23,19 +23,24 @@ export const ProjectsCard = (props) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        border: '1px solid #eee',
+        // border: '1px solid #eee',
         width: 'auto',
         margin: mobileView ? 1 : '10px 64px',
         bgcolor: "text.secondary",
         borderRadius: "5px",
-        boxShadow: `1px 3px 1px ${colourScheme.black}`
+        // boxShadow: `1px 3px 1px ${colourScheme.black}`
+        boxShadow: `0px 1px 20px rgb(0,0,0,0.5)`
       }}
     >
       <Typography
         variant="h5"
-        color="text.secondary"
-        bgcolor="primary.main"
+        // color="text.secondary"
+        color="#eee"
+        // bgcolor="primary.main"
+        bgcolor="#2e2e2e"
         padding="5px 10px 5px 10px"
+        // borderRadius="5px 5px 0 0"
+        // borderRadius="5px"
         borderRadius="5px 5px 0 0"
         fontWeight="bold"
       >
@@ -51,8 +56,9 @@ export const ProjectsCard = (props) => {
         <img
           width={mobileView ? 'auto' : '50%'}
           style={{
-            border: '1px solid #eee',
-            borderRadius: '5px',
+            // border: '1px solid #eee',
+            // borderRadius: '5px',
+            borderRadius: '0 0 5px 5px',
             margin: 2,
           }}
           src={image}
@@ -84,8 +90,9 @@ export const ProjectsCard = (props) => {
           >
             <Button
               variant="contained"
-              color="secondary"
-              style={{ width: "100%"}}
+              // color="secondary"
+              color="primary"
+              style={{ width: "100%" }}
             >
               CLICK HERE TO CHECK IT OUT
             </Button>

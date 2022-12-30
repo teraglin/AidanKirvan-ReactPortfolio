@@ -4,12 +4,13 @@ import {
   Box,
   Typography,
   ImageList,
-  ImageListItem
 } from '@mui/material';
 
 import { techIcons } from '../data/tech-icons';
 
 import { colourScheme } from '../styles/colourScheme';
+
+import { Icon } from '@iconify/react'
 
 const backgroundImage = "../../images/star-vector.jpg";
 
@@ -89,19 +90,32 @@ const TechIcons = (props) => {
             sx={{
               width: 500,
               height: 500,
+              overflow: 'visible'
             }}
             cols={4}
             rowHeight={4}
           >
-          {techIcons.map((icon, index) => (
-            <ImageListItem key={index}>
-              <img
-                src={icon.src}
-                alt={icon.tech}
-                loading="lazy"
-              />
-            </ImageListItem>
-          ))}
+            {techIcons.map((icon, index) => (
+              <div
+                style={{
+                  borderRadius: '25%',
+                  padding: '8px',
+                  aspectRatio: '1/1',
+                  backgroundColor: 'rgb(255,255,255)',
+                  boxShadow: '0 4px 24px rgb(0,0,0,0.5)'
+                }}
+              >
+                <Icon
+                  key={index}
+                  icon={icon.icon}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                  }}
+                >
+                </Icon>
+              </div>
+            ))}
 
           </ImageList>
         </Box>
