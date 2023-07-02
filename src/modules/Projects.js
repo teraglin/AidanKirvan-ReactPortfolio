@@ -9,7 +9,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 64px 0 128px;
+  scroll-margin-top: 64px;
+  /* padding: 64px 0 128px; */
 `;
 const Heading = styled.h2`
   display: inline-block;
@@ -20,7 +21,7 @@ const Heading = styled.h2`
 
 const Projects = () => {
   return (
-    <Container>
+    <Container id="projects">
       <Heading>Some Projects...</Heading>
       {projects.map(
         (project, index) =>

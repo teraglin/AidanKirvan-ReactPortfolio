@@ -4,9 +4,9 @@ import { techIcons } from "../data/tech-icons";
 import { Icon } from "@iconify/react";
 import { color } from "../styles/colourScheme";
 
-const HeroContainer = styled.div`
+const Container = styled.div`
   width: 100%;
-  padding: 32px 0;
+  scroll-margin-top: 64px;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -82,7 +82,7 @@ const IconContainer = styled.div`
 
 const Hero = () => {
   return (
-    <HeroContainer>
+    <Container id="top">
       <HeadingContainer>
         <Headings>
           <Heading>Aidan Kirvan</Heading>
@@ -102,7 +102,7 @@ const Hero = () => {
           </IconContainer>
         ))}
       </TechIcons>
-    </HeroContainer>
+    </Container>
   );
 };
 

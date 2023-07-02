@@ -8,11 +8,11 @@ const ContactLinkContainer = styled.a`
   width: 100%;
   justify-content: center;
   background-image: linear-gradient(to right, ${color.green}, ${color.purple});
-  /* border: 2px solid ${color.white}; */
   text-decoration: none;
+  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
   &:hover {
   }
-  `;
+`;
 const LinkText = styled.span`
   color: ${color.purple};
   margin: 5px 0;
@@ -26,6 +26,7 @@ const LinkText = styled.span`
   padding: 8px;
   margin: 2px;
   background: ${color.black};
+  gap: 8px;
   a:hover & {
     padding: 10px;
     color: ${color.white};
@@ -46,10 +47,17 @@ export const ContactLink = ({ icon, link, title }) => {
           borderRadius: 10,
           width: 100,
           height: 100,
+          margin: "0 3px 0 4px",
         }}
         icon={icon}
       />
-      <LinkText>{title}</LinkText>
+      <LinkText>
+        {title}{" "}
+        <Icon
+          icon="fluent:window-new-20-filled"
+          style={{ height: 24, width: 24 }}
+        />
+      </LinkText>
     </ContactLinkContainer>
   );
 };

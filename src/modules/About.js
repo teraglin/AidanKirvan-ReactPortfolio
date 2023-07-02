@@ -7,10 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   gap: 16px;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* padding: 4, */
-  /* paddingTop: 95, */
+  scroll-margin-top: 64px;
 `;
 const Heading = styled.h2`
   display: inline-block;
@@ -43,30 +40,28 @@ const Image = styled.img`
   width: 100%;
 `;
 const TitleTableContent = styled.div`
-  padding: 4px 0; // was margin-y and sm:mt-0
+  padding: 4px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   @media (min-width: 750px) {
-    width: 70%; //was 8/12
+    width: 70%;
   }
   @media (min-width: 1150px) {
-    width: 80%; //was 9/12
-    // good luck
+    width: 80%;
   }
 `;
 const Job = styled.h5`
-width: calc(100% - 14px);
-padding: 8px;
-font-weight: bold;
-background: ${color.black};
-/* color: ${color.white}; */
-text-align: center;
-@media (min-width: 780px) {
-  width: 83%;
-}
+  width: calc(100% - 14px);
+  padding: 8px;
+  font-weight: bold;
+  background: ${color.black};
+  text-align: center;
+  @media (min-width: 780px) {
+    width: 83%;
+  }
 `;
 const TitleTable = styled.table`
   width: 100%;
@@ -81,7 +76,6 @@ const TitleTable = styled.table`
 `;
 const Subheading = styled.h4`
   display: inline-block;
-  /* border-bottom: 2px solid ${color.white}; */
   padding: 8px;
   text-transform: uppercase;
 `;
@@ -90,7 +84,6 @@ const SummaryTableCell = styled.td`
   width: 50% !important;
   padding: 10px;
   border: 2px solid ${color.white};
-  /* background: ${color.black}; */
   background: #222;
   border-radius: 4px;
   font-weight: bold;
@@ -105,35 +98,29 @@ const SubtableContainer = styled.table`
   border-collapse: separate;
 `;
 const SkillsTableCell = styled.td`
-    color: ${color.white};
-    /* color: ${color.black}; */
-    width: 50% !important;
-    padding: 15px;
-    /* background: ${color.black}; */
-    background: #222;
-    /* background-image: linear-gradient(to right, transparent 20%, ${color.white} 80%, transparent 100%); */
-    border: 1px solid ${color.white};
-    border-radius: 4px;
-    margin: 4;
-    box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
-  `;
+  color: ${color.white};
+  width: 50% !important;
+  padding: 15px;
+  background: #222;
+  border: 1px solid ${color.white};
+  border-radius: 4px;
+  margin: 4;
+  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
+`;
 const InterestsTableCell = styled.td`
-    color: ${color.white};
-    /* color: ${color.black}; */
-    width: 100%;
-    padding: 15px;
-    /* background: ${color.black}; */
-    background: #222;
-    /* background-image: linear-gradient(to right, transparent 20%, ${color.white} 80%, transparent 100%); */
-    border: 1px solid ${color.white};
-    border-radius: 4px;
-    margin: 4;
-    box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
-  `;
+  color: ${color.white};
+  width: 100%;
+  padding: 15px;
+  background: #222;
+  border: 1px solid ${color.white};
+  border-radius: 4px;
+  margin: 4;
+  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
+`;
 
 const About = () => {
   return (
-    <Container>
+    <Container id="about">
       <Heading>ABOUT ME</Heading>
       <TitleTableContainer>
         <ImageContainer>

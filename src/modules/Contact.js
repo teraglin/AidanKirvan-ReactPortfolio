@@ -4,13 +4,13 @@ import { color } from "../styles/colourScheme";
 import { ContactLink } from "../components/ContactLink";
 import { Icon } from "@iconify/react";
 
-const ContactContainer = styled.div`
+const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
-  margin-bottom: 128px;
+  padding-bottom: 64px;
   gap: 16px;
+  scroll-margin-top: 64px;
 `;
 const Heading = styled.h2`
   display: inline-block;
@@ -117,7 +117,7 @@ const Contact = () => {
   };
 
   return (
-    <ContactContainer>
+    <Container id="contact">
       <Heading>Contact Me</Heading>
       <Form
         name="contact"
@@ -136,7 +136,7 @@ const Contact = () => {
         </Label>
         <Button type="submit">
           <ButtonText>
-            Send
+            SEND
             <Icon
               icon="mdi:email-fast-outline"
               style={{ height: 24, width: 24 }}
@@ -154,7 +154,7 @@ const Contact = () => {
           />
         ))}
       </LinksContainer>
-    </ContactContainer>
+    </Container>
   );
 };
 
