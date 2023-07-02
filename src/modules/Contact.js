@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { color } from "../styles/colourScheme";
 import { ContactLink } from "../components/ContactLink";
@@ -59,9 +59,16 @@ const Button = styled.button`
   cursor: pointer;
   /* width: 100%; */
   margin: 0 auto;
-  height: 100;
+  height: 50px;
+  width: 100px;
   padding: 0;
   background-image: linear-gradient(to right, ${color.green}, ${color.purple});
+  &[is-submitted="true"] {
+    width: 50px;
+    background: ${color.green};
+    border-radius: 100%;
+    transition: width 0.1s linear, border-radius 0.1s linear;
+  }
 `;
 const ButtonText = styled.span`
   font-weight: bold;
@@ -70,8 +77,7 @@ const ButtonText = styled.span`
   margin: 2px;
   background: ${color.black};
   text-align: center;
-  /* width: calc(100%); */
-  height: calc(100%);
+  height: calc(100% - 4px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,9 +91,21 @@ const ButtonText = styled.span`
     background: none;
     transition: background 0.1s linear;
   }
+  button[is-submitted="true"] & {
+    background: none;
+    padding: 0;
+    color: ${color.white};
+  }
 `;
 
 const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState("false");
+  const [submissionError, setSubmissionError] = useState("false");
   const contactList = [
     {
       title: "teraglin",
@@ -101,22 +119,37 @@ const Contact = () => {
     },
   ];
 
+  function handleChange(e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const myForm = event.target;
-    const formData = new FormData(myForm);
-    console.log(event.target);
-    console.log("formData", formData);
-    console.log(new URLSearchParams(formData).toString());
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
+      body: encode({ "form-name": "contact", ...form }),
     })
-      .then(() => console.log("Form successfully submitted"))
-      .catch((error) => alert(error));
+      .then(() => {
+        setSubmitted("true");
+        console.log("Form successfully submitted");
+      })
+      .catch((error) => {
+        setSubmissionError("true");
+        alert(error);
+      });
   };
 
   return (
@@ -127,7 +160,6 @@ const Contact = () => {
         method="POST"
         data-netlify="true"
         onSubmit={handleSubmit}
-        // onSubmit="submit"
         data-netlify-honeypot="bot-field"
       >
         <input type="hidden" name="contact-me" value="contact" />
@@ -135,21 +167,44 @@ const Contact = () => {
           <input name="bot-filed" />
         </div>
         <Label>
-          Your Name: <Input type="text" name="name" />
+          Your Name:{" "}
+          <Input required type="text" name="name" onChange={handleChange} />
         </Label>
         <Label>
-          Your Email: <Input type="email" name="email" />
+          Your Email:{" "}
+          <Input type="email" required name="email" onChange={handleChange} />
         </Label>
         <Label>
-          Message: <Message name="message" rows="4"></Message>
+          Message:{" "}
+          <Message
+            name="message"
+            required
+            rows="4"
+            onChange={handleChange}
+          ></Message>
         </Label>
-        <Button type="submit">
+        <Button
+          type="submit"
+          is-submitted={submitted}
+          disabled={
+            submitted === "true" || submissionError === "true" ? true : false
+          }
+        >
           <ButtonText>
-            SEND
-            <Icon
-              icon="mdi:email-fast-outline"
-              style={{ height: 24, width: 24 }}
-            />
+            {submitted === "false" && submissionError === "false" ? (
+              <>
+                SEND
+                <Icon
+                  icon="mdi:email-fast-outline"
+                  style={{ height: 24, width: 24 }}
+                />
+              </>
+            ) : (
+              <Icon
+                icon={submitted === "true" ? "mdi:tick" : "radix-icons:cross-2"}
+                style={{ height: 24, width: 24 }}
+              />
+            )}
           </ButtonText>
         </Button>
       </Form>
