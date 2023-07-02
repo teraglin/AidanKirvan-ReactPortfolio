@@ -6,8 +6,6 @@
     "@craco/craco": "^6.1.2",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@mui/icons-material": "^5.2.5",
-    "@mui/material": "^5.2.7",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -47,7 +45,6 @@
     "@iconify/react": "^4.0.1",
     "autoprefixer": "^9",
     "file-loader": "^6.2.0",
-    "postcss": "^7",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "styled-components": "^6.0.0-rc.3"
   }
 }

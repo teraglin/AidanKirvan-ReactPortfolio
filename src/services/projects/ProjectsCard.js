@@ -1,104 +1,107 @@
+import { Icon } from "@iconify/react";
 import React from "react";
+import styled from "styled-components";
+import { color } from "../../styles/colourScheme";
 
-import {
-  Box,
-  Typography,
-  Link,
-  Button,
-} from '@mui/material';
-
-// import { colourScheme } from '../../styles/colourScheme';
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  background-color: ${color.white};
+  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
+  overflow: hidden;
+  padding: 2px;
+  gap: 2px;
+`;
+const Title = styled.h5`
+  color: ${color.white};
+  background-color: ${color.black};
+  padding: 4px 8px;
+  font-weight: bold;
+  font-family: "Source Code Pro", monospace;
+`;
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2px;
+  @media (min-width: 780px) {
+    flex-direction: row;
+  }
+`;
+const Image = styled.img`
+  width: auto;
+  min-height: 235.48px;
+  @media (min-width: 780px) {
+    width: 50%;
+    min-width: 50%;
+  }
+`;
+const Copy = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  gap: 2px;
+  padding: 2px, @media (min-width: 780px) {
+    width: 50%;
+  }
+`;
+const Text = styled.p`
+  padding: 16px;
+  background: black;
+  height: 100%;
+  width: 100%;
+  font-family: "Source Code Pro", monospace;
+`;
+const Link = styled.a`
+  color: cyan;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+`;
+const Button = styled.button`
+  border: none;
+  background-image: linear-gradient(to right, ${color.green}, ${color.purple});
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+`;
 
 export const ProjectsCard = (props) => {
-  const {
-    mobileView,
-    projectName,
-    image,
-    description,
-    link,
-  } = props;
+  const { projectName, image, description, link } = props;
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        // border: '1px solid #eee',
-        width: 'auto',
-        margin: mobileView ? 1 : '10px 64px',
-        bgcolor: "text.secondary",
-        borderRadius: "5px",
-        // boxShadow: `1px 3px 1px ${colourScheme.black}`
-        boxShadow: `0px 1px 20px rgb(0,0,0,0.5)`
-      }}
-    >
-      <Typography
-        variant="h5"
-        // color="text.secondary"
-        color="#eee"
-        // bgcolor="primary.main"
-        bgcolor="#2e2e2e"
-        padding="5px 10px 5px 10px"
-        // borderRadius="5px 5px 0 0"
-        // borderRadius="5px"
-        borderRadius="5px 5px 0 0"
-        fontWeight="bold"
-      >
-        {projectName}
-      </Typography>
-      <Box
-        style={{
-          display: 'flex',
-          flexDirection: mobileView ? 'column' : 'row',
-          width: '100%',
-        }}
-      >
-        <img
-          width={mobileView ? 'auto' : '50%'}
-          style={{
-            // border: '1px solid #eee',
-            // borderRadius: '5px',
-            borderRadius: '0 0 5px 5px',
-            margin: 2,
-          }}
-          src={image}
-          alt={projectName}
-        />
-        <Box
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: mobileView ? '100%' : '50%',
-            justifyContent: 'space-between',
-            padding: 2,
-          }}
-        >
-          <Typography
-            variant="body1"
-            color="text.primary"
-            padding={2}
-          >{description}</Typography>
+    <Card>
+      <Title>{">_" + projectName}</Title>
+      <Content>
+        <Image src={image} alt={projectName} />
+        <Copy>
+          <Text>{description}</Text>
 
           <Link
+            style={{ cursor: "pointer" }}
             href={link}
-            variant="body1"
-            color="text"
             target="_blank"
             rel="noreferrer noopener"
-            underline='none'
-            style={{ display: 'inline-block', width: '100%' }}
           >
-            <Button
-              variant="contained"
-              // color="secondary"
-              color="primary"
-              style={{ width: "100%" }}
-            >
-              CLICK HERE TO CHECK IT OUT
+            <Button>
+              CLICK HERE TO CHECK IT OUT{" "}
+              <Icon
+                icon="fluent:window-new-20-filled"
+                style={{ height: 24, width: 24 }}
+              />
             </Button>
           </Link>
-        </Box>
-      </Box>
-    </Box>
-  )
-}
+        </Copy>
+      </Content>
+    </Card>
+  );
+};
