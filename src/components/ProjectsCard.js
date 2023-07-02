@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import styled from "styled-components";
-import { color } from "../../styles/colourScheme";
+import { color } from "../styles/colourScheme";
 
 const Card = styled.div`
   display: flex;
@@ -59,20 +59,29 @@ const Link = styled.a`
   text-decoration: none;
   display: inline-block;
   width: 100%;
+  background-image: linear-gradient(to right, ${color.green}, ${color.purple});
 `;
 const Button = styled.button`
+  cursor: pointer;
   border: none;
-  background-image: linear-gradient(to right, ${color.green}, ${color.purple});
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
   padding: 8px;
-  color: white;
+  color: ${color.purple};
   font-weight: bold;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin: 2px;
+  background: ${color.black};
+
+  a:hover & {
+    color: ${color.white};
+    background: none;
+    transition: background 0.2s linear;
+  }
 `;
 
 export const ProjectsCard = (props) => {
@@ -86,12 +95,7 @@ export const ProjectsCard = (props) => {
         <Copy>
           <Text>{description}</Text>
 
-          <Link
-            style={{ cursor: "pointer" }}
-            href={link}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          <Link href={link} target="_blank" rel="noreferrer noopener">
             <Button>
               CLICK HERE TO CHECK IT OUT{" "}
               <Icon

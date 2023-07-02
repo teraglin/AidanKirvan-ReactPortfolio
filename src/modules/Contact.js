@@ -1,108 +1,161 @@
-import React, { useState } from 'react'
+import React from "react";
+import styled from "styled-components";
+import { color } from "../styles/colourScheme";
+import { ContactLink } from "../components/ContactLink";
+import { Icon } from "@iconify/react";
 
-import linkedinContactIcon from '../images/icon-contact-linkedin.png'
-import twitterContactIcon from '../images/icon-contact-twitter.png'
-import octocat from '../images/Octocat.jpg'
+const ContactContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  margin-bottom: 128px;
+  gap: 16px;
+`;
+const Heading = styled.h2`
+  display: inline-block;
+  border-bottom: 2px solid ${color.white};
+  padding: 8px;
+  text-transform: uppercase;
+`;
+const Form = styled.form`
+  width: 100%;
+  background: ${color.black};
+  border: 2px solid ${color.white};
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+const Label = styled.label`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 18px;
+  line-height: 24px;
+`;
+const Input = styled.input`
+  width: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 8px;
+`;
+const Message = styled.textarea`
+  width: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 8px;
+`;
+const LinksContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+`;
+const Button = styled.button`
+  border: none;
+  cursor: pointer;
+  /* width: 100%; */
+  margin: 0 auto;
+  height: 100;
+  padding: 0;
+  background-image: linear-gradient(to right, ${color.green}, ${color.purple});
+`;
+const ButtonText = styled.span`
+  font-weight: bold;
+  padding: 8px;
+  color: ${color.purple};
+  margin: 2px;
+  background: ${color.black};
+  text-align: center;
+  /* width: calc(100%); */
+  height: calc(100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 8px;
+  flex-direction: row;
+  button:hover & {
+    color: ${color.white};
+    background: none;
+    transition: background 0.1s linear;
+  }
+`;
 
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+const Contact = () => {
+  const contactList = [
+    {
+      title: "teraglin",
+      icon: "mdi:github",
+      link: "https://github.com/teraglin",
+    },
+    {
+      title: "Aidan Kirvan",
+      icon: "devicon:linkedin",
+      link: "https://www.linkedin.com/in/aidan-kirvan/",
+    },
+  ];
 
-import { colourScheme } from '../styles/colourScheme';
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-import { ContactLink } from '../services/contact/ContactLink';
+    const myForm = event.target;
+    const formData = new FormData(myForm);
 
-const linkedInLink = "https://www.linkedin.com/in/aidan-kirvan/";
-const twitterLink = "https://twitter.com/kakaposaur";
-const githubLink = "https://github.com/teraglin";
-
-const Contact = (props) => {
-  const { mobileView } = props;
-
-  const [hoverStatus, setHoverStatus] = useState({
-    linkedIn: false,
-    twitter: false,
-    gitHub: false
-  });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
+  };
 
   return (
-    <Box id="contact"
-      style={{
-        width: '100%',
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingTop: 100,
-      }}
-      sx={{
-        backgroundImage: `linear-gradient(to bottom,  ${colourScheme.black}, ${colourScheme.gray})`
-      }}
-    >
-      <Typography
-        color="text.primary"
-        variant={mobileView ? 'h4' : 'h3'}
-        width="100%"
-        textAlign={mobileView ? "center" : "left"}
-        padding={mobileView ? 1 : '64px 0 15px 64px'}
+    <ContactContainer>
+      <Heading>Contact Me</Heading>
+      <Form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        onSubmit={handleSubmit}
       >
-        FOLLOW OR CONTACT ME
-      </Typography>
+        <Label>
+          Your Name: <Input type="text" name="name" />
+        </Label>
+        <Label>
+          Your Email: <Input type="email" name="email" />
+        </Label>
+        <Label>
+          Message: <Message name="message" rows="4"></Message>
+        </Label>
+        <Button type="submit">
+          <ButtonText>
+            Send
+            <Icon
+              icon="mdi:email-fast-outline"
+              style={{ height: 24, width: 24 }}
+            />
+          </ButtonText>
+        </Button>
+      </Form>
+      <LinksContainer>
+        {contactList.map((contact, index) => (
+          <ContactLink
+            key={index}
+            title={contact.title}
+            icon={contact.icon}
+            link={contact.link}
+          />
+        ))}
+      </LinksContainer>
+    </ContactContainer>
+  );
+};
 
-      {/* github  */}
-      <ContactLink
-        contactTitle="teraglin"
-        contactImage={octocat}
-        contactLink={githubLink}
-        hoverStatusRef={hoverStatus.gitHub}
-        mobileView={mobileView}
-        onMouseEnter={() => setHoverStatus({
-          ...hoverStatus,
-          gitHub: true
-        })}
-        onMouseLeave={() => setHoverStatus({
-          ...hoverStatus,
-          gitHub: false
-        })}
-      />
-
-      {/* linkedIn  */}
-      <ContactLink
-        contactTitle="/aidan-kirvan/"
-        contactImage={linkedinContactIcon}
-        contactLink={linkedInLink}
-        hoverStatusRef={hoverStatus.linkedIn}
-        mobileView={mobileView}
-        onMouseEnter={() => setHoverStatus({
-          ...hoverStatus,
-          linkedIn: true
-        })}
-        onMouseLeave={() => setHoverStatus({
-          ...hoverStatus,
-          linkedIn: false
-        })}
-      />
-
-      {/* twitter  */}
-      <ContactLink
-        contactTitle="@kakposaur"
-        contactImage={twitterContactIcon}
-        contactLink={twitterLink}
-        hoverStatusRef={hoverStatus.twitter}
-        mobileView={mobileView}
-        onMouseEnter={() => setHoverStatus({
-          ...hoverStatus,
-          twitter: true
-        })}
-        onMouseLeave={() => setHoverStatus({
-          ...hoverStatus,
-          twitter: false
-        })}
-      />
-    </Box>
-  )
-}
-
-export default Contact
+export default Contact;

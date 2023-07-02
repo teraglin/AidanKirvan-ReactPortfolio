@@ -18,7 +18,7 @@ const Heading = styled.h2`
   padding: 8px;
   text-transform: uppercase;
 `;
-const TitleTable = styled.div`
+const TitleTableContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -68,7 +68,7 @@ text-align: center;
   width: 83%;
 }
 `;
-const TitleTableTableIDGAF = styled.table`
+const TitleTable = styled.table`
   width: 100%;
   height: 100px;
   text-align: center;
@@ -135,7 +135,7 @@ const About = () => {
   return (
     <Container>
       <Heading>ABOUT ME</Heading>
-      <TitleTable>
+      <TitleTableContainer>
         <ImageContainer>
           <Image
             alt="profile"
@@ -144,7 +144,7 @@ const About = () => {
         </ImageContainer>
         <TitleTableContent>
           <Job>FRONTEND DEVELOPER</Job>
-          <TitleTableTableIDGAF>
+          <TitleTable>
             <tbody>
               <tr>
                 <SummaryTableCell>Artist</SummaryTableCell>
@@ -159,9 +159,9 @@ const About = () => {
                 <SummaryTableCell>Cat Servant</SummaryTableCell>
               </tr>
             </tbody>
-          </TitleTableTableIDGAF>
+          </TitleTable>
         </TitleTableContent>
-      </TitleTable>
+      </TitleTableContainer>
 
       {/* OTHER SKILLS  */}
       <Subheading>OTHER SKILLS</Subheading>
@@ -199,14 +199,13 @@ const About = () => {
       <SubtableContainer>
         <tbody>
           <tr>
-            <InterestsTableCell>Tabletop Gaming</InterestsTableCell>
-          </tr>
-          <tr>
-            <InterestsTableCell>Roleplay Gaming</InterestsTableCell>
+            <InterestsTableCell>
+              Tabletop Gaming (Playing and Developing)
+            </InterestsTableCell>
           </tr>
           <tr>
             <InterestsTableCell>
-              Web and App Integration for Tabletop Gaming
+              App Integration for Tabletop Gaming
             </InterestsTableCell>
           </tr>
           <tr>

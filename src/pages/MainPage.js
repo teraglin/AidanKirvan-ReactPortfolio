@@ -5,6 +5,7 @@ import { color } from "../styles/colourScheme";
 import Hero from "../modules/Hero";
 import Projects from "../modules/Projects";
 import About from "../modules/About";
+import Contact from "../modules/Contact";
 
 const App = styled("div")`
   width: 100vw;
@@ -28,7 +29,7 @@ export const MainPage = () => {
         <Hero id="hero" />
         <About id="about" />
         <Projects id="projects" />
-        {/* <Contact id="contact" /> */}
+        <Contact id="contact" />
       </Body>
     </App>
   );

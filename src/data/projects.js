@@ -1,5 +1,14 @@
 export const projects = [
   {
+    projectName: "40k 10e Index Calculator",
+    description:
+      "A tool for calculating total unit points for Warhammer 40k 10th edition. Additional indexes and functionality yet to come.",
+    link: "https://40k10eindexcalculator.netlify.app/",
+    image:
+      "https://res.cloudinary.com/djdozfiqv/image/upload/v1687785268/40kindexcalculator_u4cxv0.png",
+    show: true,
+  },
+  {
     projectName: "WIP: Fight Monsters or Whatever (React Edition)",
     description: `A work-in-progress early attempt to recreate my Ruby Terminal App game in React.`,
     link: "https://fightmonstersorwhatever.netlify.app/",
@@ -46,15 +55,6 @@ export const projects = [
       "A turn-based fighting game inspired by combat logic from 5th Edition Dungeons & Dragons (a tabletop game). Enemies are randomly generated for every game. Adding special attacks for monsters posed the greatest challenge.",
     link: "https://github.com/teraglin/Fight-Monsters-or-Whatever",
     image: `https://res.cloudinary.com/djdozfiqv/image/upload/v1622770660/fmow-og-screen_u6cei8.png`,
-    show: true,
-  },
-  {
-    projectName: "40k 10e Index Calculator",
-    description:
-      "A tool for calculating total unit points for Warhammer 40k 10th edition. Additional indexes and functionality yet to come.",
-    link: "https://40k10eindexcalculator.netlify.app/",
-    image:
-      "https://res.cloudinary.com/djdozfiqv/image/upload/v1687785268/40kindexcalculator_u4cxv0.png",
     show: true,
   },
 ];

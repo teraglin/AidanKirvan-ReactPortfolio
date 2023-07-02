@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { color } from "../styles/colourScheme";
 import { projects } from "../data/projects";
-import { ProjectsCard } from "../services/projects/ProjectsCard";
+import { ProjectsCard } from "../components/ProjectsCard";
 
 const Container = styled.div`
   width: 100%;
