@@ -155,58 +155,66 @@ const Contact = () => {
   return (
     <Container id="contact">
       <Heading>Contact Me</Heading>
-      <Form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        onSubmit={handleSubmit}
-        data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="contact-me" value="contact" />
-        <div hidden>
-          <input name="bot-filed" />
-        </div>
-        <Label>
-          Your Name:{" "}
-          <Input required type="text" name="name" onChange={handleChange} />
-        </Label>
-        <Label>
-          Your Email:{" "}
-          <Input type="email" required name="email" onChange={handleChange} />
-        </Label>
-        <Label>
-          Message:{" "}
-          <Message
-            name="message"
-            required
-            rows="4"
-            onChange={handleChange}
-          ></Message>
-        </Label>
-        <Button
-          type="submit"
-          is-submitted={submitted}
-          disabled={
-            submitted === "true" || submissionError === "true" ? true : false
-          }
+      <Form name="contact" method="POST" onSubmit={handleSubmit}>
+        <input type="hidden" name="form-name" value="contact" />
+        <p>
+          <Label>
+            Your Name:{" "}
+            <Input required type="text" name="name" onChange={handleChange} />
+          </Label>
+        </p>
+        <p>
+          <Label>
+            Your Email:{" "}
+            <Input type="email" required name="email" onChange={handleChange} />
+          </Label>
+        </p>
+        <p>
+          <Label>
+            Message:{" "}
+            <Message
+              name="message"
+              required
+              rows="4"
+              onChange={handleChange}
+            ></Message>
+          </Label>
+        </p>
+        <p
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
         >
-          <ButtonText>
-            {submitted === "false" && submissionError === "false" ? (
-              <>
-                SEND
+          <Button
+            type="submit"
+            is-submitted={submitted}
+            disabled={
+              submitted === "true" || submissionError === "true" ? true : false
+            }
+          >
+            <ButtonText>
+              {submitted === "false" && submissionError === "false" ? (
+                <>
+                  SEND
+                  <Icon
+                    icon="mdi:email-fast-outline"
+                    style={{ height: 24, width: 24 }}
+                  />
+                </>
+              ) : (
                 <Icon
-                  icon="mdi:email-fast-outline"
+                  icon={
+                    submitted === "true" ? "mdi:tick" : "radix-icons:cross-2"
+                  }
                   style={{ height: 24, width: 24 }}
                 />
-              </>
-            ) : (
-              <Icon
-                icon={submitted === "true" ? "mdi:tick" : "radix-icons:cross-2"}
-                style={{ height: 24, width: 24 }}
-              />
-            )}
-          </ButtonText>
-        </Button>
+              )}
+            </ButtonText>
+          </Button>
+        </p>
       </Form>
       <LinksContainer>
         {contactList.map((contact, index) => (
