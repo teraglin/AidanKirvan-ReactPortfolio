@@ -40,6 +40,17 @@ const flickerMobile = keyframes`
     ${mobileShadowWhiteFull};
   }
 `;
+const pulse = keyframes`
+  0% {
+    box-shadow: inset 0px 0px 75px purple;
+  }
+  50% {
+    box-shadow: inset 0px 0px 75px crimson;
+  }
+  100% {
+    box-shadow: inset 0px 0px 75px purple;
+  }
+`;
 // const flickerDesktop = keyframes`
 //   0% {
 //     ${mobileShadowTransparent};
@@ -129,6 +140,9 @@ const LandscapeWarning = styled.div`
   top: 0;
   left: 0;
   z-index: 100;
+  animation-name: ${pulse};
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
   @media (max-height: 630px) and (max-width: 920px) {
     display: flex;
     justify-content: center;
