@@ -14,6 +14,10 @@ const mobileShadowWhiteFull = "box-shadow: inset 0px 24px 100px grey";
 // const desktopShadowWhiteFlicker = `box-shadow: 0px 24px 75px #5c5d5e`;
 // const desktopShadowWhiteFull = `box-shadow: 0px 24px 100px #5c5d5e`;
 
+function randomNumber() {
+  return Math.floor(Math.random() * (Math.random() > 0.5 ? 2 : -2));
+}
+
 const flickerMobile = keyframes`
   0% {
     ${mobileShadowTransparent};
@@ -49,6 +53,71 @@ const pulse = keyframes`
   }
   100% {
     box-shadow: inset 0px 0px 75px purple;
+  }
+`;
+const twitch = keyframes`
+  0% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  5% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  10% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  15% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  20% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  25% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  30% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  35% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  40% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  45% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  50% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  55% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  60% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  65% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  70% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  75% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  80% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  85% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  90% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  95% {
+    transform: translate(${randomNumber()}px, ${randomNumber()}px);
+  }
+  100% {
+    transform: translate(${randomNumber()}, ${randomNumber()});
   }
 `;
 // const flickerDesktop = keyframes`
@@ -151,6 +220,9 @@ const LandscapeWarning = styled.div`
   & > h1 {
     text-align: center;
     text-shadow: 4px 4px 0px ${color.purple};
+    animation-name: ${twitch};
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
   }
 `;
 
