@@ -83,6 +83,9 @@ const App = styled("div")`
   @media (min-width: 1440px) {
     background-color: #2c2d2e;
   }
+  @media (max-height: 630px) and (max-width: 920px) {
+    display: none;
+  }
 `;
 
 const Body = styled("div")`
@@ -115,16 +118,43 @@ const Body = styled("div")`
   }
 `;
 
+const LandscapeWarning = styled.div`
+  display: none;
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
+  background: ${color.green};
+  color: ${color.white};
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  @media (max-height: 630px) and (max-width: 920px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  & > h1 {
+    text-align: center;
+    text-shadow: 4px 4px 0px ${color.purple};
+  }
+`;
+
 export const MainPage = () => {
   return (
-    <App>
-      <Nav />
-      <Body>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </Body>
-    </App>
+    <>
+      <LandscapeWarning>
+        <h1>You wouldn't like me when I'm landscape...</h1>
+      </LandscapeWarning>
+      <App>
+        <Nav />
+        <Body>
+          <Hero />
+          <About />
+          <Projects />
+          <Contact />
+        </Body>
+      </App>
+    </>
   );
 };
