@@ -21,7 +21,9 @@ const TitleTableContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   @media (min-width: 780px) {
+    gap: 0;
     flex-direction: row;
   }
 `;
@@ -30,27 +32,32 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 75%;
+  height: 280px;
   @media (min-width: 780px) {
-    width: 25%;
-    margin-left: 64px;
+    width: auto;
+    height: 200px;
+  }
+  @media (min-width: 900px) {
+    height: 230px;
+    margin-left: 32px;
   }
 `;
 const Image = styled.img`
   border-radius: 500px;
-  width: 100%;
+  height: 100%;
 `;
 const TitleTableContent = styled.div`
-  padding: 4px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   @media (min-width: 750px) {
-    width: 70%;
+    align-items: end;
+    width: 100%;
   }
-  @media (min-width: 1150px) {
-    width: 80%;
+  @media (min-width: 900px) {
+    align-items: center;
   }
 `;
 const Job = styled.h5`

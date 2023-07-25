@@ -57,18 +57,23 @@ const LinksContainer = styled.div`
 const Button = styled.button`
   border: none;
   cursor: pointer;
-  /* width: 100%; */
   margin: 0 auto;
   height: 50px;
   width: 100px;
   padding: 0;
   background-image: linear-gradient(to right, ${color.green}, ${color.purple});
-  &[is-submitted="true"] {
-    width: 50px;
+  ${(props) =>
+    props.$isSubmitted === "true" &&
+    `width: 50px;
     background: ${color.green};
     border-radius: 100%;
     transition: width 0.1s linear, border-radius 0.1s linear;
+  & ${ButtonText} {
+    background: none;
+    padding: 0;
+    color: ${color.white};
   }
+  `}
 `;
 const ButtonText = styled.span`
   font-weight: bold;
@@ -86,15 +91,10 @@ const ButtonText = styled.span`
   line-height: 24px;
   padding: 8px;
   flex-direction: row;
+  transition: background 0.1s linear;
   button:hover & {
     color: ${color.white};
     background: none;
-    transition: background 0.1s linear;
-  }
-  button[is-submitted="true"] & {
-    background: none;
-    padding: 0;
-    color: ${color.white};
   }
 `;
 
@@ -190,7 +190,7 @@ const Contact = () => {
         >
           <Button
             type="submit"
-            is-submitted={submitted}
+            $isSubmitted={submitted}
             disabled={
               submitted === "true" || submissionError === "true" ? true : false
             }

@@ -10,7 +10,6 @@ const NavContainer = styled.nav`
   height: 48px;
   display: flex;
   justify-content: space-evenly;
-  /* background-image: linear-gradient(to right, ${color.green}, ${color.purple}); */
   background: ${color.black};
   z-index: 10;
   position: fixed;
@@ -21,10 +20,15 @@ const Button = styled.button`
   height: 100%;
   color: ${color.white};
   font-weight: bold;
-  padding: 0 16px 0 16px;
+  padding: 0 16px;
   background: transparent;
   border: none;
   cursor: pointer;
+`;
+const HomeButton = styled(Button)`
+  padding: 0;
+  margin: 0 16px;
+  width: 24px;
 `;
 
 const Nav = () => {
@@ -32,9 +36,12 @@ const Nav = () => {
     <NavContainer>
       {/* TOP */}
       <ScrollIntoView selector="#top">
-        <Button>
-          <Icon icon="ant-design:home-filled" />
-        </Button>
+        <HomeButton>
+          <Icon
+            style={{ width: "100%", height: "100%" }}
+            icon="ant-design:home-filled"
+          />
+        </HomeButton>
       </ScrollIntoView>
       {/* ABOUT */}
       <ScrollIntoView selector="#about">

@@ -14,7 +14,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 32px;
   @media (min-width: 780px) {
-    justify-content: start;
+    justify-content: space-between;
     gap: 0;
     flex-direction: row;
   }
@@ -43,10 +43,13 @@ const Heading = styled.h1`
   padding: 8px;
   text-transform: uppercase;
   margin: 0 auto;
+  font-size: 32px;
+  @media (min-width: 900px) {
+    font-size: 42px;
+  }
 `;
 const SubHeading = styled.h5`
   display: inline-block;
-  /* border: 2px solid ${color.white}; */
   background: ${color.white};
   color: ${color.charcoal};
   padding: 8px;
@@ -54,7 +57,7 @@ const SubHeading = styled.h5`
   margin: 0 auto;
   width: 100%;
   text-align: center;
-  `;
+`;
 const TechIcons = styled.div`
   width: 100%;
   display: flex;
@@ -63,10 +66,11 @@ const TechIcons = styled.div`
   align-items: start;
   gap: 24px;
   height: fit-content;
-  /* margin: 0 auto; */
+  max-width: 300px;
   @media (min-width: 780px) {
     width: 50%;
     justify-content: end;
+    max-width: 500px;
   }
 `;
 const IconContainer = styled.div`

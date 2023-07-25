@@ -10,7 +10,6 @@ const Container = styled.div`
   flex-direction: column;
   gap: 16px;
   scroll-margin-top: 64px;
-  /* padding: 64px 0 128px; */
 `;
 const Heading = styled.h2`
   display: inline-block;

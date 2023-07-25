@@ -76,11 +76,10 @@ const Button = styled.button`
   gap: 8px;
   margin: 2px;
   background: ${color.black};
-
+  transition: background 0.2s linear;
   a:hover & {
     color: ${color.white};
     background: none;
-    transition: background 0.2s linear;
   }
 `;
 
