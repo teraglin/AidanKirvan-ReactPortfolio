@@ -79,7 +79,7 @@ const LandscapeWarning = styled.div`
   }
 `;
 
-export const MainPage = () => {
+const MainPage = () => {
   return (
     <>
       <LandscapeWarning>
@@ -97,3 +97,5 @@ export const MainPage = () => {
     </>
   );
 };
+
+export default MainPage;

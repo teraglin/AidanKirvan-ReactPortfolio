@@ -2,12 +2,17 @@ import "./styles/App.css";
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { MainPage } from "./pages/MainPage";
+import MainPage from "./pages/MainPage";
+import TableTop from "./pages/TableTop";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainPage />
+  },
+  {
+    path: "/tabletop",
+    element: <TableTop />
   },
   {
     path: "/*",
