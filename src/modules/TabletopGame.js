@@ -64,20 +64,18 @@ const TabletopGame = (props) => {
             }
           />
         </NextButton>
-        <DropShadow>
-          <GameImage>
-            {images.map(
-              (image, imageIndex) =>
-                imageIndex === carouselPosition[gameIndex] && (
-                  <GameCarouselImage
-                    key={imageIndex}
-                    src={image}
-                    alt={`${title} image ${gameIndex + 1}`}
-                  />
-                )
-            )}
-          </GameImage>
-        </DropShadow>
+        <GameImage>
+          {images.map(
+            (image, imageIndex) =>
+              imageIndex === carouselPosition[gameIndex] && (
+                <GameCarouselImage
+                  key={imageIndex}
+                  src={image}
+                  alt={`${title} image ${gameIndex + 1}`}
+                />
+              )
+          )}
+        </GameImage>
       </GameImageContainer>
     </Game>
   );
@@ -254,9 +252,6 @@ const NextButton = styled.button`
     right: 76px;
   }
 `;
-const DropShadow = styled.span`
-  filter: drop-shadow(-5px, 16px, 24px, rgba(0, 0, 0, 0.5));
-`;
 const GameImage = styled.div`
   position: static;
   top: 56px;
@@ -309,7 +304,7 @@ const RibbonTriange = styled.div`
   height: 56px;
   width: 112px;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-  background: ${color.white};
+  background-image: linear-gradient(155deg, ${color.white} 50%, lightgrey 100%);
   @media (min-width: 1120px) {
     display: block;
   }
