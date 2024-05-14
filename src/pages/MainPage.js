@@ -15,7 +15,7 @@ const MainPage = () => {
     <>
       <LandscapeWarning />
       <App>
-        <a href="/tabletop">
+        <a href="/tabletop" rel="noopener noreferrer">
           <TabletopPageButton>
             My Tabletop Game Designs
             <Icon
