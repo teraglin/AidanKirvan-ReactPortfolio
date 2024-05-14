@@ -4,6 +4,34 @@ import { techIcons } from "../data/tech-icons";
 import { Icon } from "@iconify/react";
 import { color } from "../styles/colourScheme";
 
+const Hero = () => {
+  return (
+    <Container id="top">
+      <HeadingContainer>
+        <Headings>
+          <Heading>Aidan Kirvan</Heading>
+          <SubHeading>Frontend Developer</SubHeading>
+        </Headings>
+      </HeadingContainer>
+      <TechIcons>
+        {techIcons.map((icon, index) => (
+          <IconContainer key={index}>
+            <Icon
+              icon={icon.icon}
+              style={{
+                width: "100%",
+                height: "100%"
+              }}
+            ></Icon>
+          </IconContainer>
+        ))}
+      </TechIcons>
+    </Container>
+  );
+};
+
+export default Hero;
+
 const Container = styled.div`
   width: 100%;
   scroll-margin-top: 64px;
@@ -47,6 +75,9 @@ const Heading = styled.h1`
   @media (min-width: 900px) {
     font-size: 42px;
   }
+  @media (max-height: 699px) {
+    margin-top: 68px;
+  }
 `;
 const SubHeading = styled.h5`
   display: inline-block;
@@ -83,31 +114,3 @@ const IconContainer = styled.div`
   background-color: ${color.black};
   border: 2px solid ${color.white};
 `;
-
-const Hero = () => {
-  return (
-    <Container id="top">
-      <HeadingContainer>
-        <Headings>
-          <Heading>Aidan Kirvan</Heading>
-          <SubHeading>Frontend Developer</SubHeading>
-        </Headings>
-      </HeadingContainer>
-      <TechIcons>
-        {techIcons.map((icon, index) => (
-          <IconContainer key={index}>
-            <Icon
-              icon={icon.icon}
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
-            ></Icon>
-          </IconContainer>
-        ))}
-      </TechIcons>
-    </Container>
-  );
-};
-
-export default Hero;

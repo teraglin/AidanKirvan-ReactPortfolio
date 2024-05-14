@@ -8,13 +8,22 @@ import Projects from "../modules/Projects";
 import About from "../modules/About";
 import Contact from "../modules/Contact";
 import { flickerMobile, fade } from "../styles/animations";
-import TabletopGame from "../modules/TabletopGame";
+import { Icon } from "@iconify/react";
 
 const MainPage = () => {
   return (
     <>
       <LandscapeWarning />
       <App>
+        <a href="/tabletop">
+          <TabletopPageButton>
+            My Tabletop Game Designs
+            <Icon
+              style={{ height: "100%", marginLeft: "8px" }}
+              icon={"line-md:arrow-right"}
+            />
+          </TabletopPageButton>
+        </a>
         <Nav />
         <Body>
           <Hero />
@@ -69,4 +78,15 @@ const Body = styled("div")`
       animation-timing-function: ease-in;
     }
   }
+`;
+const TabletopPageButton = styled.button`
+  border: none;
+  padding: 8px;
+  border-radius: 0 0 0 4px;
+  position: absolute;
+  right: 0;
+  top: 48px;
+  background: ${color.orange};
+  cursor: pointer;
+  z-index: 11;
 `;

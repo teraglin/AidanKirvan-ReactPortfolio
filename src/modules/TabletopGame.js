@@ -70,6 +70,7 @@ const TabletopGame = (props) => {
               (image, imageIndex) =>
                 imageIndex === carouselPosition[gameIndex] && (
                   <GameCarouselImage
+                    key={imageIndex}
                     src={image}
                     alt={`${title} image ${gameIndex + 1}`}
                   />
