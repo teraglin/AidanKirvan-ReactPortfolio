@@ -3,7 +3,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import MainPage from "./pages/MainPage";
-import TableTop from "./pages/TableTop";
+import TabletopPage from "./pages/TabletopPage";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/tabletop",
-    element: <TableTop />
+    element: <TabletopPage />
   },
   {
     path: "/*",
