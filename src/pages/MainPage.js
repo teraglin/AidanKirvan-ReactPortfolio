@@ -15,7 +15,7 @@ const MainPage = () => {
     <>
       <LandscapeWarning />
       <App>
-        <a href="/tabletop" rel="noopener noreferrer">
+        <TabletopPageLink href="/tabletop" rel="noopener noreferrer">
           <TabletopPageButton>
             My Tabletop Game Designs
             <Icon
@@ -23,7 +23,7 @@ const MainPage = () => {
               icon={"line-md:arrow-right"}
             />
           </TabletopPageButton>
-        </a>
+        </TabletopPageLink>
         <Nav />
         <Body>
           <Hero />
@@ -79,7 +79,12 @@ const Body = styled("div")`
     }
   }
 `;
+const TabletopPageLink = styled.a`
+  text-decoration: none;
+  color: ${color.black};
+`;
 const TabletopPageButton = styled.button`
+  color: ${color.black};
   border: none;
   padding: 8px;
   border-radius: 0 0 0 4px;
