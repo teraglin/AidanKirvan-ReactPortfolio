@@ -42,7 +42,7 @@ export const tabletopGames = {
       title: "The Coffee Gauntlet",
       description:
         "Action based board game where 1-4 office workers will have to juggle caffeine intake with office tasks with only a limited amount of resources for everyone to share.",
-      players: "1-4",
+      players: "2-4",
       time: "60-120",
       displayOn: true,
       titleImage: "",
@@ -53,7 +53,7 @@ export const tabletopGames = {
       title: "Tortoise Crossing",
       description:
         "A very lightweight game where players manoeuvre tortoises past one another. Currently, it is a 2-player game with the hopes of expanding to 3–5.",
-      players: "1-4",
+      players: "2",
       time: "15-30",
       displayOn: true,
       titleImage: "",
