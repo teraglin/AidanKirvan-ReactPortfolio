@@ -53,11 +53,6 @@ const About = () => {
             <SkillsTableCell>Procreate</SkillsTableCell>
             <SkillsTableCell>Photoshop</SkillsTableCell>
           </tr>
-
-          <tr>
-            <SkillsTableCell>Saxophone</SkillsTableCell>
-            <SkillsTableCell>Guitar</SkillsTableCell>
-          </tr>
         </tbody>
       </SubtableContainer>
 
