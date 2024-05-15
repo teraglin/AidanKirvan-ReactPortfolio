@@ -1,8 +1,142 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { color } from "../styles/colourScheme";
-import { ContactLink } from "../components/ContactLink";
+import ContactLink from "../components/ContactLink";
 import { Icon } from "@iconify/react";
+
+const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [submitted, setSubmitted] = useState("false");
+  const [submissionError, setSubmissionError] = useState("false");
+  const contactList = [
+    {
+      title: "teraglin",
+      icon: "mdi:github",
+      link: "https://github.com/teraglin"
+    },
+    {
+      title: "Aidan Kirvan",
+      icon: "devicon:linkedin",
+      link: "https://www.linkedin.com/in/aidan-kirvan/"
+    }
+  ];
+
+  function handleChange(e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...form })
+    })
+      .then(() => {
+        setSubmitted("true");
+        console.log("Form successfully submitted");
+      })
+      .catch((error) => {
+        setSubmissionError("true");
+        alert(error);
+      });
+  };
+
+  return (
+    <Container id="contact">
+      <Heading>Contact Me</Heading>
+      <Form name="contact" method="POST" onSubmit={handleSubmit}>
+        <input type="hidden" name="form-name" value="contact" />
+        <p>
+          <Label>
+            Your Name:{" "}
+            <Input required type="text" name="name" onChange={handleChange} />
+          </Label>
+        </p>
+        <p>
+          <Label>
+            Your Email:{" "}
+            <Input type="email" required name="email" onChange={handleChange} />
+          </Label>
+        </p>
+        <p>
+          <Label>
+            Message:{" "}
+            <Message
+              name="message"
+              required
+              rows="4"
+              onChange={handleChange}
+            ></Message>
+          </Label>
+        </p>
+        <p
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center"
+          }}
+        >
+          <Button
+            type="submit"
+            $isSubmitted={submitted}
+            disabled={
+              submitted === "true" || submissionError === "true" ? true : false
+            }
+          >
+            <ButtonText>
+              {submitted === "false" && submissionError === "false" ? (
+                <>
+                  SEND
+                  <Icon
+                    icon="mdi:email-fast-outline"
+                    style={{ height: 24, width: 24 }}
+                  />
+                </>
+              ) : (
+                <Icon
+                  icon={
+                    submitted === "true" ? "mdi:tick" : "radix-icons:cross-2"
+                  }
+                  style={{ height: 24, width: 24 }}
+                />
+              )}
+            </ButtonText>
+          </Button>
+        </p>
+      </Form>
+      <LinksContainer>
+        {contactList.map((contact, index) => (
+          <ContactLink
+            key={index}
+            title={contact.title}
+            icon={contact.icon}
+            link={contact.link}
+          />
+        ))}
+      </LinksContainer>
+    </Container>
+  );
+};
+
+export default Contact;
 
 const Container = styled.div`
   width: 100%;
@@ -97,137 +231,3 @@ const ButtonText = styled.span`
     background: none;
   }
 `;
-
-const Contact = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState("false");
-  const [submissionError, setSubmissionError] = useState("false");
-  const contactList = [
-    {
-      title: "teraglin",
-      icon: "mdi:github",
-      link: "https://github.com/teraglin",
-    },
-    {
-      title: "Aidan Kirvan",
-      icon: "devicon:linkedin",
-      link: "https://www.linkedin.com/in/aidan-kirvan/",
-    },
-  ];
-
-  function handleChange(e) {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...form }),
-    })
-      .then(() => {
-        setSubmitted("true");
-        console.log("Form successfully submitted");
-      })
-      .catch((error) => {
-        setSubmissionError("true");
-        alert(error);
-      });
-  };
-
-  return (
-    <Container id="contact">
-      <Heading>Contact Me</Heading>
-      <Form name="contact" method="POST" onSubmit={handleSubmit}>
-        <input type="hidden" name="form-name" value="contact" />
-        <p>
-          <Label>
-            Your Name:{" "}
-            <Input required type="text" name="name" onChange={handleChange} />
-          </Label>
-        </p>
-        <p>
-          <Label>
-            Your Email:{" "}
-            <Input type="email" required name="email" onChange={handleChange} />
-          </Label>
-        </p>
-        <p>
-          <Label>
-            Message:{" "}
-            <Message
-              name="message"
-              required
-              rows="4"
-              onChange={handleChange}
-            ></Message>
-          </Label>
-        </p>
-        <p
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
-          <Button
-            type="submit"
-            $isSubmitted={submitted}
-            disabled={
-              submitted === "true" || submissionError === "true" ? true : false
-            }
-          >
-            <ButtonText>
-              {submitted === "false" && submissionError === "false" ? (
-                <>
-                  SEND
-                  <Icon
-                    icon="mdi:email-fast-outline"
-                    style={{ height: 24, width: 24 }}
-                  />
-                </>
-              ) : (
-                <Icon
-                  icon={
-                    submitted === "true" ? "mdi:tick" : "radix-icons:cross-2"
-                  }
-                  style={{ height: 24, width: 24 }}
-                />
-              )}
-            </ButtonText>
-          </Button>
-        </p>
-      </Form>
-      <LinksContainer>
-        {contactList.map((contact, index) => (
-          <ContactLink
-            key={index}
-            title={contact.title}
-            icon={contact.icon}
-            link={contact.link}
-          />
-        ))}
-      </LinksContainer>
-    </Container>
-  );
-};
-
-export default Contact;

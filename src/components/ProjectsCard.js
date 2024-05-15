@@ -3,6 +3,34 @@ import React from "react";
 import styled from "styled-components";
 import { color } from "../styles/colourScheme";
 
+const ProjectsCard = (props) => {
+  const { projectName, image, description, link } = props;
+
+  return (
+    <Card>
+      <Title>{">_" + projectName}</Title>
+      <Content>
+        <Image src={image} alt={projectName} />
+        <Copy>
+          <Text>{description}</Text>
+
+          <Link href={link} target="_blank" rel="noreferrer noopener">
+            <Button>
+              CLICK HERE TO CHECK IT OUT{" "}
+              <Icon
+                icon="fluent:window-new-20-filled"
+                style={{ height: 24, width: 24 }}
+              />
+            </Button>
+          </Link>
+        </Copy>
+      </Content>
+    </Card>
+  );
+};
+
+export default ProjectsCard;
+
 const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,7 +41,7 @@ const Card = styled.div`
   padding: 2px;
   gap: 2px;
 `;
-const Title = styled.h5`
+const Title = styled.div`
   color: ${color.white};
   background-color: ${color.black};
   padding: 4px 8px;
@@ -43,9 +71,7 @@ const Copy = styled.div`
   width: 100%;
   justify-content: space-between;
   gap: 2px;
-  padding: 2px, @media (min-width: 780px) {
-    width: 50%;
-  }
+  padding: 2px;
 `;
 const Text = styled.p`
   padding: 16px;
@@ -82,29 +108,3 @@ const Button = styled.button`
     background: none;
   }
 `;
-
-export const ProjectsCard = (props) => {
-  const { projectName, image, description, link } = props;
-
-  return (
-    <Card>
-      <Title>{">_" + projectName}</Title>
-      <Content>
-        <Image src={image} alt={projectName} />
-        <Copy>
-          <Text>{description}</Text>
-
-          <Link href={link} target="_blank" rel="noreferrer noopener">
-            <Button>
-              CLICK HERE TO CHECK IT OUT{" "}
-              <Icon
-                icon="fluent:window-new-20-filled"
-                style={{ height: 24, width: 24 }}
-              />
-            </Button>
-          </Link>
-        </Copy>
-      </Content>
-    </Card>
-  );
-};
