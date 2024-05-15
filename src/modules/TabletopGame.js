@@ -22,12 +22,11 @@ const TabletopGame = (props) => {
   return (
     <Game key={gameIndex}>
       <GameTitleContainer>
-        <GameArt>
-          <GameArtImage src={titleImage} alt={`${titleImage} cover art`} />
-          <StatusBadge style={{ background: color[statusColor] }}>
-            {status}
-          </StatusBadge>
-        </GameArt>
+        {titleImage !== "" && (
+          <GameArt>
+            <GameArtImage src={titleImage} alt={`${titleImage} cover art`} />
+          </GameArt>
+        )}
         <GameTitle>
           <GameTitleTextContainer>
             <GameTitleText>{title}</GameTitleText>
@@ -35,51 +34,67 @@ const TabletopGame = (props) => {
               {players}players | {time} minutes
             </GameTitleInfo>
             <GameTitleDescription>{description}</GameTitleDescription>
+            <StatusBadge style={{ background: color[statusColor] }}>
+              {status}
+            </StatusBadge>
           </GameTitleTextContainer>
         </GameTitle>
       </GameTitleContainer>
       <GameImageContainer>
         <RibbonTriange />
-        <PrevButton
-          onClick={() => handleClick(gameIndex, "prev")}
-          disabled={carouselPosition[gameIndex] === 0}
-        >
-          <Icon
-            style={{ width: "100%", height: "100%" }}
-            icon={
-              carouselPosition[gameIndex] !== 0
-                ? "carbon:previous-filled"
-                : "carbon:previous-outline"
-            }
-          />
-        </PrevButton>
-        <NextButton
-          onClick={() => handleClick(gameIndex, "next")}
-          disabled={
-            images?.length === 0 ||
-            carouselPosition[gameIndex] === images.length - 1
-          }
-        >
-          <Icon
-            style={{ width: "100%", height: "100%" }}
-            icon={
-              images?.length !== 0 &&
-              carouselPosition[gameIndex] !== images.length - 1
-                ? "carbon:next-filled"
-                : "carbon:next-outline"
-            }
-          />
-        </NextButton>
+        {images.length > 0 && (
+          <>
+            <PrevButton
+              aria-label={`previous button for ${title} images`}
+              onClick={() => handleClick(gameIndex, "prev")}
+              disabled={carouselPosition[gameIndex] === 0}
+            >
+              <Icon
+                style={{ width: "100%", height: "100%" }}
+                icon={
+                  carouselPosition[gameIndex] !== 0
+                    ? "carbon:previous-filled"
+                    : "carbon:previous-outline"
+                }
+              />
+            </PrevButton>
+            <NextButton
+              aria-label={`next button for ${title} images`}
+              onClick={() => handleClick(gameIndex, "next")}
+              disabled={
+                images?.length === 0 ||
+                carouselPosition[gameIndex] === images.length - 1
+              }
+            >
+              <Icon
+                style={{ width: "100%", height: "100%" }}
+                icon={
+                  images?.length !== 0 &&
+                  carouselPosition[gameIndex] !== images.length - 1
+                    ? "carbon:next-filled"
+                    : "carbon:next-outline"
+                }
+              />
+            </NextButton>
+          </>
+        )}
         <GameImage>
-          {images.map(
-            (image, imageIndex) =>
-              imageIndex === carouselPosition[gameIndex] && (
-                <GameCarouselImage
-                  key={imageIndex}
-                  src={image}
-                  alt={`${title} image ${gameIndex + 1}`}
-                />
-              )
+          {images.length > 0 ? (
+            images.map(
+              (image, imageIndex) =>
+                imageIndex === carouselPosition[gameIndex] && (
+                  <GameCarouselImage
+                    key={imageIndex}
+                    src={image}
+                    alt={`${title} image ${gameIndex + 1}`}
+                  />
+                )
+            )
+          ) : (
+            <Sorry>
+              Sorry! 😔
+              <Sorry>There are no images to share for this design yet...</Sorry>
+            </Sorry>
           )}
         </GameImage>
       </GameImageContainer>
@@ -142,10 +157,14 @@ const GameArtImage = styled.img`
 `;
 const StatusBadge = styled.span`
   padding: 4px 8px;
-  margin-top: -20px;
+  margin-top: -24px;
   border-radius: 4px;
   color: ${color.charcoal};
   box-shadow: -5px 12px 24px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid ${color.white};
 `;
 const GameTitle = styled.div`
   position: absolute;
@@ -275,7 +294,6 @@ const GameImage = styled.div`
   height: 100%;
   border: 1px solid ${color.white};
   background: ${color.charcoal};
-  /* clip-path: polygon(0 0, 100% 0%, calc(100% - 56px) 100%, 56px 100%); */
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 85%, 0 100%, 0% 0%);
   display: flex;
   justify-content: center;
@@ -313,6 +331,10 @@ const GameCarouselImage = styled.img`
     width: 110%;
     margin-left: -36px;
   }
+`;
+const Sorry = styled.p`
+  width: 100%;
+  text-align: center;
 `;
 const RibbonTriange = styled.div`
   display: none;

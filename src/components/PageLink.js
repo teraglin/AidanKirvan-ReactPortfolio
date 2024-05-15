@@ -46,7 +46,7 @@ const PageLink = (props) => {
       <TabletopPageButton style={{ ...buttonProps }}>
         {!alignment ? children : alignment === "right" && children}
         <Icon
-          style={{ height: "100%", ...iconProps }}
+          style={{ height: "10px", ...iconProps }}
           icon={`line-md:arrow-${alignment || "right"}`}
         />
         {alignment === "left" && children}
@@ -67,6 +67,11 @@ const TabletopPageLink = styled.a`
 `;
 const TabletopPageButton = styled.button`
   border: none;
-  padding: 8px;
+  padding: 10px;
   cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;

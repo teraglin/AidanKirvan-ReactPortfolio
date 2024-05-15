@@ -33,8 +33,8 @@ const TabletopPage = () => {
         <Body>
           <PageLink
             alignment="left"
-            color={color.charcoal}
-            background={color.blue}
+            color={color.black}
+            background={color.purple}
           >
             Home Page
           </PageLink>

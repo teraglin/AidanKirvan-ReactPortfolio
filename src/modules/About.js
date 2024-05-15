@@ -117,6 +117,7 @@ const TitleTableContainer = styled.div`
   @media (min-width: 780px) {
     gap: 0;
     flex-direction: row;
+    margin-bottom: 10px;
   }
 `;
 const ImageContainer = styled.div`
@@ -153,7 +154,7 @@ const TitleTableContent = styled.div`
     align-items: center;
   }
 `;
-const Job = styled.h5`
+const Job = styled.span`
   width: calc(100% - 14px);
   padding: 8px;
   font-weight: bold;
@@ -174,7 +175,7 @@ const TitleTable = styled.table`
     width: 85%;
   }
 `;
-const Subheading = styled.h4`
+const Subheading = styled.h3`
   display: inline-block;
   padding: 8px;
   text-transform: uppercase;
@@ -193,7 +194,6 @@ const SubtableContainer = styled.table`
   width: 100%;
   height: 100px;
   text-align: center;
-  margin: 10px 0;
   border-spacing: 10px;
   border-collapse: separate;
 `;

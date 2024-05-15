@@ -39,12 +39,12 @@ export const tabletopGames = {
       status: "developing"
     },
     {
-      title: "Bean Juice",
+      title: "The Coffee Gauntlet",
       description:
-        "Action based board game where 1-4 office workers will have to juggle caffine intake with office tasks with only a limited amount of resources and only two hands to hold stuff in.",
+        "Action based board game where 1-4 office workers will have to juggle caffeine intake with office tasks with only a limited amount of resources for everyone to share.",
       players: "1-4",
       time: "60-120",
-      displayOn: false,
+      displayOn: true,
       titleImage: "",
       images: [],
       status: "developing"

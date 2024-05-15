@@ -9,7 +9,7 @@ const Nav = () => {
     <NavContainer>
       {/* TOP */}
       <ScrollIntoView selector="#top">
-        <HomeButton>
+        <HomeButton aria-label="Home button">
           <Icon
             style={{ width: "100%", height: "100%" }}
             icon="ant-design:home-filled"

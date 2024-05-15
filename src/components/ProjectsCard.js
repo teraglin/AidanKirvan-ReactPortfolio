@@ -41,7 +41,7 @@ const Card = styled.div`
   padding: 2px;
   gap: 2px;
 `;
-const Title = styled.h5`
+const Title = styled.div`
   color: ${color.white};
   background-color: ${color.black};
   padding: 4px 8px;

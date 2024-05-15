@@ -79,7 +79,7 @@ const Heading = styled.h1`
     margin-top: 68px;
   }
 `;
-const SubHeading = styled.h5`
+const SubHeading = styled.span`
   display: inline-block;
   background: ${color.white};
   color: ${color.charcoal};
@@ -88,6 +88,8 @@ const SubHeading = styled.h5`
   margin: 0 auto;
   width: 100%;
   text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 `;
 const TechIcons = styled.div`
   width: 100%;
