@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { color } from "../styles/colourScheme";
+import { fade } from "../styles/animations";
 
 const TabletopGame = (props) => {
   const {
@@ -13,7 +14,9 @@ const TabletopGame = (props) => {
     description,
     images,
     carouselPosition,
-    handleClick
+    handleClick,
+    status,
+    statusColor
   } = props;
 
   return (
@@ -21,6 +24,9 @@ const TabletopGame = (props) => {
       <GameTitleContainer>
         <GameArt>
           <GameArtImage src={titleImage} alt={`${titleImage} cover art`} />
+          <StatusBadge style={{ background: color[statusColor] }}>
+            {status}
+          </StatusBadge>
         </GameArt>
         <GameTitle>
           <GameTitleTextContainer>
@@ -119,7 +125,9 @@ const GameArt = styled.div`
   z-index: 2;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   @media (min-width: 1120px) {
     width: auto;
     top: calc(50% - 100px);
@@ -131,6 +139,13 @@ const GameArtImage = styled.img`
   box-shadow: -5px 24px 24px rgba(0, 0, 0, 0.5);
   border: 2px solid ${color.charcoal};
   border-radius: 4px;
+`;
+const StatusBadge = styled.span`
+  padding: 4px 8px;
+  margin-top: -20px;
+  border-radius: 4px;
+  color: ${color.charcoal};
+  box-shadow: -5px 12px 24px rgba(0, 0, 0, 0.5);
 `;
 const GameTitle = styled.div`
   position: absolute;
@@ -285,11 +300,14 @@ const GameImage = styled.div`
 `;
 const GameCarouselImage = styled.img`
   height: 100%;
-  /* width: 100%; */
   width: auto;
-  /* height: auto; */
   position: relative;
   margin-left: 0;
+  animation-name: ${fade};
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
   @media (min-width: 1090px) {
     height: auto;
     width: 110%;

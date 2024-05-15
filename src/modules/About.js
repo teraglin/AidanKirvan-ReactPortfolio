@@ -2,6 +2,98 @@ import React from "react";
 import styled from "styled-components";
 import { color } from "../styles/colourScheme";
 
+const About = () => {
+  return (
+    <Container id="about">
+      <Heading>ABOUT ME</Heading>
+      <TitleTableContainer>
+        <ImageContainer>
+          <Image
+            alt="profile"
+            src="https://avatars.githubusercontent.com/u/67266954?v=4"
+          />
+        </ImageContainer>
+        <TitleTableContent>
+          <Job>FRONTEND DEVELOPER</Job>
+          <TitleTable>
+            <tbody>
+              <tr>
+                <SummaryTableCell>Artist</SummaryTableCell>
+                <SummaryTableCell>Musician</SummaryTableCell>
+              </tr>
+              <tr>
+                <SummaryTableCell>Writer</SummaryTableCell>
+                <SummaryTableCell>Tabletop Game Designer</SummaryTableCell>
+              </tr>
+            </tbody>
+          </TitleTable>
+        </TitleTableContent>
+      </TitleTableContainer>
+
+      {/* OTHER SKILLS  */}
+      <Subheading>OTHER SKILLS</Subheading>
+      <SubtableContainer>
+        <tbody>
+          <tr>
+            <SkillsTableCell>Illustration</SkillsTableCell>
+            <SkillsTableCell>Writing</SkillsTableCell>
+          </tr>
+
+          <tr>
+            <SkillsTableCell>Sound Engineering</SkillsTableCell>
+            <SkillsTableCell>Image Editing</SkillsTableCell>
+          </tr>
+
+          <tr>
+            <SkillsTableCell>Logic X</SkillsTableCell>
+            <SkillsTableCell>Ableton Live</SkillsTableCell>
+          </tr>
+
+          <tr>
+            <SkillsTableCell>Procreate</SkillsTableCell>
+            <SkillsTableCell>Photoshop</SkillsTableCell>
+          </tr>
+
+          <tr>
+            <SkillsTableCell>Saxophone</SkillsTableCell>
+            <SkillsTableCell>Guitar</SkillsTableCell>
+          </tr>
+        </tbody>
+      </SubtableContainer>
+
+      {/* INTERESTS  */}
+      <Subheading>INTERESTS</Subheading>
+      <SubtableContainer>
+        <tbody>
+          <tr>
+            <InterestsTableCell>Tabletop Games</InterestsTableCell>
+          </tr>
+          <tr>
+            <InterestsTableCell>
+              App Integration for Tabletop Games
+            </InterestsTableCell>
+          </tr>
+          <tr>
+            <InterestsTableCell>Videogames</InterestsTableCell>
+          </tr>
+
+          <tr>
+            <InterestsTableCell>Music</InterestsTableCell>
+          </tr>
+
+          <tr>
+            <InterestsTableCell>
+              Sound Recording and Production
+            </InterestsTableCell>
+          </tr>
+        </tbody>
+      </SubtableContainer>
+    </Container>
+  );
+};
+
+export default About;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,6 +144,7 @@ const TitleTableContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   @media (min-width: 750px) {
     align-items: end;
     width: 100%;
@@ -64,7 +157,8 @@ const Job = styled.h5`
   width: calc(100% - 14px);
   padding: 8px;
   font-weight: bold;
-  background: ${color.black};
+  color: ${color.black};
+  background: ${color.blue};
   text-align: center;
   @media (min-width: 780px) {
     width: 83%;
@@ -74,7 +168,6 @@ const TitleTable = styled.table`
   width: 100%;
   height: 100px;
   text-align: center;
-  margin: 8px 0;
   border-spacing: 10px;
   border-collapse: separate;
   @media (min-width: 780px) {
@@ -124,101 +217,3 @@ const InterestsTableCell = styled.td`
   margin: 4;
   box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
 `;
-
-const About = () => {
-  return (
-    <Container id="about">
-      <Heading>ABOUT ME</Heading>
-      <TitleTableContainer>
-        <ImageContainer>
-          <Image
-            alt="profile"
-            src="https://avatars.githubusercontent.com/u/67266954?v=4"
-          />
-        </ImageContainer>
-        <TitleTableContent>
-          <Job>FRONTEND DEVELOPER</Job>
-          <TitleTable>
-            <tbody>
-              <tr>
-                <SummaryTableCell>Artist</SummaryTableCell>
-                <SummaryTableCell>Musician</SummaryTableCell>
-              </tr>
-              <tr>
-                <SummaryTableCell>Writer</SummaryTableCell>
-                <SummaryTableCell>DM / GM</SummaryTableCell>
-              </tr>
-              <tr>
-                <SummaryTableCell>Lizard Dad</SummaryTableCell>
-                <SummaryTableCell>Cat Servant</SummaryTableCell>
-              </tr>
-            </tbody>
-          </TitleTable>
-        </TitleTableContent>
-      </TitleTableContainer>
-
-      {/* OTHER SKILLS  */}
-      <Subheading>OTHER SKILLS</Subheading>
-      <SubtableContainer>
-        <tbody>
-          <tr>
-            <SkillsTableCell>Illustration</SkillsTableCell>
-            <SkillsTableCell>Writing</SkillsTableCell>
-          </tr>
-
-          <tr>
-            <SkillsTableCell>Sound Engineering</SkillsTableCell>
-            <SkillsTableCell>Image Editing</SkillsTableCell>
-          </tr>
-
-          <tr>
-            <SkillsTableCell>Logic X</SkillsTableCell>
-            <SkillsTableCell>Ableton Live</SkillsTableCell>
-          </tr>
-
-          <tr>
-            <SkillsTableCell>Procreate</SkillsTableCell>
-            <SkillsTableCell>Photoshop</SkillsTableCell>
-          </tr>
-
-          <tr>
-            <SkillsTableCell>Saxophone</SkillsTableCell>
-            <SkillsTableCell>Guitar</SkillsTableCell>
-          </tr>
-        </tbody>
-      </SubtableContainer>
-
-      {/* INTERESTS  */}
-      <Subheading>INTERESTS</Subheading>
-      <SubtableContainer>
-        <tbody>
-          <tr>
-            <InterestsTableCell>
-              Tabletop Gaming (Playing and Developing)
-            </InterestsTableCell>
-          </tr>
-          <tr>
-            <InterestsTableCell>
-              App Integration for Tabletop Gaming
-            </InterestsTableCell>
-          </tr>
-          <tr>
-            <InterestsTableCell>Videogames</InterestsTableCell>
-          </tr>
-
-          <tr>
-            <InterestsTableCell>Music</InterestsTableCell>
-          </tr>
-
-          <tr>
-            <InterestsTableCell>
-              Sound Recording and Production
-            </InterestsTableCell>
-          </tr>
-        </tbody>
-      </SubtableContainer>
-    </Container>
-  );
-};
-
-export default About;

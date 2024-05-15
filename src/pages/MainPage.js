@@ -7,25 +7,25 @@ import Hero from "../modules/Hero";
 import Projects from "../modules/Projects";
 import About from "../modules/About";
 import Contact from "../modules/Contact";
+import PageLink from "../components/PageLink";
 import { flickerMobile, fade } from "../styles/animations";
-import { Icon } from "@iconify/react";
 
 const MainPage = () => {
   return (
     <>
       <LandscapeWarning />
       <App>
-        <TabletopPageLink href="/tabletop" rel="noopener noreferrer">
-          <TabletopPageButton>
-            My Tabletop Game Designs
-            <Icon
-              style={{ height: "100%", marginLeft: "8px" }}
-              icon={"line-md:arrow-right"}
-            />
-          </TabletopPageButton>
-        </TabletopPageLink>
         <Nav />
         <Body>
+          <PageLink
+            href="/tabletop"
+            alignment="right"
+            color={color.black}
+            background={color.orange}
+            avoidNav
+          >
+            My Tabletop Game Designs
+          </PageLink>
           <Hero />
           <About />
           <Projects />
@@ -51,6 +51,7 @@ const App = styled("div")`
   }
 `;
 const Body = styled("div")`
+  position: relative;
   margin: 0 auto;
   width: 100%;
   padding: 0 32px;
@@ -78,20 +79,4 @@ const Body = styled("div")`
       animation-timing-function: ease-in;
     }
   }
-`;
-const TabletopPageLink = styled.a`
-  text-decoration: none;
-  color: ${color.black};
-`;
-const TabletopPageButton = styled.button`
-  color: ${color.black};
-  border: none;
-  padding: 8px;
-  border-radius: 0 0 0 4px;
-  position: absolute;
-  right: 0;
-  top: 48px;
-  background: ${color.orange};
-  cursor: pointer;
-  z-index: 11;
 `;

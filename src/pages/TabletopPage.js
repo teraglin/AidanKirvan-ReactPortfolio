@@ -4,10 +4,11 @@ import { color } from "../styles/colourScheme";
 import LandscapeWarning from "../modules/LandscapeWarning";
 import TabletopGame from "../modules/TabletopGame";
 import { tabletopGames } from "../data/tabletopGames";
+import PageLink from "../components/PageLink";
 
 const TabletopPage = () => {
   const [carouselPosition, setCarouselPosition] = useState(
-    tabletopGames.map(() => 0)
+    tabletopGames.games.map(() => 0)
   );
 
   function handleClick(gameIndex, direction) {
@@ -30,9 +31,16 @@ const TabletopPage = () => {
       <LandscapeWarning />
       <Page>
         <Body>
+          <PageLink
+            alignment="left"
+            color={color.charcoal}
+            background={color.blue}
+          >
+            Home Page
+          </PageLink>
           <Title>Tabletop game designs by Aidan Kirvan:</Title>
           <GameList>
-            {tabletopGames.map(
+            {tabletopGames.games.map(
               (game, gameIndex) =>
                 !!game.displayOn && (
                   <TabletopGame
@@ -46,6 +54,8 @@ const TabletopPage = () => {
                     images={game.images}
                     carouselPosition={carouselPosition}
                     handleClick={handleClick}
+                    status={game.status}
+                    statusColor={tabletopGames.statusColor[game.status]}
                   />
                 )
             )}
@@ -74,6 +84,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   gap: 56px;
+  position: relative;
   @media (min-width: 1120px) {
     padding: 56px 56px 112px;
   }
@@ -81,8 +92,11 @@ const Body = styled.div`
 const Title = styled.h1`
   color: ${color.white};
   background: ${color.charcoal};
-  padding: 56px;
   text-transform: uppercase;
+  padding: 28px;
+  @media (min-width: 600px) {
+    padding: 56px;
+  }
 `;
 const GameList = styled.div`
   display: flex;

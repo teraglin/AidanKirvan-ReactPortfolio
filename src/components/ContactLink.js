@@ -3,6 +3,32 @@ import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { color } from "../styles/colourScheme";
 
+const ContactLink = ({ icon, link, title }) => {
+  return (
+    <ContactLinkContainer href={link} target="_blank" rel="noreferrer noopener">
+      <Icon
+        style={{
+          borderRadius: 10,
+          width: 100,
+          height: 100,
+          minWidth: 100,
+          padding: 8
+        }}
+        icon={icon}
+      />
+      <LinkText>
+        {title}{" "}
+        <Icon
+          icon="fluent:window-new-20-filled"
+          style={{ height: 24, width: 24 }}
+        />
+      </LinkText>
+    </ContactLinkContainer>
+  );
+};
+
+export default ContactLink;
+
 const ContactLinkContainer = styled.a`
   display: flex;
   width: 100%;
@@ -36,27 +62,3 @@ const LinkText = styled.span`
     line-height: 38px;
   }
 `;
-
-export const ContactLink = ({ icon, link, title }) => {
-  return (
-    <ContactLinkContainer href={link} target="_blank" rel="noreferrer noopener">
-      <Icon
-        style={{
-          borderRadius: 10,
-          width: 100,
-          height: 100,
-          minWidth: 100,
-          padding: 8,
-        }}
-        icon={icon}
-      />
-      <LinkText>
-        {title}{" "}
-        <Icon
-          icon="fluent:window-new-20-filled"
-          style={{ height: 24, width: 24 }}
-        />
-      </LinkText>
-    </ContactLinkContainer>
-  );
-};
