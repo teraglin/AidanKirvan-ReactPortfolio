@@ -31,7 +31,7 @@ const TabletopGame = (props) => {
           <GameTitleTextContainer>
             <GameTitleText>{title}</GameTitleText>
             <GameTitleInfo>
-              {players}players | {time} minutes
+              {players} players | {time} minutes
             </GameTitleInfo>
             <GameTitleDescription>{description}</GameTitleDescription>
             <StatusBadge style={{ background: color[statusColor] }}>
