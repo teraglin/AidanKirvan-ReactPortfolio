@@ -36,7 +36,7 @@ export const tabletopGames = {
         "https://steamuserimages-a.akamaihd.net/ugc/5069395935074822147/268D4E46DA5E624BF42B1DD1FDC36F99923FC236/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
         "https://steamuserimages-a.akamaihd.net/ugc/5069395935074822536/6349F7B0AFF1A653B51B11245F836517EADA1F9D/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
       ],
-      status: "developing"
+      status: "testing"
     },
     {
       title: "The Coffee Gauntlet",
@@ -44,6 +44,17 @@ export const tabletopGames = {
         "Action based board game where 1-4 office workers will have to juggle caffeine intake with office tasks with only a limited amount of resources for everyone to share.",
       players: "1-4",
       time: "60-120",
+      displayOn: true,
+      titleImage: "",
+      images: [],
+      status: "developing"
+    },
+    {
+      title: "Tortoise Crossing",
+      description:
+        "A very lightweight game where players manoeuvre tortoises past one another. Currently, it is a 2-player game with the hopes of expanding to 3–5.",
+      players: "1-4",
+      time: "15-30",
       displayOn: true,
       titleImage: "",
       images: [],
