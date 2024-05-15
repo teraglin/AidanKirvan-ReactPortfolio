@@ -2,129 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { color } from "../styles/colourScheme";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 16px;
-  scroll-margin-top: 64px;
-`;
-const Heading = styled.h2`
-  display: inline-block;
-  border-bottom: 2px solid ${color.white};
-  padding: 8px;
-  text-transform: uppercase;
-`;
-const TitleTableContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  @media (min-width: 780px) {
-    gap: 0;
-    flex-direction: row;
-  }
-`;
-const ImageContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75%;
-  height: 280px;
-  @media (min-width: 780px) {
-    width: auto;
-    height: 200px;
-  }
-  @media (min-width: 900px) {
-    height: 230px;
-    margin-left: 32px;
-  }
-`;
-const Image = styled.img`
-  border-radius: 500px;
-  height: 100%;
-`;
-const TitleTableContent = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media (min-width: 750px) {
-    align-items: end;
-    width: 100%;
-  }
-  @media (min-width: 900px) {
-    align-items: center;
-  }
-`;
-const Job = styled.h5`
-  width: calc(100% - 14px);
-  padding: 8px;
-  font-weight: bold;
-  background: ${color.black};
-  text-align: center;
-  @media (min-width: 780px) {
-    width: 83%;
-  }
-`;
-const TitleTable = styled.table`
-  width: 100%;
-  height: 100px;
-  text-align: center;
-  margin: 8px 0;
-  border-spacing: 10px;
-  border-collapse: separate;
-  @media (min-width: 780px) {
-    width: 85%;
-  }
-`;
-const Subheading = styled.h4`
-  display: inline-block;
-  padding: 8px;
-  text-transform: uppercase;
-`;
-const SummaryTableCell = styled.td`
-  color: ${color.white};
-  width: 50% !important;
-  padding: 10px;
-  border: 2px solid ${color.white};
-  background: #222;
-  border-radius: 4px;
-  font-weight: bold;
-  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
-`;
-const SubtableContainer = styled.table`
-  width: 100%;
-  height: 100px;
-  text-align: center;
-  margin: 10px 0;
-  border-spacing: 10px;
-  border-collapse: separate;
-`;
-const SkillsTableCell = styled.td`
-  color: ${color.white};
-  width: 50% !important;
-  padding: 15px;
-  background: #222;
-  border: 1px solid ${color.white};
-  border-radius: 4px;
-  margin: 4;
-  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
-`;
-const InterestsTableCell = styled.td`
-  color: ${color.white};
-  width: 100%;
-  padding: 15px;
-  background: #222;
-  border: 1px solid ${color.white};
-  border-radius: 4px;
-  margin: 4;
-  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
-`;
-
 const About = () => {
   return (
     <Container id="about">
@@ -146,11 +23,7 @@ const About = () => {
               </tr>
               <tr>
                 <SummaryTableCell>Writer</SummaryTableCell>
-                <SummaryTableCell>DM / GM</SummaryTableCell>
-              </tr>
-              <tr>
-                <SummaryTableCell>Lizard Dad</SummaryTableCell>
-                <SummaryTableCell>Cat Servant</SummaryTableCell>
+                <SummaryTableCell>Tabletop Game Designer</SummaryTableCell>
               </tr>
             </tbody>
           </TitleTable>
@@ -193,13 +66,11 @@ const About = () => {
       <SubtableContainer>
         <tbody>
           <tr>
-            <InterestsTableCell>
-              Tabletop Gaming (Playing and Developing)
-            </InterestsTableCell>
+            <InterestsTableCell>Tabletop Games</InterestsTableCell>
           </tr>
           <tr>
             <InterestsTableCell>
-              App Integration for Tabletop Gaming
+              App Integration for Tabletop Games
             </InterestsTableCell>
           </tr>
           <tr>
@@ -222,3 +93,127 @@ const About = () => {
 };
 
 export default About;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+  scroll-margin-top: 64px;
+`;
+const Heading = styled.h2`
+  display: inline-block;
+  border-bottom: 2px solid ${color.white};
+  padding: 8px;
+  text-transform: uppercase;
+`;
+const TitleTableContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  @media (min-width: 780px) {
+    gap: 0;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+`;
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 280px;
+  @media (min-width: 780px) {
+    width: auto;
+    height: 200px;
+  }
+  @media (min-width: 900px) {
+    height: 230px;
+    margin-left: 32px;
+  }
+`;
+const Image = styled.img`
+  border-radius: 500px;
+  height: 100%;
+`;
+const TitleTableContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  @media (min-width: 750px) {
+    align-items: end;
+    width: 100%;
+  }
+  @media (min-width: 900px) {
+    align-items: center;
+  }
+`;
+const Job = styled.span`
+  width: calc(100% - 14px);
+  padding: 8px;
+  font-weight: bold;
+  color: ${color.black};
+  background: ${color.blue};
+  text-align: center;
+  @media (min-width: 780px) {
+    width: 83%;
+  }
+`;
+const TitleTable = styled.table`
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border-spacing: 10px;
+  border-collapse: separate;
+  @media (min-width: 780px) {
+    width: 85%;
+  }
+`;
+const Subheading = styled.h3`
+  display: inline-block;
+  padding: 8px;
+  text-transform: uppercase;
+`;
+const SummaryTableCell = styled.td`
+  color: ${color.white};
+  width: 50% !important;
+  padding: 10px;
+  border: 2px solid ${color.white};
+  background: #222;
+  border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
+`;
+const SubtableContainer = styled.table`
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border-spacing: 10px;
+  border-collapse: separate;
+`;
+const SkillsTableCell = styled.td`
+  color: ${color.white};
+  width: 50% !important;
+  padding: 15px;
+  background: #222;
+  border: 1px solid ${color.white};
+  border-radius: 4px;
+  margin: 4;
+  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
+`;
+const InterestsTableCell = styled.td`
+  color: ${color.white};
+  width: 100%;
+  padding: 15px;
+  background: #222;
+  border: 1px solid ${color.white};
+  border-radius: 4px;
+  margin: 4;
+  box-shadow: 0px 1px 20px rgb(0, 0, 0, 0.5);
+`;
