@@ -16,9 +16,10 @@ export const tabletopGames = {
       titleImage:
         "https://steamuserimages-a.akamaihd.net/ugc/1863933856931396626/7A328C43226F57D2E743C56257284F102C66182A/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
       images: [
-        "https://steamuserimages-a.akamaihd.net/ugc/2479869440674454556/9EA6F35B7BD0124F7D53F5BF3EC69235AA488762/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
-        "https://steamuserimages-a.akamaihd.net/ugc/2479869440674454985/3D21A4EF85B1D6D02D179FFA118DC303BB446D50/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
-        "https://steamuserimages-a.akamaihd.net/ugc/2479869440674453806/F53F1844CC3569AE95284B4A1CDEE040F772116B/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"
+        "https://steamuserimages-a.akamaihd.net/ugc/2479878148677846206/3C4A26593E041DE8CF564E9B22121EC401CF0EDC/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+        "https://steamuserimages-a.akamaihd.net/ugc/2479878148677846886/BD3830FBEA651930147A3BF144DB96D27D4EA861/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+        "https://steamuserimages-a.akamaihd.net/ugc/2479878148677847429/D9C1C257DBDF3CDF0BB88A9ABAE192B53B4209A1/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+        "https://steamuserimages-a.akamaihd.net/ugc/2479878148677847776/1D06EF5DD2105C57C0F686CDD2F42557C4A47E8B/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"
       ],
       status: "testing"
     },
