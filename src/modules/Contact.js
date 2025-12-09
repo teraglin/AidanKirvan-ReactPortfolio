@@ -54,7 +54,8 @@ const Contact = () => {
       })
       .catch((error) => {
         setSubmissionError("true");
-        alert(error);
+        console.error("Form submission error:", error);
+        // UI shows error state via icon - no alert needed
       });
   };
 
