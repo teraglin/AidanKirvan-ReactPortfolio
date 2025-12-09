@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom Colors */
+  --color-green: #6bd994;
+  --color-purple: #958ce1;
+  --color-blue: #8cd3e1;
+  --color-orange: #ffaa55;
+  --color-yellow: #ffdd70;
+  --color-black: #000000;
+  --color-charcoal: #3c3d3e;
+  --color-white: #eeeeee;
+  --color-dark-charcoal: #2c2d2e;
+  --color-dark-bg: #222222;
+
+  /* Custom Breakpoints */
+  --breakpoint-xs: 400px;
+  --breakpoint-sm: 470px;
+  --breakpoint-md: 750px;
+  --breakpoint-lg: 780px;
+  --breakpoint-xl: 900px;
+  --breakpoint-2xl: 1090px;
+  --breakpoint-3xl: 1120px;
+  --breakpoint-4xl: 1300px;
+
+  /* Custom Animations */
+  --animate-fade: fade 2s ease-in forwards;
+  --animate-fade-quick: fade 0.2s ease-in forwards;
+  --animate-fade-1s: fade 1s ease-in forwards;
+  --animate-pulse-shadow: pulse-shadow 3s infinite;
+  --animate-twitch: twitch 0.8s infinite;
+  --animate-flicker: flicker-mobile 2s ease-in forwards;
+
+  /* Custom Shadows */
+  --shadow-card: 0px 1px 20px rgb(0 0 0 / 0.5);
+  --shadow-icon: 0 4px 24px rgb(0 0 0 / 0.5);
+  --shadow-title: -5px 24px 24px rgba(0, 0, 0, 0.5);
+  --shadow-badge: -5px 12px 24px rgba(0, 0, 0, 0.5);
+  --shadow-page-link: 0px 0px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Keyframe Animations */
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-shadow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 75px purple;
+  }
+  50% {
+    box-shadow: inset 0 0 75px crimson;
+  }
+}
+
+@keyframes twitch {
+  0%,
+  100% {
+    transform: translate(1px, -1px);
+  }
+  10% {
+    transform: translate(-1px, 2px);
+  }
+  20% {
+    transform: translate(2px, 1px);
+  }
+  30% {
+    transform: translate(-2px, -1px);
+  }
+  40% {
+    transform: translate(1px, 2px);
+  }
+  50% {
+    transform: translate(-1px, -2px);
+  }
+  60% {
+    transform: translate(2px, -1px);
+  }
+  70% {
+    transform: translate(-2px, 1px);
+  }
+  80% {
+    transform: translate(1px, -2px);
+  }
+  90% {
+    transform: translate(-1px, 1px);
+  }
+}
+
+@keyframes flicker-mobile {
+  0%,
+  50% {
+    box-shadow: inset 0 24px 75px transparent;
+  }
+  100% {
+    box-shadow: inset 0 24px 100px grey;
+  }
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #2c2d2e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+/* Landscape warning responsive */
+@media (max-height: 630px) and (max-width: 920px) {
+  .landscape-show {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .landscape-hide {
+    display: none !important;
+  }
+}
