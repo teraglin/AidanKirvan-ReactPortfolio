@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import previousFilled from '@iconify-icons/carbon/previous-filled';
+import previousOutline from '@iconify-icons/carbon/previous-outline';
+import nextFilled from '@iconify-icons/carbon/next-filled';
+import nextOutline from '@iconify-icons/carbon/next-outline';
 
 interface TabletopGameProps {
   gameIndex: number;
@@ -88,8 +92,8 @@ const TabletopGame = (props: TabletopGameProps) => {
                 style={{ width: "100%", height: "100%" }}
                 icon={
                   carouselPosition[gameIndex] !== 0
-                    ? "carbon:previous-filled"
-                    : "carbon:previous-outline"
+                    ? previousFilled
+                    : previousOutline
                 }
               />
             </button>
@@ -107,8 +111,8 @@ const TabletopGame = (props: TabletopGameProps) => {
                 icon={
                   images?.length !== 0 &&
                   carouselPosition[gameIndex] !== images.length - 1
-                    ? "carbon:next-filled"
-                    : "carbon:next-outline"
+                    ? nextFilled
+                    : nextOutline
                 }
               />
             </button>

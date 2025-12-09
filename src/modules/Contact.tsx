@@ -3,6 +3,11 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import ContactLink from "@/components/ContactLink";
 import { Icon } from "@iconify/react";
+import githubIcon from '@iconify-icons/mdi/github';
+import linkedinIcon from '@iconify-icons/devicon/linkedin';
+import emailFastOutline from '@iconify-icons/mdi/email-fast-outline';
+import tick from '@iconify-icons/mdi/tick';
+import cross2 from '@iconify-icons/radix-icons/cross-2';
 
 interface FormData {
   name: string;
@@ -21,12 +26,12 @@ const Contact = () => {
   const contactList = [
     {
       title: "teraglin",
-      icon: "mdi:github",
+      icon: githubIcon,
       link: "https://github.com/teraglin"
     },
     {
       title: "Aidan Kirvan",
-      icon: "devicon:linkedin",
+      icon: linkedinIcon,
       link: "https://www.linkedin.com/in/aidan-kirvan/"
     }
   ];
@@ -146,13 +151,13 @@ const Contact = () => {
                 <>
                   SEND
                   <Icon
-                    icon="mdi:email-fast-outline"
+                    icon={emailFastOutline}
                     style={{ height: 24, width: 24 }}
                   />
                 </>
               ) : (
                 <Icon
-                  icon={isSubmitted ? "mdi:tick" : "radix-icons:cross-2"}
+                  icon={isSubmitted ? tick : cross2}
                   style={{ height: 24, width: 24 }}
                 />
               )}
