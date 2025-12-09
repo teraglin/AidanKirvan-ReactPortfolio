@@ -13,10 +13,11 @@ import graphql from "@iconify-icons/logos/graphql";
 import postgresql from "@iconify-icons/logos/postgresql";
 import storybookIcon from "@iconify-icons/logos/storybook-icon";
 import figma from "@iconify-icons/logos/figma";
+import stenciljs from "@iconify-icons/logos/stenciljs-icon";
 
 export interface TechIcon {
   tech: string;
-  icon: IconifyIcon | string;
+  icon: IconifyIcon;
 }
 
 export const techIcons: TechIcon[] = [
@@ -74,7 +75,7 @@ export const techIcons: TechIcon[] = [
   },
   {
     tech: "stencil",
-    icon: "devicon:stenciljs"
+    icon: stenciljs
   },
   {
     tech: "figma",
