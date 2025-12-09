@@ -13,7 +13,7 @@ const About = () => {
             src="https://avatars.githubusercontent.com/u/67266954?v=4"
             width={230}
             height={230}
-            className="rounded-full h-full min-w-[200px] min-h-[200px] xl:min-w-[230px] xl:min-h-[230px] w-auto bg-white"
+            className="rounded-full h-full min-w-[280px] min-h-[280px] lg:min-w-[200px] lg:min-h-[200px] xl:min-w-[230px] xl:min-h-[230px] w-auto bg-white"
           />
         </div>
         <div className="w-full flex flex-col items-center justify-center gap-2 md:items-end xl:items-center">
