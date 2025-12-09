@@ -126,7 +126,7 @@ p {
 }
 
 /* Landscape warning responsive */
-@media (max-height: 630px) and (max-width: 920px) {
+@media (max-height: 630px) and (max-width: 920px) and (orientation: landscape) {
   .landscape-show {
     display: flex !important;
     justify-content: center;

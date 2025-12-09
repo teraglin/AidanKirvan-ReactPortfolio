@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import windowNew from '@iconify-icons/fluent/window-new-20-filled';
 
 interface ProjectsCardProps {
   projectName: string;
@@ -39,7 +40,7 @@ const ProjectsCard = (props: ProjectsCardProps) => {
             <button className="cursor-pointer border-none w-[calc(100%-4px)] h-[calc(100%-4px)] p-2 text-purple font-bold flex flex-row items-center justify-center gap-2 m-0.5 bg-black transition-colors duration-200 group-hover:text-white group-hover:bg-transparent">
               CLICK HERE TO CHECK IT OUT{" "}
               <Icon
-                icon="fluent:window-new-20-filled"
+                icon={windowNew}
                 style={{ height: 24, width: 24 }}
               />
             </button>

@@ -1,67 +1,83 @@
+import type { IconifyIcon } from "@iconify/react";
+import html5 from "@iconify-icons/logos/html-5";
+import css3 from "@iconify-icons/logos/css-3";
+import typescriptIcon from "@iconify-icons/logos/typescript-icon";
+import react from "@iconify-icons/logos/react";
+import nextjsIcon from "@iconify-icons/logos/nextjs-icon";
+import ruby from "@iconify-icons/logos/ruby";
+import rails from "@iconify-icons/logos/rails";
+import tailwindcssIcon from "@iconify-icons/logos/tailwindcss-icon";
+import mui from "@iconify-icons/simple-icons/mui";
+import sass from "@iconify-icons/logos/sass";
+import graphql from "@iconify-icons/logos/graphql";
+import postgresql from "@iconify-icons/logos/postgresql";
+import storybookIcon from "@iconify-icons/logos/storybook-icon";
+import figma from "@iconify-icons/logos/figma";
+
 export interface TechIcon {
   tech: string;
-  icon: string;
+  icon: IconifyIcon | string;
 }
 
 export const techIcons: TechIcon[] = [
   {
-    tech: 'html',
-    icon: 'logos:html-5'
+    tech: "html",
+    icon: html5
   },
   {
-    tech: 'css',
-    icon: 'logos:css-3'
+    tech: "css",
+    icon: css3
   },
   {
-    tech: 'typescript',
-    icon: 'logos:typescript-icon'
+    tech: "typescript",
+    icon: typescriptIcon
   },
   {
-    tech: 'react',
-    icon: 'logos:react'
+    tech: "react",
+    icon: react
   },
   {
-    tech: 'nextjs',
-    icon: 'logos:nextjs-icon'
+    tech: "nextjs",
+    icon: nextjsIcon
   },
   {
-    tech: 'ruby',
-    icon: 'logos:ruby'
+    tech: "ruby",
+    icon: ruby
   },
   {
-    tech: 'rails',
-    icon: 'logos:rails'
+    tech: "rails",
+    icon: rails
   },
   {
-    tech: 'tailwind',
-    icon: 'logos:tailwindcss-icon'
+    tech: "tailwind",
+    icon: tailwindcssIcon
   },
   {
-    tech: 'mui',
-    icon: 'simple-icons:mui'
+    tech: "mui",
+    icon: mui
   },
   {
-    tech: 'sass',
-    icon: 'logos:sass'
+    tech: "sass",
+    icon: sass
   },
   {
-    tech: 'graphql',
-    icon: 'logos:graphql'
+    tech: "graphql",
+    icon: graphql
   },
   {
-    tech: 'postgreSQL',
-    icon: 'logos:postgresql'
+    tech: "postgreSQL",
+    icon: postgresql
   },
   {
-    tech: 'storybook',
-    icon: 'logos:storybook-icon'
+    tech: "storybook",
+    icon: storybookIcon
   },
   {
-    tech: 'stencil',
-    icon: 'vscode-icons:file-type-stencil'
+    tech: "stencil",
+    icon: "devicon:stenciljs"
   },
   {
-    tech: 'figma',
-    icon: 'logos:figma'
-  },
+    tech: "figma",
+    icon: figma
+  }
 ];

@@ -1,6 +1,7 @@
 'use client';
 
 import { Icon } from "@iconify/react";
+import homeFilled from '@iconify-icons/ant-design/home-filled';
 
 const scrollToSection = (selector: string) => {
   document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
@@ -17,7 +18,7 @@ const Nav = () => {
       >
         <Icon
           style={{ width: "100%", height: "100%" }}
-          icon="ant-design:home-filled"
+          icon={homeFilled}
         />
       </button>
       {/* ABOUT */}
