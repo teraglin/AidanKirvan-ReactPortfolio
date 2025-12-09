@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { techIcons } from "@/data/tech-icons";
 import { Icon } from "@iconify/react";
@@ -27,7 +27,11 @@ const Hero = () => {
           >
             <Icon
               icon={icon.icon}
-              style={{ width: "100%", height: "100%" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                fill: icon.tech === "stencil" ? "white" : ""
+              }}
             />
           </div>
         ))}
