@@ -1,4 +1,12 @@
-export const projects = [
+export interface Project {
+  projectName: string;
+  description: string;
+  link: string;
+  image: string;
+  show: boolean;
+}
+
+export const projects: Project[] = [
   {
     projectName: "40k 10e Index Calculator",
     description:
