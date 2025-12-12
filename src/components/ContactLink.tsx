@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import { Icon } from "@iconify/react";
-import type { IconifyIcon } from '@iconify/react';
-import windowNew from '@iconify-icons/fluent/window-new-20-filled';
+import type { IconifyIcon } from "@iconify/react";
+import windowNew from "@iconify-icons/fluent/window-new-20-filled";
 
 interface ContactLinkProps {
   icon: IconifyIcon;
@@ -28,12 +28,8 @@ const ContactLink = ({ icon, link, title }: ContactLinkProps) => {
         }}
         icon={icon}
       />
-      <span className="text-purple my-[5px] flex w-full justify-center items-center font-bold text-2xl leading-8 p-2 m-0.5 bg-black gap-2 transition-colors duration-200 group-hover:p-2.5 group-hover:text-white group-hover:bg-transparent lg:text-[32px] lg:leading-[38px]">
-        {title}{" "}
-        <Icon
-          icon={windowNew}
-          style={{ height: 24, width: 24 }}
-        />
+      <span className="text-purple flex w-full justify-center items-center font-bold text-2xl leading-8 p-2 m-1 bg-black gap-2 transition-colors duration-200 group-hover:p-2.5 group-hover:text-white group-hover:bg-transparent lg:text-[32px] lg:leading-[38px]">
+        {title} <Icon icon={windowNew} style={{ height: 24, width: 24 }} />
       </span>
     </a>
   );
