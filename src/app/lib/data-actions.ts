@@ -9,10 +9,14 @@ import {
   saveSkills,
   getExperience,
   saveExperience,
+  getResumeMetadata,
+  saveResume,
+  deleteResume,
   seedAllData,
   isDataSeeded,
   generateId,
 } from '@/lib/blobs';
+import type { ResumeMetadata } from '@/lib/blobs';
 import type {
   Project,
   TabletopGame,
@@ -450,5 +454,70 @@ export async function seedData(): Promise<{
   } catch (error) {
     console.error('Error seeding data:', error);
     return { success: false, error: 'Failed to seed data' };
+  }
+}
+
+// ============================================
+// RESUME
+// ============================================
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
+export async function fetchResumeMetadata(): Promise<ResumeMetadata | null> {
+  return getResumeMetadata();
+}
+
+export async function uploadResume(
+  formData: FormData
+): Promise<{ success: boolean; error?: string; metadata?: ResumeMetadata }> {
+  try {
+    const file = formData.get('file') as File | null;
+
+    if (!file) {
+      return { success: false, error: 'No file provided' };
+    }
+
+    // Validate file type
+    if (file.type !== 'application/pdf') {
+      return { success: false, error: 'Only PDF files are allowed' };
+    }
+
+    // Validate file size
+    if (file.size > MAX_FILE_SIZE) {
+      return { success: false, error: 'File size must be less than 5MB' };
+    }
+
+    // Convert file to ArrayBuffer
+    const arrayBuffer = await file.arrayBuffer();
+
+    // Create metadata
+    const metadata: ResumeMetadata = {
+      filename: file.name,
+      uploadedAt: new Date().toISOString(),
+      size: file.size,
+    };
+
+    // Save to Blobs
+    await saveResume(arrayBuffer, metadata);
+
+    revalidatePath('/');
+    revalidatePath('/admin/resume');
+
+    return { success: true, metadata };
+  } catch (error) {
+    console.error('Error uploading resume:', error);
+    return { success: false, error: 'Failed to upload resume' };
+  }
+}
+
+export async function removeResume(): Promise<{ success: boolean; error?: string }> {
+  try {
+    await deleteResume();
+    revalidatePath('/');
+    revalidatePath('/admin/resume');
+    return { success: true };
+  } catch (error) {
+    console.error('Error deleting resume:', error);
+    return { success: false, error: 'Failed to delete resume' };
   }
 }

@@ -79,8 +79,7 @@ const About = ({ skills, experience }: AboutProps) => {
       <div className="w-full flex flex-col gap-3 mt-2">
         <h3 className="inline-block p-2 uppercase">RESUME</h3>
         <a
-          href="/downloads/AidanKirvanCV2025.pdf"
-          download="AidanKirvanCV2025.pdf"
+          href="/api/resume"
           className="w-full px-4 py-3 bg-blue text-black font-bold text-center rounded hover:bg-opacity-90 transition-opacity shadow-card"
         >
           Download My Resume (PDF)

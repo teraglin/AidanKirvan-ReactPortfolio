@@ -15,7 +15,16 @@ const KEYS = {
   games: 'games',
   skills: 'skills',
   experience: 'experience',
+  resume: 'resume',
+  resumeMetadata: 'resume-metadata',
 } as const;
+
+// Resume metadata type
+export interface ResumeMetadata {
+  filename: string;
+  uploadedAt: string;
+  size: number;
+}
 
 // Get the Netlify Blobs store
 function getPortfolioStore() {
@@ -140,6 +149,63 @@ export async function getExperience(): Promise<Experience[]> {
 export async function saveExperience(experience: Experience[]): Promise<void> {
   const store = getPortfolioStore();
   await store.setJSON(KEYS.experience, experience);
+}
+
+// ============================================
+// RESUME (PDF binary storage)
+// ============================================
+
+export async function getResume(): Promise<ReadableStream | null> {
+  try {
+    const store = getPortfolioStore();
+    const data = await store.get(KEYS.resume, { type: 'stream' });
+    return data;
+  } catch (error) {
+    console.error('Error fetching resume from Blobs:', error);
+    return null;
+  }
+}
+
+export async function getResumeAsBuffer(): Promise<ArrayBuffer | null> {
+  try {
+    const store = getPortfolioStore();
+    const data = await store.get(KEYS.resume, { type: 'arrayBuffer' });
+    return data;
+  } catch (error) {
+    console.error('Error fetching resume from Blobs:', error);
+    return null;
+  }
+}
+
+export async function saveResume(
+  file: ArrayBuffer,
+  metadata: ResumeMetadata
+): Promise<void> {
+  const store = getPortfolioStore();
+  // Store the binary PDF
+  await store.set(KEYS.resume, file);
+  // Store metadata separately as JSON
+  await store.setJSON(KEYS.resumeMetadata, metadata);
+}
+
+export async function getResumeMetadata(): Promise<ResumeMetadata | null> {
+  try {
+    const store = getPortfolioStore();
+    const data = await store.get(KEYS.resumeMetadata, { type: 'json' });
+    if (data && typeof data === 'object' && 'filename' in data) {
+      return data as ResumeMetadata;
+    }
+    return null;
+  } catch (error) {
+    console.error('Error fetching resume metadata from Blobs:', error);
+    return null;
+  }
+}
+
+export async function deleteResume(): Promise<void> {
+  const store = getPortfolioStore();
+  await store.delete(KEYS.resume);
+  await store.delete(KEYS.resumeMetadata);
 }
 
 // ============================================
