@@ -1,14 +1,13 @@
 import NextAuth from 'next-auth';
 import { authConfig } from './auth.config';
 import Credentials from 'next-auth/providers/credentials';
+import bcrypt from 'bcryptjs';
 
 // Get environment variables at module load time
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || '';
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '';
 
-// Async function to import bcrypt (not in edge runtime)
 async function compareBcrypt(password: string, hash: string): Promise<boolean> {
-  const bcrypt = await import('bcrypt');
   return bcrypt.compare(password, hash);
 }
 
