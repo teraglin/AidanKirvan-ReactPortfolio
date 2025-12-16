@@ -7,6 +7,8 @@ import {
   saveGames,
   getSkills,
   saveSkills,
+  getExperience,
+  saveExperience,
   seedAllData,
   isDataSeeded,
   generateId,
@@ -18,8 +20,10 @@ import type {
   SkillsData,
   SkillCategory,
   StatusColors,
+  Experience,
   NewProject,
   NewTabletopGame,
+  NewExperience,
 } from '@/lib/types';
 import { revalidatePath } from 'next/cache';
 
@@ -37,6 +41,10 @@ export async function fetchGames(): Promise<GamesData> {
 
 export async function fetchSkills(): Promise<SkillsData> {
   return getSkills();
+}
+
+export async function fetchExperience(): Promise<Experience[]> {
+  return getExperience();
 }
 
 export async function checkDataSeeded(): Promise<boolean> {
@@ -327,12 +335,111 @@ export async function deleteSkillCategory(
 }
 
 // ============================================
+// EXPERIENCE CRUD
+// ============================================
+
+export async function addExperience(
+  experienceData: NewExperience
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    const experience = await getExperience();
+    const maxOrder = Math.max(...experience.map((e) => e.order), -1);
+
+    const newExperience: Experience = {
+      ...experienceData,
+      id: generateId(),
+      order: maxOrder + 1,
+    };
+
+    experience.push(newExperience);
+    await saveExperience(experience);
+    revalidatePath('/');
+    revalidatePath('/admin/experience');
+    return { success: true };
+  } catch (error) {
+    console.error('Error adding experience:', error);
+    return { success: false, error: 'Failed to add experience' };
+  }
+}
+
+export async function updateExperience(
+  id: string,
+  updates: Partial<Omit<Experience, 'id'>>
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    const experience = await getExperience();
+    const index = experience.findIndex((e) => e.id === id);
+
+    if (index === -1) {
+      return { success: false, error: 'Experience not found' };
+    }
+
+    experience[index] = { ...experience[index], ...updates };
+    await saveExperience(experience);
+    revalidatePath('/');
+    revalidatePath('/admin/experience');
+    return { success: true };
+  } catch (error) {
+    console.error('Error updating experience:', error);
+    return { success: false, error: 'Failed to update experience' };
+  }
+}
+
+export async function deleteExperience(
+  id: string
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    const experience = await getExperience();
+    const filtered = experience.filter((e) => e.id !== id);
+
+    if (filtered.length === experience.length) {
+      return { success: false, error: 'Experience not found' };
+    }
+
+    // Re-order remaining experience entries
+    const reordered = filtered.map((e, index) => ({ ...e, order: index }));
+    await saveExperience(reordered);
+    revalidatePath('/');
+    revalidatePath('/admin/experience');
+    return { success: true };
+  } catch (error) {
+    console.error('Error deleting experience:', error);
+    return { success: false, error: 'Failed to delete experience' };
+  }
+}
+
+export async function reorderExperience(
+  orderedIds: string[]
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    const experience = await getExperience();
+    const reordered = orderedIds
+      .map((id, index) => {
+        const exp = experience.find((e) => e.id === id);
+        if (exp) {
+          return { ...exp, order: index };
+        }
+        return null;
+      })
+      .filter((e): e is Experience => e !== null);
+
+    await saveExperience(reordered);
+    revalidatePath('/');
+    revalidatePath('/admin/experience');
+    return { success: true };
+  } catch (error) {
+    console.error('Error reordering experience:', error);
+    return { success: false, error: 'Failed to reorder experience' };
+  }
+}
+
+// ============================================
 // SEED DATA
 // ============================================
 
 export async function seedData(): Promise<{
   success: boolean;
-  counts?: { projects: number; games: number; skills: number };
+  counts?: { projects: number; games: number; skills: number; experience: number };
   error?: string;
 }> {
   try {

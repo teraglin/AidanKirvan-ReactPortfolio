@@ -5,15 +5,16 @@ import Projects from "@/modules/Projects";
 import About from "@/modules/About";
 import Contact from "@/modules/Contact";
 import PageLink from "@/components/PageLink";
-import { fetchProjects, fetchSkills } from "@/app/lib/data-actions";
+import { fetchProjects, fetchSkills, fetchExperience } from "@/app/lib/data-actions";
 
 // Force dynamic rendering (not static generation)
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [projects, skills] = await Promise.all([
+  const [projects, skills, experience] = await Promise.all([
     fetchProjects(),
-    fetchSkills()
+    fetchSkills(),
+    fetchExperience()
   ]);
 
   return (
@@ -32,7 +33,7 @@ export default async function HomePage() {
             My Tabletop Game Designs
           </PageLink>
           <Hero />
-          <About skills={skills} />
+          <About skills={skills} experience={experience} />
           <Projects projects={projects} />
           <Contact />
         </div>

@@ -46,6 +46,17 @@ export interface SkillCategory {
 
 export type SkillsData = Record<string, SkillCategory>;
 
+// Professional Experience
+export interface Experience {
+  id: string;
+  jobTitle: string;
+  company: string;
+  dateRange: string;
+  responsibilities: string[];
+  order: number;
+}
+
 // Helper type for creating new items (without id and order)
 export type NewProject = Omit<Project, 'id' | 'order'>;
 export type NewTabletopGame = Omit<TabletopGame, 'id' | 'order'>;
+export type NewExperience = Omit<Experience, 'id' | 'order'>;

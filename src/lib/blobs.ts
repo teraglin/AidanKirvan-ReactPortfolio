@@ -1,10 +1,11 @@
 import { getStore } from '@netlify/blobs';
-import type { Project, GamesData, SkillsData } from './types';
+import type { Project, GamesData, SkillsData, Experience } from './types';
 
 // Import static data as fallbacks
 import { projects as staticProjects } from '@/data/projects';
 import { tabletopGames as staticGames } from '@/data/tabletopGames';
 import { skillsData as staticSkills } from '@/data/skills';
+import { experienceData as staticExperience } from '@/data/experience';
 
 const STORE_NAME = 'portfolio-data';
 
@@ -13,6 +14,7 @@ const KEYS = {
   projects: 'projects',
   games: 'games',
   skills: 'skills',
+  experience: 'experience',
 } as const;
 
 // Get the Netlify Blobs store
@@ -112,6 +114,35 @@ export async function saveSkills(skills: SkillsData): Promise<void> {
 }
 
 // ============================================
+// EXPERIENCE
+// ============================================
+
+export async function getExperience(): Promise<Experience[]> {
+  try {
+    const store = getPortfolioStore();
+    const data = await store.get(KEYS.experience, { type: 'json' });
+
+    if (data && Array.isArray(data) && data.length > 0) {
+      return data as Experience[];
+    }
+  } catch (error) {
+    console.error('Error fetching experience from Blobs:', error);
+  }
+
+  // Fallback to static data, adding id and order
+  return staticExperience.map((exp, index) => ({
+    ...exp,
+    id: generateId(),
+    order: index,
+  }));
+}
+
+export async function saveExperience(experience: Experience[]): Promise<void> {
+  const store = getPortfolioStore();
+  await store.setJSON(KEYS.experience, experience);
+}
+
+// ============================================
 // SEED DATA (migrate static to Blobs)
 // ============================================
 
@@ -119,6 +150,7 @@ export async function seedAllData(): Promise<{
   projects: number;
   games: number;
   skills: number;
+  experience: number;
 }> {
   // Get static data with IDs added
   const projects: Project[] = staticProjects.map((project, index) => ({
@@ -138,15 +170,23 @@ export async function seedAllData(): Promise<{
 
   const skills = staticSkills as SkillsData;
 
+  const experience: Experience[] = staticExperience.map((exp, index) => ({
+    ...exp,
+    id: generateId(),
+    order: index,
+  }));
+
   // Save to Blobs
   await saveProjects(projects);
   await saveGames(gamesData);
   await saveSkills(skills);
+  await saveExperience(experience);
 
   return {
     projects: projects.length,
     games: gamesData.games.length,
     skills: Object.keys(skills).length,
+    experience: experience.length,
   };
 }
 

@@ -1,13 +1,14 @@
 import CopyBox from "@/components/CopyBox";
 import SkillGrid from "@/components/SkillGrid";
 import Image from "next/image";
-import type { SkillsData } from "@/lib/types";
+import type { SkillsData, Experience } from "@/lib/types";
 
 interface AboutProps {
   skills: SkillsData;
+  experience: Experience[];
 }
 
-const About = ({ skills }: AboutProps) => {
+const About = ({ skills, experience }: AboutProps) => {
   return (
     <div id="about" className="flex flex-col w-full gap-4 scroll-mt-16">
       <h2 className="inline-block border-b-2 border-white p-2 uppercase">
@@ -45,56 +46,21 @@ const About = ({ skills }: AboutProps) => {
       {/* EXPERIENCE & SKILLS */}
       <CopyBox
         title=">_RECENT PROFESSIONAL EXPERIENCE"
-        copy={[
-          <div>
-            <h4 className="font-bold text-lg">Frontend Developer at Excede</h4>
-            <p className="text-sm text-gray-600 mb-2">Jul 2024 – Present</p>
-            <ul className="text-base list-disc list-inside space-y-1">
-              <li>
-                Develop ecommerce platforms and enhance user engagement and
-                functionality
-              </li>
-              <li>
-                Build admin and account dashboards improving data accessibility
-                and user experience
-              </li>
-              <li>
-                Create component libraries and document design systems with
-                Storybook, streamlining development across projects
-              </li>
-              <li>
-                Collaborate with cross-functional teams on seamless design and
-                development integration
-              </li>
-              <li>
-                Conduct testing and research, driving continuous improvement and
-                innovation
-              </li>
-            </ul>
-          </div>,
-          <div>
-            <h4 className="font-bold text-lg">Frontend Developer at Dijital</h4>
-            <p className="text-sm text-gray-600 mb-2">Feb 2022 – Feb 2024</p>
-            <ul className="text-base list-disc list-inside space-y-1">
-              <li>
-                Developed frontend components using React and Stencil.js,
-                enhancing user interface efficiency
-              </li>
-              <li>
-                Created iOS/Android apps with React Native, improving
-                cross-platform accessibility
-              </li>
-              <li>
-                Built responsive static web pages with HTML, SASS, and
-                JavaScript
-              </li>
-              <li>
-                Guided new developers, fostering skill growth and team
-                collaboration
-              </li>
-            </ul>
-          </div>
-        ]}
+        copy={experience
+          .sort((a, b) => a.order - b.order)
+          .map((exp) => (
+            <div key={exp.id}>
+              <h4 className="font-bold text-lg">
+                {exp.jobTitle} at {exp.company}
+              </h4>
+              <p className="text-sm text-gray-600 mb-2">{exp.dateRange}</p>
+              <ul className="text-base list-disc list-inside space-y-1">
+                {exp.responsibilities.map((responsibility, index) => (
+                  <li key={index}>{responsibility}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
       />
 
       {Object.keys(skills).map((key) => {

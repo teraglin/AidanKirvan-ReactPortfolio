@@ -28,6 +28,7 @@ const navItems = [
   { href: '/admin/projects', label: 'Projects' },
   { href: '/admin/games', label: 'Games' },
   { href: '/admin/skills', label: 'Skills' },
+  { href: '/admin/experience', label: 'Experience' },
 ];
 
 export default function AdminNav({ username }: AdminNavProps) {
