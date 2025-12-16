@@ -43,16 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={sourceCodePro.variable}>
-      <body>
-        {/* Hidden Netlify Form for form detection */}
-        <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-          <input type="hidden" name="bot-field" />
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <textarea name="message"></textarea>
-        </form>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
