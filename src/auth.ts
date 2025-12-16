@@ -6,11 +6,6 @@ import Credentials from 'next-auth/providers/credentials';
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || '';
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '';
 
-// Debug logging
-console.log('AUTH.TS LOADED - ADMIN_USERNAME:', ADMIN_USERNAME);
-console.log('AUTH.TS LOADED - ADMIN_PASSWORD_HASH:', ADMIN_PASSWORD_HASH ? ADMIN_PASSWORD_HASH.substring(0, 20) + '...' : 'NOT SET');
-console.log('AUTH.TS LOADED - All env vars:', Object.keys(process.env).filter(k => k.includes('ADMIN')));
-
 // Async function to import bcrypt (not in edge runtime)
 async function compareBcrypt(password: string, hash: string): Promise<boolean> {
   const bcrypt = await import('bcrypt');

@@ -1,9 +1,13 @@
 import CopyBox from "@/components/CopyBox";
 import SkillGrid from "@/components/SkillGrid";
 import Image from "next/image";
-import { SkillIndex, skillsData } from "@/data/skills";
+import type { SkillsData } from "@/lib/types";
 
-const About = () => {
+interface AboutProps {
+  skills: SkillsData;
+}
+
+const About = ({ skills }: AboutProps) => {
   return (
     <div id="about" className="flex flex-col w-full gap-4 scroll-mt-16">
       <h2 className="inline-block border-b-2 border-white p-2 uppercase">
@@ -93,10 +97,11 @@ const About = () => {
         ]}
       />
 
-      {Object.keys(skillsData).map((key, index) => {
-        const record = skillsData[key as SkillIndex];
+      {Object.keys(skills).map((key) => {
+        const record = skills[key];
         return (
           <SkillGrid
+            key={key}
             title={record.title}
             skills={record.skills}
             cols={{ default: record.cols[0], large: record.cols[1] }}

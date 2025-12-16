@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import { auth } from '@/auth';
-import { redirect } from 'next/navigation';
-import AdminPageClient from './AdminPageClient';
+import { checkDataSeeded, fetchProjects, fetchGames, fetchSkills } from '@/app/lib/data-actions';
+import AdminDashboard from './AdminDashboard';
 
 export const metadata: Metadata = {
   title: 'Admin Control - Aidan Kirvan',
@@ -9,11 +8,19 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminPage() {
-  const session = await auth();
+  const [isSeeded, projects, gamesData, skills] = await Promise.all([
+    checkDataSeeded(),
+    fetchProjects(),
+    fetchGames(),
+    fetchSkills(),
+  ]);
 
-  if (!session?.user) {
-    redirect('/login');
-  }
-
-  return <AdminPageClient username={session.user.name || 'Admin'} />;
+  return (
+    <AdminDashboard
+      isSeeded={isSeeded}
+      projectCount={projects.length}
+      gameCount={gamesData.games.length}
+      skillCategoryCount={Object.keys(skills).length}
+    />
+  );
 }
