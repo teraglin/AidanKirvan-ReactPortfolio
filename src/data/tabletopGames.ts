@@ -1,4 +1,4 @@
-export type GameStatus = 'developing' | 'testing' | 'published';
+export type GameStatus = "developing" | "testing" | "published";
 
 export interface TabletopGame {
   title: string;
@@ -13,9 +13,9 @@ export interface TabletopGame {
 
 export const tabletopGames = {
   statusColor: {
-    developing: "yellow",
-    testing: "blue",
-    published: "green"
+    developing: "#ffff65",
+    testing: "#99ffee",
+    published: "#99ee99"
   } as const,
   games: [
     {

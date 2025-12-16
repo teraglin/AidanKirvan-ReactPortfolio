@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import previousFilled from '@iconify-icons/carbon/previous-filled';
-import previousOutline from '@iconify-icons/carbon/previous-outline';
-import nextFilled from '@iconify-icons/carbon/next-filled';
-import nextOutline from '@iconify-icons/carbon/next-outline';
+import previousFilled from "@iconify-icons/carbon/previous-filled";
+import previousOutline from "@iconify-icons/carbon/previous-outline";
+import nextFilled from "@iconify-icons/carbon/next-filled";
+import nextOutline from "@iconify-icons/carbon/next-outline";
 
 interface TabletopGameProps {
   gameIndex: number;
@@ -50,23 +50,23 @@ const TabletopGame = (props: TabletopGameProps) => {
               alt={`${title} cover art`}
               width={200}
               height={200}
-              className="h-[200px] w-auto shadow-title border-2 border-charcoal rounded bg-white"
+              className="h-50 w-auto shadow-title border-2 border-charcoal rounded bg-white"
             />
           </div>
         )}
         <div className="absolute h-full top-0 left-0 w-full p-0 bg-charcoal border border-white [clip-path:polygon(50%_15%,100%_0,100%_100%,50%_100%,0_100%,0%_0%)] flex flex-col justify-start items-center xs:left-[10%] xs:w-4/5 xs:px-7 3xl:justify-center 3xl:w-full 3xl:[clip-path:polygon(0_0,100%_0%,100%_100%,56px_100%)] 3xl:left-14">
-          <div className="w-full flex flex-col items-center mt-[74px] 3xl:mt-0">
+          <div className="w-full flex flex-col items-center mt-18.5 3xl:mt-0">
             <h1 className="text-center px-2 rounded mb-1 bg-white text-charcoal shadow-title">
               {title}
             </h1>
             <p className="text-white text-center w-auto py-1 px-2 rounded">
               {players} players | {time} minutes
             </p>
-            <p className="w-[258px] my-4 mx-auto text-black bg-white p-4 shadow-title rounded">
+            <p className="w-64.5 my-4 mx-auto text-black bg-white p-4 shadow-title rounded">
               {description}
             </p>
             <span
-              className="py-1 px-2 mt-[-12px] rounded text-charcoal shadow-[−5px_12px_24px_rgba(0,0,0,0.5)] uppercase text-xs font-bold border border-white"
+              className="py-1 px-2 -mt-3 rounded text-charcoal shadow-[−5px_12px_24px_rgba(0,0,0,0.5)] uppercase text-xs font-bold border border-white"
               style={{ background: statusColor }}
             >
               {status}
