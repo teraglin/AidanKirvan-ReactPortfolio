@@ -1,11 +1,17 @@
 import type { Metadata } from 'next';
 import TabletopPageClient from './TabletopPageClient';
+import { fetchGames } from '@/app/lib/data-actions';
+
+// Force dynamic rendering (not static generation)
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: 'Tabletop Games - Aidan Kirvan',
   description: 'Tabletop game designs by Aidan Kirvan',
 };
 
-export default function TabletopPage() {
-  return <TabletopPageClient />;
+export default async function TabletopPage() {
+  const gamesData = await fetchGames();
+
+  return <TabletopPageClient gamesData={gamesData} />;
 }
