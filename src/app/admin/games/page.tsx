@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { fetchGames } from '@/app/lib/data-actions';
 import GamesList from './GamesList';
+import StatusColorsEditor from './StatusColorsEditor';
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,8 @@ export default async function GamesPage() {
           <p className="text-white/70">Manage your tabletop game designs</p>
         </div>
       </div>
+
+      <StatusColorsEditor initialColors={gamesData.statusColor} />
 
       <GamesList initialGames={sortedGames} statusColors={gamesData.statusColor} />
     </div>

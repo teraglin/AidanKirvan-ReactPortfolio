@@ -25,12 +25,14 @@ export interface TabletopGame {
   order: number;
 }
 
+export interface StatusColors {
+  developing: string;
+  testing: string;
+  published: string;
+}
+
 export interface GamesData {
-  statusColor: {
-    developing: string;
-    testing: string;
-    published: string;
-  };
+  statusColor: StatusColors;
   games: TabletopGame[];
 }
 

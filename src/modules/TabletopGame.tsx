@@ -39,12 +39,12 @@ const TabletopGame = (props: TabletopGameProps) => {
   return (
     <div
       key={gameIndex}
-      className="w-full flex flex-col h-[calc(56px*12)] xs:w-[400px] 3xl:w-full 3xl:flex-row 3xl:h-[calc(56px*6)]"
+      className="w-full flex flex-col h-168 xs:w-100 3xl:w-full 3xl:flex-row 3xl:h-84"
     >
       {/* Game Title Container */}
       <div className="relative w-full h-1/2 p-0 xs:p-7 3xl:p-14 3xl:w-1/2 3xl:h-full">
         {titleImage !== "" && (
-          <div className="absolute top-[-150px] left-0 z-[2] w-full flex flex-col justify-center items-center 3xl:w-auto 3xl:top-[calc(50%-100px)] 3xl:left-0">
+          <div className="absolute -top-37.5 left-0 z-2 w-full flex flex-col justify-center items-center 3xl:w-auto 3xl:top-[calc(50%-100px)] 3xl:left-0">
             <Image
               src={titleImage}
               alt={`${title} cover art`}
@@ -78,7 +78,7 @@ const TabletopGame = (props: TabletopGameProps) => {
       {/* Game Image Container */}
       <div className="relative w-full h-1/2 3xl:w-1/2 3xl:h-full">
         {/* Ribbon Triangle - only visible on desktop */}
-        <div className="hidden absolute top-0 left-[-56px] h-14 w-28 [clip-path:polygon(100%_0,0%_100%,100%_100%)] bg-gradient-to-br from-white from-50% to-gray-300 3xl:block" />
+        <div className="hidden absolute top-0 -left-14 h-14 w-28 [clip-path:polygon(100%_0,0%_100%,100%_100%)] bg-linear-to-br from-white from-50% to-gray-300 3xl:block" />
 
         {images.length > 0 && (
           <>
@@ -86,7 +86,7 @@ const TabletopGame = (props: TabletopGameProps) => {
               aria-label={`previous button for ${title} images`}
               onClick={() => handleClick(gameIndex, "prev")}
               disabled={carouselPosition[gameIndex] === 0}
-              className="absolute text-charcoal bg-orange h-14 w-14 bottom-[-28px] left-4 z-[2] flex justify-center items-center rounded-full border-none cursor-pointer sm:bottom-[calc(50%-28px)] sm:left-[-28px] 3xl:bottom-[-28px] 3xl:left-[-84px]"
+              className="absolute text-charcoal bg-orange h-14 w-14 -bottom-7 left-4 z-2 flex justify-center items-center rounded-full border-none cursor-pointer sm:bottom-[calc(50%-28px)] sm:-left-7 3xl:-bottom-7 3xl:-left-21"
             >
               <Icon
                 style={{ width: "100%", height: "100%" }}

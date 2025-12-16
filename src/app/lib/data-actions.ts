@@ -17,6 +17,7 @@ import type {
   GamesData,
   SkillsData,
   SkillCategory,
+  StatusColors,
   NewProject,
   NewTabletopGame,
 } from '@/lib/types';
@@ -238,6 +239,26 @@ export async function reorderGames(
   } catch (error) {
     console.error('Error reordering games:', error);
     return { success: false, error: 'Failed to reorder games' };
+  }
+}
+
+// ============================================
+// STATUS COLORS
+// ============================================
+
+export async function updateStatusColors(
+  colors: StatusColors
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    const gamesData = await getGames();
+    gamesData.statusColor = colors;
+    await saveGames(gamesData);
+    revalidatePath('/tabletop');
+    revalidatePath('/admin/games');
+    return { success: true };
+  } catch (error) {
+    console.error('Error updating status colors:', error);
+    return { success: false, error: 'Failed to update status colors' };
   }
 }
 
