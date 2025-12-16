@@ -20,7 +20,10 @@ const SkillGrid = ({ title, skills, cols }: SkillGridProps) => {
         } gap-2.5 lg:grid-cols-${cols?.large || 3}`}
       >
         {skills.map((skill) => (
-          <div className="text-white p-4 bg-dark-bg border border-white rounded shadow-card text-center">
+          <div
+            key={skill}
+            className="text-white p-4 bg-dark-bg border border-white rounded shadow-card text-center"
+          >
             {skill}
           </div>
         ))}
