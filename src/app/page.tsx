@@ -7,6 +7,9 @@ import Contact from "@/modules/Contact";
 import PageLink from "@/components/PageLink";
 import { fetchProjects, fetchSkills } from "@/app/lib/data-actions";
 
+// Force dynamic rendering (not static generation)
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const [projects, skills] = await Promise.all([
     fetchProjects(),
