@@ -3,12 +3,18 @@
 import { useState } from "react";
 import LandscapeWarning from "@/modules/LandscapeWarning";
 import TabletopGame from "@/modules/TabletopGame";
-import { tabletopGames } from "@/data/tabletopGames";
 import PageLink from "@/components/PageLink";
+import type { GamesData } from "@/lib/types";
 
-export default function TabletopPageClient() {
+interface TabletopPageClientProps {
+  gamesData: GamesData;
+}
+
+export default function TabletopPageClient({ gamesData }: TabletopPageClientProps) {
+  const sortedGames = [...gamesData.games].sort((a, b) => a.order - b.order);
+
   const [carouselPosition, setCarouselPosition] = useState(
-    tabletopGames.games.map(() => 0)
+    sortedGames.map(() => 0)
   );
 
   function handleClick(gameIndex: number, direction: 'prev' | 'next') {
@@ -42,11 +48,11 @@ export default function TabletopPageClient() {
             Tabletop game designs by Aidan Kirvan:
           </h1>
           <div className="flex flex-col items-center gap-[212px] mt-[150px] 3xl:mt-0 3xl:gap-28">
-            {tabletopGames.games.map(
+            {sortedGames.map(
               (game, gameIndex) =>
                 !!game.displayOn && (
                   <TabletopGame
-                    key={gameIndex}
+                    key={game.id}
                     gameIndex={gameIndex}
                     titleImage={game.titleImage}
                     title={game.title}
@@ -57,7 +63,7 @@ export default function TabletopPageClient() {
                     carouselPosition={carouselPosition}
                     handleClick={handleClick}
                     status={game.status}
-                    statusColor={tabletopGames.statusColor[game.status]}
+                    statusColor={gamesData.statusColor[game.status]}
                   />
                 )
             )}
