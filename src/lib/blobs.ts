@@ -17,6 +17,7 @@ const KEYS = {
   experience: 'experience',
   resume: 'resume',
   resumeMetadata: 'resume-metadata',
+  loginAttempts: 'login-attempts',
 } as const;
 
 // Resume metadata type
@@ -24,6 +25,13 @@ export interface ResumeMetadata {
   filename: string;
   uploadedAt: string;
   size: number;
+}
+
+// Login attempt tracking type
+export interface LoginAttemptRecord {
+  attempts: number;
+  lastAttempt: string;
+  lockedUntil: string | null;
 }
 
 // Get the Netlify Blobs store
@@ -207,6 +215,100 @@ export async function deleteResume(): Promise<void> {
   await store.delete(KEYS.resume);
   await store.delete(KEYS.resumeMetadata);
 }
+
+// ============================================
+// LOGIN ATTEMPT TRACKING (Rate limiting)
+// ============================================
+
+const MAX_LOGIN_ATTEMPTS = 5;
+const LOCKOUT_DURATION_MS = 15 * 60 * 1000; // 15 minutes
+
+function getLoginAttemptKey(identifier: string): string {
+  return `${KEYS.loginAttempts}:${identifier}`;
+}
+
+export async function getLoginAttempts(
+  identifier: string
+): Promise<LoginAttemptRecord | null> {
+  try {
+    const store = getPortfolioStore();
+    const key = getLoginAttemptKey(identifier);
+    const data = await store.get(key, { type: 'json' });
+
+    if (data && typeof data === 'object' && 'attempts' in data) {
+      return data as LoginAttemptRecord;
+    }
+    return null;
+  } catch (error) {
+    console.error('Error fetching login attempts from Blobs:', error);
+    return null;
+  }
+}
+
+export async function isLockedOut(
+  identifier: string
+): Promise<{ locked: boolean; remainingMs?: number }> {
+  const record = await getLoginAttempts(identifier);
+
+  if (!record || !record.lockedUntil) {
+    return { locked: false };
+  }
+
+  const lockedUntilTime = new Date(record.lockedUntil).getTime();
+  const now = Date.now();
+
+  if (now < lockedUntilTime) {
+    return {
+      locked: true,
+      remainingMs: lockedUntilTime - now,
+    };
+  }
+
+  // Lockout has expired, clear the record
+  await clearLoginAttempts(identifier);
+  return { locked: false };
+}
+
+export async function recordFailedLogin(
+  identifier: string
+): Promise<{ locked: boolean; attemptsRemaining: number }> {
+  const store = getPortfolioStore();
+  const key = getLoginAttemptKey(identifier);
+  const existing = await getLoginAttempts(identifier);
+
+  const now = new Date().toISOString();
+  const attempts = (existing?.attempts || 0) + 1;
+
+  let lockedUntil: string | null = null;
+  if (attempts >= MAX_LOGIN_ATTEMPTS) {
+    lockedUntil = new Date(Date.now() + LOCKOUT_DURATION_MS).toISOString();
+  }
+
+  const record: LoginAttemptRecord = {
+    attempts,
+    lastAttempt: now,
+    lockedUntil,
+  };
+
+  await store.setJSON(key, record);
+
+  return {
+    locked: !!lockedUntil,
+    attemptsRemaining: Math.max(0, MAX_LOGIN_ATTEMPTS - attempts),
+  };
+}
+
+export async function clearLoginAttempts(identifier: string): Promise<void> {
+  try {
+    const store = getPortfolioStore();
+    const key = getLoginAttemptKey(identifier);
+    await store.delete(key);
+  } catch (error) {
+    console.error('Error clearing login attempts from Blobs:', error);
+  }
+}
+
+export { MAX_LOGIN_ATTEMPTS, LOCKOUT_DURATION_MS };
 
 // ============================================
 // SEED DATA (migrate static to Blobs)
