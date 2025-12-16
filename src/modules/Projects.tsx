@@ -1,3 +1,4 @@
+import InlinePageLink from "@/components/InlinePageLink";
 import ProjectsCard from "@/components/ProjectsCard";
 import type { Project } from "@/lib/types";
 
@@ -25,6 +26,11 @@ const Projects = ({ projects }: ProjectsProps) => {
             />
           )
       )}
+      <div className="mt-8">
+        <InlinePageLink href="/tabletop">
+          My Tabletop Game Designs
+        </InlinePageLink>
+      </div>
     </div>
   );
 };

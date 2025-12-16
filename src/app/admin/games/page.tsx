@@ -15,12 +15,10 @@ export default async function GamesPage() {
   const sortedGames = [...gamesData.games].sort((a, b) => a.order - b.order);
 
   return (
-    <div className="space-y-6">
-      <div className="bg-charcoal p-6 flex justify-between items-center">
-        <div>
-          <h1 className="text-white text-2xl uppercase mb-2">Tabletop Games</h1>
-          <p className="text-white/70">Manage your tabletop game designs</p>
-        </div>
+    <div className="space-y-4 lg:space-y-6">
+      <div className="bg-charcoal p-4 lg:p-6">
+        <h1 className="text-white text-xl lg:text-2xl uppercase mb-1 lg:mb-2">Tabletop Games</h1>
+        <p className="text-white/70 text-sm lg:text-base">Manage your tabletop game designs</p>
       </div>
 
       <StatusColorsEditor initialColors={gamesData.statusColor} />
