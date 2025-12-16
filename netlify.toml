@@ -8,6 +8,24 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Prevent CDN caching for admin routes (requires auth check on every request)
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+# Prevent CDN caching for auth API routes
+[[headers]]
+  for = "/api/auth/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+# Prevent CDN caching for login page
+[[headers]]
+  for = "/login"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
 [[headers]]
   for = "/*"
   [headers.values]
