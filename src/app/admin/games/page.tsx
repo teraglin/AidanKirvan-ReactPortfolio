@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { fetchGames } from '@/app/lib/data-actions';
 import GamesList from './GamesList';
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: 'Manage Games - Admin',
   description: 'Manage tabletop games',

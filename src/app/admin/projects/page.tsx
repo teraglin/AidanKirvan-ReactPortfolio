@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { fetchProjects } from '@/app/lib/data-actions';
 import ProjectsList from './ProjectsList';
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: 'Manage Projects - Admin',
   description: 'Manage portfolio projects',

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { fetchSkills } from '@/app/lib/data-actions';
 import SkillsList from './SkillsList';
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: 'Manage Skills - Admin',
   description: 'Manage skill categories',
