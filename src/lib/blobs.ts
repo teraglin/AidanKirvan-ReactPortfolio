@@ -146,12 +146,8 @@ export async function getExperience(): Promise<Experience[]> {
     console.error('Error fetching experience from Blobs:', error);
   }
 
-  // Fallback to static data, adding id and order
-  return staticExperience.map((exp, index) => ({
-    ...exp,
-    id: generateId(),
-    order: index,
-  }));
+  // Fallback to static data (already has id and order)
+  return staticExperience as Experience[];
 }
 
 export async function saveExperience(experience: Experience[]): Promise<void> {
@@ -338,11 +334,8 @@ export async function seedAllData(): Promise<{
 
   const skills = staticSkills as SkillsData;
 
-  const experience: Experience[] = staticExperience.map((exp, index) => ({
-    ...exp,
-    id: generateId(),
-    order: index,
-  }));
+  // Experience already has id and order in static data
+  const experience = staticExperience as Experience[];
 
   // Save to Blobs
   await saveProjects(projects);
